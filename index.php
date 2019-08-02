@@ -266,7 +266,7 @@ document.getElementById("error-message").style.display = "none";
 <div class = "about-us">
 <img src = "img/00100sPORTRAIT_00100_BURST20181002110325788_COVER.jpg" class=  "avatar" /><br>
 <div class = "name">
-<span style = "color:black">Ilir </span><span style = "  color:#9E9E9E;" >Perolli</span>
+<span style = "color:black">Ilir </span><span style = "  color:#9E9E9E;" >Perollii</span>
 </div>
 <div class = "description">
 U Lind me 20 Korrik 1999 ne qytetin e Gjakoves. Shkollen fillore e kreu ne shkollen "Yll Morina" ndersa te mesmen ne gjimnazin "Hajdar Dushi". Ai vazhdon studimet ne Universitetin "Ukshin Hoti" ne Prizren ne fakultetin e Shkencave Kompjuterike </div>
