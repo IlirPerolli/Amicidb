@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+@media screen and (max-width:640px){
+  .navWrapper {
+    margin-left:0px !important;
+  }
+.menu {
+  margin-left:-65px !important;
+   overflow: auto; /* Mi qit scroll barin nese eshte e nevojshme */
+
+}
+}
+.navWrapper {
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  margin-top: 8px;
+  margin-left:20px;
+}
+
+.navButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+    border: solid 3px #272727;
+  transition: border-radius 0.2s ease, transform 0.3s ease;
+}
+
+.navButton:hover {
+  border-radius: 10px;
+}
+
+.navButton:active {
+  border-radius: 1000px;
+}
+
+.menuIcon {
+  width: 25px;
+  transition: transform 0.3s ease;
+}
+
+.menuIcon.open {
+  transform: rotate(45deg);
+}
+
+.menu {
+  margin-left:-45px;
+  margin-top:20px;
+    z-index: 999;
+  background: white;
+  width: 200px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  position: absolute;
+  top: 50px;
+  left: 75px;
+  transform: scale(0.01);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.5s ease;
+  transform-origin: left top;
+
+}
+
+.menu.open {
+  transform: scale(0.99);
+  opacity: 1;
+}
+
+.menu a {
+  color: #272727;
+  font-size: 20px;
+  font-family: "Poppins";
+  font-weight: bold;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.2s ease;
+  outline: none;
+}
+
+.menu a:hover {
+  color: #D53D3D;
+}
+
+#home, #viti1, #viti2, #viti3 {
+  margin-top: 20px;
+}
+.toggle-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 2000ms ease-in-out;
+}
+
+.toggle-content.is-visible {
+  max-height: 999em;
+}
+#arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-left: 10px;
+}.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}

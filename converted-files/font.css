@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'SamsungSharpSans-Bold';
+  src: url('SamsungSharpSans-Bold.eot');
+  src: url('SamsungSharpSans-Bold.woff2') format('woff2'),
+       url('SamsungSharpSans-Bold.woff') format('woff'),
+       url('SamsungSharpSans-Bold.ttf') format('truetype'),
+       url('SamsungSharpSans-Bold.svg#SamsungSharpSans-Bold') format('svg'),
+       url('SamsungSharpSans-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+

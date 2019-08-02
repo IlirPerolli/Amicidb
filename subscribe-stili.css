@@ -1,0 +1,130 @@
+@font-face {
+  font-family: 'SamsungSharpSans-Bold';
+  src: url('converted-files/SamsungSharpSans-Bold.eot');
+  src: url('converted-files/SamsungSharpSans-Bold.woff2') format('woff2'),
+       url('converted-files/SamsungSharpSans-Bold.woff') format('woff'),
+       url('converted-files/SamsungSharpSans-Bold.ttf') format('truetype'),
+       url('converted-files/SamsungSharpSans-Bold.svg#SamsungSharpSans-Bold') format('svg'),
+       url('converted-files/SamsungSharpSans-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  margin: 0;
+  padding: 0;
+  
+}
+
+.subscribe{
+  margin-top: 100px;
+  background:white;
+  text-align: center;
+  border-radius: 30px;
+  padding:30px; 
+  padding-bottom: 5px;
+}
+
+.email-box{
+  height: 40px;
+  justify-content: center;
+  display: flex;
+  font-family:SamsungSharpSans-Bold;
+}
+.email-box i{
+   background:#212529;
+  width: 40px;
+  line-height: 40px;
+  
+}
+.fa-envelope{
+  color:white;
+}
+.tbox,.btn{
+  border: none;
+  outline: none;
+}
+.tbox{
+  width: 0px;
+  transition: 0.6s;
+  background: rgb(243, 243, 243);
+}
+.email-box:hover > .tbox,.tbox:focus{
+  width: 260px;
+  padding: 0 10px;
+}
+.btn{
+  background:#212529;
+  color: white;
+  padding: 0 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 0px;
+}
+
+.subscribe-text{
+  color: black;
+  font-family:SamsungSharpSans-Bold;
+  display: inline-block;
+  overflow: auto;
+
+  width:700px;
+  height: 300px;
+  padding-top: 90px;
+}
+
+.subscribe-photo{
+  width:450px;
+  display: inline-block;
+  overflow: auto;
+    height: 300px;
+}
+.subscribe-photo img{
+  width:100%;
+  
+  height: 100%;  
+}
+#subscribe-mob{
+  display: none;
+}
+@media screen and (max-width:1300px){
+#subscribe-pc{
+    display: none !important;
+  }
+  #subscribe-mob{
+    width: 100% !important;
+    display: inline-block !important;
+    height:auto !important;
+    margin-bottom: 40px !important;
+    padding-top: 20px !important;
+  }
+  .subscribe-text{
+width:100% !important;
+height: auto !important;
+padding-bottom: 5px !important;
+padding-top: 10px !important;
+padding-bottom:50px !important;
+}
+  .subscribe{
+    width:100% !important;
+     margin-top: 50px !important;
+    
+  }
+
+  }
+
+  @media screen and (max-width:640px){
+.email-box:hover > .tbox,.tbox:focus{
+  width: 100% !important;
+  padding: 0 10px;
+}
+.subscribe-photo img{
+  width:90% !important;
+  height:250px !important;
+  }
+   .email-box i{
+padding:0 10px !important;
+}
+.subscribe-text h1{
+  font-size: 40px !important;
+}
+  }

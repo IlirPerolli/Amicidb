@@ -1,0 +1,71 @@
+<script type ="text/javascript" href = "java.js">
+var tentime=3;
+function Valido(){
+var username = document.frmInfo.txtEmri.value;
+var password = document.frmInfo.password.value;
+if (username == "ilir" && password=="htmlcssjs"){
+
+window.location.href = 'index_ip.html';
+}
+else if (username == "arianit" && password=="jaka"){
+
+window.location.href = 'index_ap.html';
+}
+else if (username == "albi" && password=="kusari"){
+
+window.location.href = 'index_lz.html';
+
+}
+else if (username == "" && password==""){
+    document.getElementById("user-none").style.display = "none";
+document.getElementById("zbrazetira").style.display = "block";
+document.getElementById("correct").style.display = "none";
+document.getElementById("password-none").style.display = "none";
+document.getElementById("forgot-password").style.display = "none";
+document.getElementById("kyqja1").style.display = "none";
+document.getElementById("kyqja2").style.display = "none";
+}
+else if (password==""){
+    document.getElementById("user-none").style.display = "none";
+document.getElementById("password-none").style.display = "block";
+document.getElementById("zbrazetira").style.display = "none";
+document.getElementById("correct").style.display = "none";
+document.getElementById("forgot-password").style.display = "none";
+document.getElementById("kyqja1").style.display = "none";
+document.getElementById("kyqja2").style.display = "none";
+}
+else if (username==""){
+  document.getElementById("user-none").style.display = "block";
+document.getElementById("password-none").style.display = "none";
+document.getElementById("zbrazetira").style.display = "none";
+document.getElementById("correct").style.display = "none";
+document.getElementById("forgot-password").style.display = "none";
+document.getElementById("kyqja1").style.display = "none";
+document.getElementById("kyqja2").style.display = "none";
+}
+else {
+  tentime=tentime-1;
+      document.getElementById("user-none").style.display = "none";
+document.getElementById("correct").style.display = "block";
+
+document.getElementById("zbrazetira").style.display = "none";
+document.getElementById("password-none").style.display = "none";
+if (tentime == 2){
+  document.getElementById("kyqja1").style.display = "block";
+}
+if (tentime == 1){
+  document.getElementById("kyqja2").style.display = "block";
+    document.getElementById("kyqja1").style.display = "none";
+}
+if(tentime==0){
+document.getElementById("kyqja3").style.display = "block";
+document.getElementById("kyqja2").style.display = "none";
+   document.getElementById("username").disabled=true;
+    document.getElementById("password").disabled=true;
+document.getElementById("forgot-password").style.display = "block";
+}
+}
+ return false;
+}
+
+</script>

@@ -1,0 +1,371 @@
+  @font-face {
+    font-family: 'SamsungSharpSans-Bold';
+    src: url('converted-files/SamsungSharpSans-Bold.eot');
+    src: url('converted-files/SamsungSharpSans-Bold.woff2') format('woff2'),
+         url('converted-files/SamsungSharpSans-Bold.woff') format('woff'),
+         url('converted-files/SamsungSharpSans-Bold.ttf') format('truetype'),
+         url('converted-files/SamsungSharpSans-Bold.svg#SamsungSharpSans-Bold') format('svg'),
+         url('converted-files/SamsungSharpSans-Bold.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+#particles-js{
+    height: 100%;
+    background: #262626;
+
+  }
+
+  @media screen and (max-width:1300px){
+  footer{
+    position: relative !important;
+    float:right;
+  }}
+  @media screen and (max-width:1100px){
+    .shkrimi{
+      height:auto !important;
+    }
+    .foto1{
+      display: block !important;
+      width:100% !important;
+      margin-bottom: 15px !important;
+    }
+    .shkrimi h3{
+      display: none;
+    }
+
+
+    .titulli h3{
+      font-size: 30px !important;
+      text-align: left !important;
+      margin-left:25px !important;
+      display: block !important;
+    }
+    .foto1 img{
+      width:100% !important;
+    }
+    .foto {
+      display: none !important;
+    }
+    .max-width{
+      margin-top: 50px !important;
+    }
+    .br{
+      display: none;
+    }
+  }
+  @media screen and (max-width:640px){
+   /* .jingle-bell{
+      height:50px !important;
+    }*/
+    .footer{
+      display: none !important;
+    }
+    .shkrimi{
+      height:auto !important;
+    }
+    .about-us{
+  width:100% !important;
+  margin-left:0 !important;
+  margin-right:0px !important;
+}
+    .foto img{
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
+    .amici-teksti{
+      display: none!important;
+    }
+    #create-account{
+      margin-bottom:20px !important;
+      margin-right:0 !important;
+    }
+    .shkrimi h2{
+      text-align: left !important;
+      font-size: 45px !important;
+    }.shkrimi h4{
+      text-align: left !important;
+    }
+    .shkrimi{
+      width: 90% !important;
+      margin-right: 0px !important;
+    }
+    .butoni{
+      width: 98% !important;
+      padding: 0 !important;
+      margin:0 !important;
+    }
+    .amici1{
+      margin:auto !important;
+      display: block !important;
+      margin-top: 5px !important;
+      margin-bottom: 5px !important;
+    }
+    footer{
+      display: none;
+    }
+
+  }
+
+
+ .shkrimi {
+   width:500px;
+   height:570px;
+   display: inline-block;
+   margin-right: 30px;
+   overflow: hidden;
+}
+.shkrimi h3{
+  font-family: 'SamsungSharpSans-Bold';
+  font-size: 45px;
+  font-weight: 100;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  word-break: keep-all;
+   color: #333333;
+  text-align: center;
+
+  text-align:left;
+}
+.titulli h3{
+  font-family: 'SamsungSharpSans-Bold';
+  font-size: 45px;
+  font-weight: 100;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  word-break: keep-all;
+   color: #333333;
+  text-align: center;
+  display: none;
+}
+.shkrimi h2{
+  font-family: 'SamsungSharpSans-Bold';
+  font-size: 52px;
+  font-weight: 700;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  word-break: keep-all;
+   color: #333333;
+
+  text-align: left;
+}
+.shkrimi h4{
+  font-family: 'SamsungSharpSans-Bold';
+  font-size: 20px;
+  font-weight: 10;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  word-break: keep-all;
+   color: #333333;
+  text-align: center;
+
+  text-align: left;
+}
+.foto img{
+  width:500px;
+  display: inline-block;
+  margin-top: 150px;
+}
+.max-width{
+  margin:auto;
+      text-align: center;
+      max-width: 1300px;
+      margin-top:50px;
+}.foto{
+  display: inline-block;
+  margin-left: 30px;
+  width:500px;
+   height:570px;
+   overflow: hidden;
+   
+}
+.butoni {
+
+    width: 200px;
+border:2px solid #333333;
+    z-index: 1;
+    overflow-x: hidden;
+margin:auto;
+border-radius: 5px;
+display: inline-block;
+
+}
+.butoni:hover{
+  background: #e9e9e9;
+}
+
+.butoni a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #333333;
+    display: block;
+  font-family: 'SamsungSharpSans-Bold';
+    font-weight: 100;
+    margin:0;
+    text-align:center;
+}
+.foto1 {
+  display: block;
+}
+.foto1 img{
+    width:500px;
+    display: block;
+
+}
+.foto1{display: none;}
+footer{
+  font-family: 'SamsungSharpSans-Bold';
+  font-size: 20px;
+  font-weight: 10;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  word-break: keep-all;
+   color: #333333;
+   position: absolute;
+     bottom: 0;
+     right:0;
+     margin-right:15px;
+     margin-bottom:10px;
+}
+.amici{
+  color:black;
+  font-size: 35px;
+}
+.team{
+  color:#979797;
+  font-size: 35px;
+
+}
+.amici1{
+  display: none;
+  font-family: 'SamsungSharpSans-Bold';
+  font-size: 20px;
+  font-weight: 10;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  word-break: keep-all;
+   color: #333333;
+   text-align: center;
+   margin:auto;
+   
+
+}
+#amici1{
+  margin-left: 5px;
+}
+.butonat{
+  float:left;
+  width: 100%;
+}
+.amici-teksti{
+  font-family: 'SamsungSharpSans-Bold';
+  font-size: 200px;
+  font-weight: 700;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: white;
+}
+.containeri{
+   background: rgb(243, 243, 243);
+  background-size: cover;
+  padding: 50px 40px;
+  text-align: center;
+  color: white;
+}
+
+.avatar{
+width:100px;
+height: 100px;
+border-radius: 50%;
+ margin-top:-50px;
+ border:2px solid #333333;
+}
+.about-us{
+width:350px;
+height:400px;
+display:inline-block;
+background:white;
+margin-left:10px;
+margin-right:10px;
+margin-top:70px;
+-webkit-box-shadow: 5px -5px 15px -7px #6A6A6A; 
+box-shadow: 5px -5px 15px -7px #6A6A6A;
+/*transition:transform.3s;*/
+transition: all .2s ease-in-out; 
+border-radius: 20px;
+border:2px solid #333333;
+position:relative;
+
+}
+.about-us:hover{
+  
+  -webkit-box-shadow: 10px -10px 15px -7px #6A6A6A; 
+box-shadow: 10px -10px 15px -7px #6A6A6A;
+transform: scale(1.02);
+
+}
+.name{
+padding: 20px;
+font-size: 35px;
+  font-family:SamsungSharpSans-Bold;
+}
+.per-ne{
+font-size: 55px;
+  font-family:SamsungSharpSans-Bold;
+  color:black;
+  padding-bottom: 40px;
+  
+}
+.description{
+  color:black;
+   font-family:SamsungSharpSans-Bold;
+   font-size: 20px;
+  text-align: left;
+  padding: 20px;
+}/*
+.jingle-bell{
+width:100%;
+height: 130px;
+}*/
+.footer{
+background: #E4E4E4;
+padding: 20px;
+font-size: 20px;
+  font-family:SamsungSharpSans-Bold;
+  text-align: center;
+  margin-top:20px;
+}

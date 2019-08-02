@@ -1,0 +1,4 @@
+ORG 0H
+MOV A, #8H
+MOV B, #17H
+end 

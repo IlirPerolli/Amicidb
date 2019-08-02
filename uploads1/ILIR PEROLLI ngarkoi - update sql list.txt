@@ -1,0 +1,8 @@
+Set @autoid :=0;
+update users set id = @autoid := (@autoid+1);
+alter table users Auto_increment = 1;
+
+set @max_id = (select max(id) from users);
+set @id = @max_id;
+update users set id = (@id := @id + 1) order by NameSurname;
+update users set id = id - @max_id; // ASC

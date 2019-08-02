@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'SamsungSharpSans-Medium';
+  src: url('SamsungSharpSans-Medium.eot');
+  src: url('SamsungSharpSans-Medium.woff2') format('woff2'),
+       url('SamsungSharpSans-Medium.woff') format('woff'),
+       url('SamsungSharpSans-Medium.ttf') format('truetype'),
+       url('SamsungSharpSans-Medium.svg#SamsungSharpSans-Medium') format('svg'),
+       url('SamsungSharpSans-Medium.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+

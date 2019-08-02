@@ -1,0 +1,346 @@
+@font-face {
+    font-family: 'SamsungSharpSans-Medium';
+    src: url('fonti-medium/SamsungSharpSans-Medium.eot');
+    src: url('fonti-medium/SamsungSharpSans-Medium.woff2') format('woff2'),
+         url('fonti-medium/SamsungSharpSans-Medium.woff') format('woff'),
+         url('fonti-medium/SamsungSharpSans-Medium.ttf') format('truetype'),
+         url('fonti-medium/SamsungSharpSans-Medium.svg#SamsungSharpSans-Medium') format('svg'),
+         url('fonti-medium/SamsungSharpSans-Medium.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @media screen and (max-width: 900px){
+    .datetime{
+  
+  left:0 !important;
+  width:90% !important;
+  text-align: left !important;
+  margin-left: 10px;
+  
+}
+    .posts input[type=text]{
+      
+      margin-bottom: -20px !important;
+    }
+    #foto-reply{
+      display: none !important;
+    }
+    .error p {
+      width: 90% !important; 
+    }
+    .posts .foto {
+
+      margin-left: 5px !important;
+    }
+    .pershkrimi{
+      margin-left: 30px !important;
+margin-right: 30px !important;
+
+    }
+    .foto-container{
+      width:100% !important;
+      margin-left:0px !important;
+      margin-right:0 !important;
+      margin-top: 20px !important;
+    }
+    .posts{
+      width:100%!important;
+
+    }
+    #edit-comment{
+      width:100%!important;
+    }
+    .remove-comment{
+  width:25px !important;
+  height:25px !important;
+ 
+  float:right !important;
+  margin-right:10px !important;
+  position: absolute !important;
+  right: 0 !important;
+  margin-top:0px !important;
+
+}
+  }
+  @media screen and (max-width: 550px){
+   
+
+    #search{
+      width:70% !important;
+      margin-right: 10px;
+    }
+    .emri{
+    
+      font-size: 27px !important;
+      text-indent: 0px !important;
+     
+    }
+    .foto{
+      margin-right:15px !important;
+    }
+    .postimet-container input[type=text]{
+      width:90% !important;
+      margin-right:0px !important;
+    }
+    .postimet-container input[type=submit]{
+      margin-top:10px;
+      margin-left: 0px !important; 
+      width: 90% !important;
+      margin-right: 0px !important;
+      
+    } 
+
+    
+    .posts .foto {
+
+      margin-left: 5px !important;
+    }
+    .pershkrimi{
+      margin-left: 30px !important;
+margin-right: 30px !important;
+    }
+    .expand{
+      width: 98% !important;
+      margin-left: 0px !important;
+    }
+    .foto-container{
+      width:100% !important;
+      margin-left:0px !important;
+      
+    }
+    .posts{
+      width:100%!important;
+
+    }
+  }
+  body,html{
+    margin:0;
+    padding: 0;
+    font-family: 'SamsungSharpSans-Medium';
+  }
+
+body {
+  background: rgb(243, 243, 243);
+}
+.postimet-title{
+   background: #2f3542;
+   color:white;
+   padding: 20px;
+   font-size: 35px;
+  font-family:SamsungSharpSans-Bold;
+}
+.postimet-container{
+ 
+   font-size: 35px;
+  font-family:SamsungSharpSans-Bold;
+  background: rgb(243, 243, 243);
+
+}
+.posts .foto {
+  width:70px;
+  height:70px;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+.posts{
+  margin:auto;
+ position: relative;
+ background: white;
+ width:900px;
+ border-radius: 30px;
+ margin-bottom: 20px;
+ padding-bottom:10px;
+ padding-top:10px;
+}
+.foto-container{
+  display: inline-block;
+  
+}
+.pershkrimi{
+ margin: 0 auto;
+    text-align: center;
+  font-size: 20px;
+ max-width: 900px;
+ word-wrap: break-word;
+margin-left:10px; 
+margin-right: 10px;
+ border-radius: 20px;
+
+
+
+}
+.postimet-container input[type=text]{
+  font-size: 20px;
+  background: white;
+  border-radius: 0px;
+  margin-top: 15px;
+  outline: none;
+  width:450px;
+ padding: 10px;
+ border:none;
+ margin-right:-10px;
+ padding-right: 55px;
+}
+.postimet-container input[type=submit]{
+  clear:left;
+  color:white;
+  font-size:22px;
+  text-decoration:none;
+  text-align:center;
+  border:none;
+  display: inline-block;
+  cursor: pointer;
+  background:#2f3542;
+  padding:8px 20px;
+  padding-bottom: 8.5px;
+ 
+}
+.expand{
+  height: 50px;
+    font-size: 25px;
+    color: #333333;
+  font-family: 'SamsungSharpSans-Bold';
+    font-weight: 100;
+    cursor: pointer;
+    border-radius: 5px;
+    border:2px solid #333333;
+    outline: none;
+    background: white;
+    -webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+margin: auto;
+margin-bottom: 3px;
+width:250px;
+display: inline-block;
+margin-left: 5px;
+
+}
+.foto-container{
+  
+  overflow: auto;
+  width:500px;
+  margin-bottom: 10px;
+  text-align: left;
+  margin-left: 100px;
+
+
+
+}
+.posts .foto {
+
+float:left;
+margin-right:10px;
+
+  }
+.emri{
+margin-top:-35px;
+}
+#postimet{
+  color:red;
+  font-size: 25px;
+  display:none;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.remove-comment{
+  width:25px;
+  height:25px;
+ 
+  float:right;
+  margin-right:-3px;
+  position: absolute;
+  right: 0;
+  margin-top:-15px;
+
+}
+.rezultatet{
+  color:red;
+  font-size:20px;
+  margin-top:10px;
+  margin-bottom: 13px;
+}
+.rezultatet-error{
+color: red;
+font-size: 25px;
+margin-bottom: 20px;
+}
+.search-term-display{
+font-size: 25px;
+margin-bottom: 10px;
+margin-top:30px;}
+.biseda{
+  margin-left:10px !important;}
+  #search-submit{
+    border: 1px solid white;
+    color: white;
+  }
+  #search-submit:hover:enabled{
+    color:black;
+    background: white;
+}
+#wordCount,#wordCount1{
+font-size: 17px;
+}
+.counter{
+  margin-top: 10px;
+  margin-bottom: -20px;
+}
+.datetime{
+  font-size: 13px;
+  position: absolute;
+  right:0;
+  margin-right: 25px;
+  color: #616770;
+}
+.error p {
+  width: 300px; 
+  margin: 0px auto; 
+  padding: 10px; 
+  border: 1px solid #a94442; 
+  color: #a94442; 
+  background: #f2dede; 
+  border-radius: 5px; 
+  text-align: left;
+  font-size: 13px;
+  margin-top: 30px;
+}
+
+.posts input[type=text]{
+ background: rgb(243, 243, 243);
+  border:1px solid rgb(243, 243, 243);
+  border-radius: 30px;
+  font-size:22px;
+  text-decoration:none;
+  text-align:left;
+  display: inline-block;
+  padding:8px 20px;
+  }
+.reply{
+
+  display: none;
+}
+
+.edit-comment{
+ padding: 0;
+  cursor:pointer; 
+  border: none; 
+  background: none; 
+  margin-left:10px;
+   font-size:18px; 
+   outline:none !important;
+    color:blue;
+
+
+}
+#edit-comment{
+  margin:auto;
+ position: relative;
+ background: white;
+ width:900px;
+ border-radius: 30px;
+ margin-bottom: 20px;
+ padding-bottom:10px;
+ padding-top:10px;
+ margin-top: 20px;
+}

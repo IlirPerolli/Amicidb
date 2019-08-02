@@ -1,0 +1,111 @@
+<html>
+<head>
+  <title> Gabim! </title>
+  <meta http-equiv="refresh" content="10;url=http://amici.byethost8.com/index.php"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+     <link rel="icon" type="image/png" href="people.png" />
+  <meta name="theme-color" content="#2f476d">
+  <meta name="msapplication-navbutton-color" content="#2f476d">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#2f476d">
+  <style>
+
+  @media screen and (max-width:950px){
+    img{
+    width:120px;
+display: inline-block !important;
+margin-top: 0px !important;
+    }
+    .teksti{
+      font-size: 100px !important;
+    }
+    .butoni{
+      width: 100% !important;
+      padding: 0 !important;
+      margin:0 !important;
+    }
+  }
+.teksti{
+  font-family: 'Segoe UI',SegoeUI,'Segoe WP',Tahoma,Arial,sans-serif;
+  color: #7A7A6F;
+  font-weight: 600;
+  font-size: 350px;
+  margin:0;
+  display: inline-block;
+  vertical-align:middle;
+}
+.error-message{
+  text-align:center;
+
+}
+.page{
+  font-family: 'Segoe UI',SegoeUI,'Segoe WP',Tahoma,Arial,sans-serif;
+  color: #7A7A6F;
+  font-weight: 100;
+  font-size: 35px;
+  margin:0;
+  text-align:center;
+}
+.redirektimi{
+  font-family: 'Segoe UI',SegoeUI,'Segoe WP',Tahoma,Arial,sans-serif;
+  color: #7A7A6F;
+  font-weight: 100;
+  font-size: 30px;
+  margin:0;
+  text-align:center;
+}
+.butoni {
+
+    width: 250px; /* Set the width of the sidebar */
+
+    z-index: 1; /* Stay on top */
+
+    background-color: #2f476d; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+margin:auto;
+border-radius: 5px;
+}
+
+.butoni a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    font-family: 'Segoe UI',SegoeUI,'Segoe WP',Tahoma,Arial,sans-serif;
+    font-weight: 100;
+    margin:0;
+    text-align:center;
+}
+.butoni:hover{
+  background: #3B598A;
+}
+  </style>
+</head>
+<body>
+  <div class = "error-message">
+  <div class = "teksti"> 4 </div>
+   <img style='vertical-align:middle; display:inline-block; margin-top: 50px;' src = "http://amici.byethost8.com/img/moon_PNG46.png" width="320px">
+<div class = "teksti"> 4 </div></div>
+<div class = "page">
+Faqja qe po kerkonit eshte nderruar ose nuk ekziston </div>
+<br><br>
+<div class="butoni">
+  <a href="http://amici.byethost8.com/index.php">Kthehu ne Kryefaqe</a>
+
+</div>
+<div class = "redirektimi">
+<p> Do te ridirektoheni ne kryefaqe per <span id="countdowntimer">10 </span> Sekonda</p>
+</div>
+<script type="text/javascript">
+    var timeleft = 10;
+    var redirectTimer = setInterval(function(){
+    timeleft--;
+    document.getElementById("countdowntimer").textContent = timeleft;
+    if(timeleft <= 0)
+        clearInterval(redirectTimer);
+    },1000);
+</script>
+
+
+</body>
+</html>
