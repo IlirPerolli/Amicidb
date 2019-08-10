@@ -75,8 +75,11 @@ include("config.php");
 			
 			//konverto usernamin ne shkonja te vogla
 			$username = strtolower($username);
-
-
+			$emri = strtolower($emri);
+			$emri = ucfirst($emri);
+			$mbiemri = strtolower($mbiemri);
+			$mbiemri = ucfirst($mbiemri);
+			$email = strtolower($email);
 			
 			if ($gender == 0){
 
