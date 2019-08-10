@@ -91,6 +91,19 @@ body,html{
 
 
  }
+
+  @media screen and (max-width:640px){
+.avatar{
+  width: 250px !important;
+}
+  }
+  @media screen and (max-width:400px){
+.avatar{
+  width: 100% !important;
+}
+  }
+ 
+
  @media screen and (max-width:1250px){
    .contact-form{
  width:95% !important;
@@ -362,6 +375,12 @@ font-size: 35px;
                          ?>
                    
      <a href = "edit-photo.php"> Ndrysho Foton </a>
+     <script type="text/javascript">
+  var cw = $('.avatar').width();
+$('.avatar').css({
+    'height': cw + 'px'
+});
+</script>
           <div class = "name">
 <span style = "color:black"><?php echo $row['Name'] ?> </span><span style = "  color:#9E9E9E;" ><?php echo $row['Surname'] ?></span>
 </div>

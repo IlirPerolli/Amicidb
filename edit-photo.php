@@ -92,7 +92,19 @@ body,html{
  width:95% !important;
 
  }
-}.contact-form h2 {
+}
+  @media screen and (max-width:640px){
+.avatar{
+  width: 250px !important;
+}
+  }
+  @media screen and (max-width:400px){
+.avatar{
+  width: 100% !important;
+}
+  }
+ 
+.contact-form h2 {
     margin: 0;
     padding: 0 0 20px;
     color: black;
@@ -280,7 +292,12 @@ background: #e9e9e9;
                         echo '<img src = "user-photos/'. $row['userphotos'] . '" class = "avatar"/>';
                          ?>
  <input type="button" value="Fshij Foton" data-toggle="modal" data-target="#exampleModalCenter" style = "border:none; height:40px; font-size:20px;" id = "fshi">
-    
+    <script type="text/javascript">
+  var cw = $('.avatar').width();
+$('.avatar').css({
+    'height': cw + 'px'
+});
+</script>
     <h2>Ndrysho foton</h2>
  
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

@@ -77,7 +77,17 @@ body,html{
      border-radius: 20px;
      margin-top:100px;
 
- }
+ }   @media screen and (max-width:640px){
+.avatar{
+  width: 250px !important;
+}
+  }
+  @media screen and (max-width:400px){
+.avatar{
+  width: 100% !important;
+}
+  }
+ 
  @media screen and (max-width:959px){
  .contact-form{
  width:95% !important;
@@ -109,7 +119,7 @@ body,html{
 }
 .avatar{
   width:250px;
-  height:250px;
+  
   border-radius: 50%;
 display: block;
 margin: 0 auto;
@@ -274,7 +284,12 @@ text-decoration: none;
                         echo '<img src = "user-photos/'. $row['userphotos'] . '" class = "avatar"/>';
                          ?>
      
-     <br>
+     <br><script type="text/javascript">
+  var cw = $('.avatar').width();
+$('.avatar').css({
+    'height': cw + 'px'
+});
+</script>
     <h2>Ndrysho Fjalekalimin</h2>
 
   <p id = "fjalekalimi1">Fjalekalimi i Tanishem</p>

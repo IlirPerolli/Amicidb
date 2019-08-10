@@ -100,6 +100,17 @@ body,html{
      margin-top:100px;
 
  }
+  @media screen and (max-width:640px){
+.avatar{
+  width: 250px !important;
+}
+  }
+  @media screen and (max-width:400px){
+.avatar{
+  width: 100% !important;
+}
+  }
+
  @media screen and (max-width:959px){
  .contact-form{
  width:95% !important;
@@ -312,6 +323,12 @@ text-decoration: none;
       <?php
                         echo '<img src = "user-photos/'. $row['userphotos'] . '" class = "avatar"/>';
                          ?><br>
+                         <script type="text/javascript">
+  var cw = $('.avatar').width();
+$('.avatar').css({
+    'height': cw + 'px'
+});
+</script>
     <h2>Fshij Llogarine</h2>
 
 
