@@ -82,6 +82,7 @@
     .shkrimi h2{
       text-align: left !important;
       font-size: 45px !important;
+      word-break: break-word !important;
     }.shkrimi h4{
       text-align: left !important;
     }
