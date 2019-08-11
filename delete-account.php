@@ -142,7 +142,7 @@ body,html{
 }
 .avatar{
   width:250px;
-  height:250px;
+  /* height:250px;*/
   border-radius: 50%;
 display: block;
 margin: 0 auto;
