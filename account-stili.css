@@ -21,6 +21,9 @@
    font-family:SamsungSharpSans-Bold;
  }
  @media screen and (max-width:959px){
+	 .avatar{
+	 width:100% !important;
+	 }
  .contact-form{
  width:95% !important;
 
