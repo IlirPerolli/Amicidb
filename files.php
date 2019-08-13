@@ -37,11 +37,11 @@ unlink($myFile);
             $sql = "DELETE from userfiles where id='$number'";
     
       mysqli_query($db, $sql);
-      header("Location:files.php");
+      header("Location:files-beta.php");
 
 }
 else{
-   header("Location:files.php");
+   header("Location:files-beta.php");
 }
 
    }
@@ -69,7 +69,7 @@ if ( window.history.replaceState ) {
   <link rel = "stylesheet" type = "text/css" href = "nav-stili.css"/>
   <meta name="apple-mobile-web-app-status-bar-style" content="#2f476d">
   <link rel = "stylesheet" type = "text/css" href = "stili.css">
-  <link rel = "stylesheet" type = "text/css" href = "files-stili.css">
+  <link rel = "stylesheet" type = "text/css" href = "files-stili-beta.css">
   <script src="navi.js"></script>
 
 
@@ -189,6 +189,7 @@ $(".custom-file-input").on("change", function() {
  <?php 
 
  include('errors.php');
+ echo '<br>';
  $vitiakademik = $_SESSION['vitiakademik'];
  $query = "SELECT * FROM userfiles WHERE academicyear='$vitiakademik' ORDER BY id DESC ";
             $results = mysqli_query($db, $query);
@@ -200,26 +201,135 @@ $(".custom-file-input").on("change", function() {
               
             }
                while(($row = $results->fetch_assoc()) !== null){ 
+               echo '<div class = "download-container">';
+
+               echo '<div class = "download-name" title = "'.$row['file'] .' ">';
+               if (strlen($row['file']) > 46){
+                
+                $file_name = $row['file'];
+                $file_name = substr($file_name, 0, 44);
+                $file_name = $file_name . " ...";
+                echo $file_name;
+               }
+               else {
+                echo $row['file'];
+               }
+               echo "</div>";
+              if (strpos($row['file'],'.jpg') !== false || strpos($row['file'],'.JPG') !== false || strpos($row['file'],'.JPEG') !== false || strpos($row['file'],'.jpeg') !== false || strpos($row['file'],'.png') !== false || strpos($row['file'],'.PNG') !== false ) {
+
+                echo '<img src = "user-files-logos/576bf2589ce70.png" class = "download-photo"/>';
+
+               }
+
+               else if (strpos($row['file'],'.docx') !== false){
+                echo '<img src = "user-files-logos/word.png" class = "download-photo"/>';
+               }
+                else if (strpos($row['file'],'.pdf') !== false){
+                echo '<img src = "user-files-logos/pdf.png" class = "download-photo"/>';
+               }
+                else if (strpos($row['file'],'.pptx') !== false){
+                echo '<img src = "user-files-logos/powerpoint.png" class = "download-photo"/>';
+               }
+                else if (strpos($row['file'],'.apk') !== false){
+                echo '<img src = "user-files-logos/apk.png" class = "download-photo"/>';
+               }
+               else if (strpos($row['file'],'.xlsx') !== false){
+                echo '<img src = "user-files-logos/excel.png" class = "download-photo"/>';
+               }
+               else if (strpos($row['file'],'.txt') !== false){
+                echo '<img src = "user-files-logos/txt.png" class = "download-photo"/>';
+               }
+               else if (strpos($row['file'],'.html') !== false){
+                echo '<img src = "user-files-logos/html.png" class = "download-photo"/>';
+               }
+                else if (strpos($row['file'],'.php') !== false){
+                echo '<img src = "user-files-logos/php.png" class = "download-photo"/>';
+               }
+               else if (strpos($row['file'],'.ipa') !== false){
+                echo '<img src = "user-files-logos/ipa.png" class = "download-photo"/>';
+               }
+                else if (strpos($row['file'],'.py') !== false){
+                echo '<img src = "user-files-logos/py.png" class = "download-photo"/>';
+               }
+                else if (strpos($row['file'],'.css') !== false){
+                echo '<img src = "user-files-logos/css.png" class = "download-photo"/>';
+               }
+               else if (strpos($row['file'],'.gif') !== false){
+                echo '<img src = "user-files-logos/gif.png" class = "download-photo"/>';
+               }
+               else if (strpos($row['file'],'.rar') !== false){
+                echo '<img src = "user-files-logos/rar.png" class = "download-photo"/>';
+               }
+               else if (strpos($row['file'],'.zip') !== false){
+                echo '<img src = "user-files-logos/zip.png" class = "download-photo"/>';
+               }
                
-                echo "<div class = 'files'>";
-                 $emri = $_SESSION['emri'];
-                $mbiemri =  $_SESSION['mbiemri'];
+               else {
+                echo '<img src = "https://image.flaticon.com/icons/svg/148/148947.svg?fbclid=IwAR1qMT-iyh6nQNlIyVNu4VaFEiLQoRa4FUZD5iv8xM5ZjL3h_nYbFTi-y_k" class = "download-photo"/>';
+               }
+
+
+
               
-    
-                        if (($_SESSION['username']) == $row['username']){
-                          
-                      
+               echo "<div class = 'download-content'>";
+               echo '<div class = "date-time">';
+               echo $row['date'];
+               echo '</div>';
+              
+                
+               echo '<button type="button" title = "Info" class="btn btn-light" data-toggle="modal" data-target="#modal_'.$row['id'].'" style = "display:inline-block">
+  <img src= "user-files-logos/more.png" style = "width:20px;"/>
+</button>';
+              
+               echo '</div>';
+                
+               echo '</div>';
 
-                            echo '<form action="#" method="post" style = "position:absolute; right:0">
-                            
-                            <button name="delete-file" title = "Fshij Dokumentin" type="submit" value="'. $row['id'].'" style = " border:none; outline:none;background: none; cursor:pointer; width:33px;">
-                            <img src="img/btn_delete_1164662.png" class = "remove-file"/>
+               //Modal Fade
+               echo '<div class="modal fade" id="modal_'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">';
+              echo '<div class="modal-dialog modal-dialog-centered" role="document">';
+echo '<div class="modal-content">';
+      echo '<div class="modal-header">';
+echo '<h5 class="modal-title" id="exampleModalCenterTitle">Rreth Dokumentit</h5>';
+        echo '<button type="button" class="close" data-dismiss="modal" aria-label="Close">';
+          echo '<span aria-hidden="true">&times;</span>';
+        echo '</button>';
+      echo '</div>';
+      echo '<div class="modal-body">';
+        echo 'Emri i dokumentit: ' . $row['file'];
+        echo '<br>';
+        echo 'Ngarkuesi: ' . $row['Name']. " " . $row['Surname'];
+         echo '<br>';
+        echo 'Data: ' . $row['date'];
+        echo '<br>';
+        echo 'Ora: ' . $row['time'];
+      echo '</div>';
+      
 
-                            </button>
-                           
-                              </form>';
-                     
-                                if (isset($_POST['delete-file'])){
+
+
+
+      echo '<div class="modal-footer">';
+      echo '<form action="#" method="post" id = "download-form">';
+       echo ' <button type="button" class="btn btn-secondary" data-dismiss="modal">Mbyll </button>';
+        echo '<a class="btn btn-light" id = "download" role="button" href="user-files/'.$row['file'].'"
+         download>
+        Shkarko
+        </a>';
+     
+
+        if (($_SESSION['username']) == $row['username']){
+
+        echo '<button type="submit" name="delete-file" class="btn btn-danger" id = "delete-button" value="'. $row['id'].'">Fshij</button>';
+       
+      }
+         echo '</form>';
+              echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    //
+     if (isset($_POST['delete-file'])){
                                   $value = $_POST['delete-file'];
  $query100 = "SELECT * FROM userfiles WHERE id='$value'";
                                     $results100 = mysqli_query($db, $query100);
@@ -228,26 +338,54 @@ $(".custom-file-input").on("change", function() {
            
             
             if ($_SESSION['username'] == $row100['username']){
-                                header('Location:files.php?remove-file='. $value);
+                                header('Location:files-beta.php?remove-file='. $value);
 
                               }
                               else {
-                                header('Location:files.php');
+                                header('Location:files-beta.php');
                               }}
 
                               }
-                        }  
-                $emri = $row['Name'];
-                $mbiemri = $row['Surname'];
-                $emri = strtoupper($emri);
-                $mbiemri = strtoupper($mbiemri);
-               echo ' <a download id = "file" title = "Shkarko kete dokument"  style = "width:92%; display:inline-block;" href="user-files/'.$row['file'].'"><li>'. $row['file']."<span style = 'color:#696969;'>"." (". $emri. " " . $mbiemri. ")"."</span>".' </li></a>';
-               
-                echo "</div>"; 
-                
                }
 ?>
 <br>
+
+<!--
+<div class = "download-container">
+  <div class = "download-name">
+    dokumenti dokumenti dokumenti dokumenti 
+
+  </div>
+<img src = "https://icdn8.digitaltrends.com/image/jupiters-colourful-palette-1280x1280.jpg" class = "download-photo"/>
+<div class = "download-content">
+<div class = "date-time"> 12/08/2019</div>
+ <div class = "view-download">
+    <a target="_blank" href="https://icdn8.digitaltrends.com/image/jupiters-colourful-palette-1280x1280.jpg" title = "Shiko kete foto"><img src= "https://image.flaticon.com/icons/svg/1666/1666578.svg?fbclid=IwAR0okj2yL_ZMrTHyXcZJhI-ov8YlcxqasJlamnJSJAwMIG7atHAjb4J7RQo"/></a>
+     <img src="https://image.flaticon.com/icons/svg/130/130991.svg?fbclid=IwAR2PhKG3auj9zFLAM7HkFK93cwIkr6qJE_MVcRsEKnYttlgIO1IADL7tdiM">
+  </div>
+  </div>
 </div>
+-->
+
+
+
+
+
+
+
+
+
+
+<br><br>
+</div>
+
+     <script type="text/javascript">
+  var cw = $('.download-photo').width();
+$('.download-photo').css({
+    'height': cw + 'px'
+});
+</script>
+
+
 </body>
 </html>

@@ -17,11 +17,19 @@ if ($_FILES["fileToUpload"]["size"] > 8000000) { //8MB
     array_push($errors, "Kjo foto eshte e madhe");
 }
 
-
-
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
     array_push($errors, "Gabim. Vetem filet jpg, png dhe jpeg lejohen");
+}
+if (strpos($target_file,'Snapchat') !== false) {
+
+   $target_file = $target_dir .  "amici_".$_SESSION['username'] . "." . $imageFileType;
+
+}
+else if (strpos($target_file,'snapchat') !== false) {
+
+   $target_file = $target_dir .  "amici_".$_SESSION['username'] . "." . $imageFileType;
+
 }
 if (count($errors) == 0) {
   $username = $_SESSION['username'];
@@ -36,6 +44,17 @@ $results1 = mysqli_query($db, $query1);
     compressImage($_FILES['fileToUpload']['tmp_name'],$target_file,60);
 $username = $_SESSION['username'];
 $target_file1 = $_FILES["fileToUpload"]["name"];
+
+if (strpos($target_file1,'Snapchat') !== false) {
+
+   $target_file1 = "amici_".$_SESSION['username'] . "." . $imageFileType;
+
+}
+else if (strpos($target_file1,'snapchat') !== false) {
+
+  $target_file1 = "amici_".$_SESSION['username'] . "." . $imageFileType;
+
+}
                 $sql = "UPDATE users SET userphotos='$target_file1' WHERE username='$username'";
                 mysqli_query($db, $sql);
                 $sql1 = "UPDATE userposts SET photo='$target_file1' WHERE username='$username'";

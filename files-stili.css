@@ -14,16 +14,7 @@
     padding: 0;
     font-family: 'SamsungSharpSans-Medium';
   }
-.files{
 
-  padding:15px;
-  border-bottom: 1px solid #ECEFF3;
-  position: relative;
-  
-}
-.files:hover{
-  background: #ECEFF3;
-}
 .container input[type="submit"] {
 
     height: 80px;
@@ -90,20 +81,39 @@ margin-right:10px;
 
 
 @media screen and (max-width:900px){
+  .download-container{
+
+width: 49% !important;
+margin-left: 1px !important;
+margin-right: 1px !important;
+border-radius: 10px !important;
+height: auto !important;
+border:1px solid black !important;
+  }
+  .date-time{
+
+    margin:auto !important;
+    text-align: center !important;
+    padding-right: 0px !important;
+
+  }
+  .download-photo{
+    margin-top:10px !important;
+    width: 50% !important;
+      }
+      .download-name{
+        padding-left: 5px;
+        padding-right: 5px;
+        
+      }
   #file{
-    width: 76% !important;
+    width: 80% !important;
   
     word-break: break-word;
   }
   .error p {
       width: 90% !important; 
     }
-    .remove-file{
-  width:30px !important;
-  height:30px !important;
-
-
-}
   .forma-default{
   display: block !important;
 }
@@ -136,39 +146,87 @@ height: auto !important;
 
 
 }
+  .date-time{
 
+   
+    padding-right: 10px !important;
+  }
+}
+@media screen and (max-width:460px){
+.download-name{
+        height: 80px !important;
+      }
+}
+@media screen and (max-width:400px){
+
+.modal-footer .btn{
+  margin-left: 0px !important;
+  width:100% !important;
+  margin-top: 5px !important;
+}
+#download-form, #delete-form{
+  width:100% !important;
 }
 
+#delete-button{
+  width:100% !important; 
+}
+.download-container{
+
+width: 49% !important;
+margin-left: 1px !important;
+margin-right: 1px !important;
+height: auto !important;
+  }
+  .date-time{
+
+    margin:auto !important;
+    text-align: center !important;
+   width:100% !important;
+    padding-right: 0px !important;
+  }
+  .download-photo{
+    margin-top:10px !important;
+    width: 90% !important;
+      }
+      .download-name{
+        height: 80px !important;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+
+      }
+  
+
+}
+@media screen and (max-width:330px){
+.download-container{
+width: 98% !important;
+margin-left: 0px !important;
+margin-right: 0px !important;
+height: auto !important;
+  }
+  .download-photo{
+    margin-top:10px !important;
+    width: 50% !important;
+      }
+
+   .date-time{
+
+    margin:auto !important;
+    text-align: center !important;
+   width:auto !important;
+   margin-right: 10px !important;
+  }
+  }
 body {
   background: rgb(243, 243, 243);
 }
-a{
-  color: black;
-  text-decoration: none;
-  font-size: 20px;
-  display: inline-block;
-}
-a:hover{
-  color:black;}
-  li{
-    list-style-type: none;
-    
-  }
+
   .forma-default{
     display: none;
   }
 
-  .remove-file{
-  width:30px;
-  height:30px;
- 
-  float:right;
-  right: 0;
-  margin-top:-2px;
-  margin-right: -5px;
-  
 
-}
 .error p {
   width: 340px; 
   margin: 0px auto; 
@@ -182,4 +240,69 @@ a:hover{
   margin-top: 30px;
   margin-bottom: 10px;
 }
+.download-container{
+width:250px;
+height:330px;
+display:inline-block;
+background:white;
+margin-left:10px;
+margin-right:10px;
+margin-top:20px;
+/*transition:transform.3s;*/
+transition: all .2s ease-in-out; 
+overflow: hidden;
+border: 2px solid black;
+border-radius: 30px;
+position: relative;
+}
+.download-container:hover{
+  
+-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
 
+}
+
+.download-photo{
+  width: 60%;
+
+  
+}
+
+.download-name{
+ padding-top: 5px;
+  overflow: hidden; 
+  height: 70px;
+  word-break: break-all;
+  padding-left:8px;
+  padding-right:8px;
+  padding:10px;
+ 
+}
+.download-content{
+  margin-top:30px;
+  padding:10px;
+
+  
+}
+.date-time{
+  text-align: left;
+   display: inline-block;
+   padding-right: 10px;
+   display: inline-block;
+}
+
+.modal-footer .btn{
+  margin-left: 3px;
+}
+.modal-body{
+  text-align: left;
+  word-break: break-all;
+}
+#download{
+   background-color: #9E9E9E !important;
+   color:white;
+}
+#download:hover{
+  background:#AEAEAE !important;
+}

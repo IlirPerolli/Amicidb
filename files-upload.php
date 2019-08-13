@@ -2,6 +2,7 @@
 include("config.php");
     $errors = array();
     ob_start();
+
 if (isset($_POST['files'])){
 
 
@@ -37,9 +38,21 @@ array_push($errors, "Ekziston nje dokument tjeter me emer te njejte");
 if ($_FILES['file']['size'] > 8000000) { //8MB
    array_push($errors, "Dokumenti ka nje madhesi te madhe");
 }
+if (strpos($filename,'Snapchat') !== false) {
+$imageFileType = strtolower(pathinfo($filename,PATHINFO_EXTENSION));
+   $filename= "amici_".$_SESSION['username'] . "_" . generateRandomString() ."." . $imageFileType;
+  
+
+}
+else if (strpos($filename,'snapchat') !== false) {
+$imageFileType = strtolower(pathinfo($filename,PATHINFO_EXTENSION));
+   $filename= "amici_".$_SESSION['username'] . "_" . generateRandomString() ."." . $imageFileType;
+
+}
+
 
 if (count($errors) == 0){
-move_uploaded_file($file["tmp_name"], "user-files/".$file["name"]);
+move_uploaded_file($file["tmp_name"], "user-files/".$filename);
 
 
 $query = "INSERT INTO userfiles (username, Name, Surname, file, academicyear, date, time) 
@@ -50,5 +63,13 @@ $query1= "UPDATE users SET notification_uploads = notification_uploads + 1 WHERE
 
 }}
 
-
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
 ?>
