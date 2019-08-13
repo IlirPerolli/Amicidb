@@ -37,11 +37,11 @@ unlink($myFile);
             $sql = "DELETE from userfiles where id='$number'";
     
       mysqli_query($db, $sql);
-      header("Location:files-beta.php");
+      header("Location:files.php");
 
 }
 else{
-   header("Location:files-beta.php");
+   header("Location:files.php");
 }
 
    }
@@ -69,7 +69,7 @@ if ( window.history.replaceState ) {
   <link rel = "stylesheet" type = "text/css" href = "nav-stili.css"/>
   <meta name="apple-mobile-web-app-status-bar-style" content="#2f476d">
   <link rel = "stylesheet" type = "text/css" href = "stili.css">
-  <link rel = "stylesheet" type = "text/css" href = "files-stili-beta.css">
+  <link rel = "stylesheet" type = "text/css" href = "files-stili.css">
   <script src="navi.js"></script>
 
 
@@ -338,11 +338,11 @@ echo '<h5 class="modal-title" id="exampleModalCenterTitle">Rreth Dokumentit</h5>
            
             
             if ($_SESSION['username'] == $row100['username']){
-                                header('Location:files-beta.php?remove-file='. $value);
+                                header('Location:files.php?remove-file='. $value);
 
                               }
                               else {
-                                header('Location:files-beta.php');
+                                header('Location:files.php');
                               }}
 
                               }
