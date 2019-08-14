@@ -30,12 +30,22 @@ $results = mysqli_query($db, $query);
 
 <html>
 <head>
+    <?php 
+
+$emri = $_SESSION['emri'];
+$mbiemri = $_SESSION['mbiemri'];
+$emri = strtolower($emri);
+$mbiemri = strtolower($mbiemri);
+$emri = ucfirst($emri);
+$mbiemri = ucfirst($mbiemri);
+echo "<title>".$emri. " ". $mbiemri. " - Preferencat". " </title>";
+  
+  ?>
   <script>
 if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
 } //Mos u submit nese bohet refresh faqja
 </script>
-	<title> Preferencat </title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	 <link rel="icon" type="image/png" href="people.png" />
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
