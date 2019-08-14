@@ -312,11 +312,17 @@ echo '<h5 class="modal-title" id="exampleModalCenterTitle">Rreth Dokumentit</h5>
       echo '<div class="modal-footer">';
       echo '<form action="#" method="post" id = "download-form">';
        echo ' <button type="button" class="btn btn-secondary" data-dismiss="modal">Mbyll </button>';
+
+       if (strpos($row['file'],'.jpg') !== false || strpos($row['file'],'.JPG') !== false || strpos($row['file'],'.JPEG') !== false || strpos($row['file'],'.jpeg') !== false || strpos($row['file'],'.png') !== false || strpos($row['file'],'.PNG') !== false || strpos($row['file'],'.pdf') !== false || strpos($row['file'],'.txt') !== false ) {
+
+        echo '<a href="user-files/'.$row['file'].'" target="_blank" class="btn btn-warning" title="Shiko pa e shkarkuar" id = "view-button">Shiko</a>';
+       
+      }
         echo '<a class="btn btn-light" id = "download" role="button" href="user-files/'.$row['file'].'"
          download>
         Shkarko
         </a>';
-     
+        
 
         if (($_SESSION['username']) == $row['username']){
 

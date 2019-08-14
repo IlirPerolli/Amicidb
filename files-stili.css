@@ -168,7 +168,7 @@ height: auto !important;
   width:100% !important;
 }
 
-#delete-button{
+#delete-button, #view-button{
   width:100% !important; 
 }
 .download-container{
