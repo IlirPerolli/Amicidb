@@ -291,7 +291,14 @@ background: #e9e9e9;
      <?php
                         echo '<img src = "user-photos/'. $row['userphotos'] . '" class = "avatar"/>';
                          ?>
- <input type="button" value="Fshij Foton" data-toggle="modal" data-target="#exampleModalCenter" style = "border:none; height:40px; font-size:20px;" id = "fshi">
+
+    <?php if (($row['userphotos']) != "defaultmale.png" && ($row['userphotos']) != "defaultfemale.png"){
+ echo '<input type="button" value="Fshij Foton" data-toggle="modal" data-target="#exampleModalCenter" style = "border:none; height:40px; font-size:20px;" id = "fshi">';
+}
+else {
+   echo "<br>";
+}
+  ?>
     <script type="text/javascript">
   var cw = $('.avatar').width();
 $('.avatar').css({
