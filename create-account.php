@@ -88,7 +88,7 @@
 
       <input type="submit" name="reg_user" value="Dergo">
       <div class = "account">
-       Posedoni nje llogari? <a href= "login.php">Ky&ccedil;u</a>
+       Keni llogari? <a href= "login.php">Ky&ccedil;u</a>
       </div>
      <?php include('errors.php'); ?>
      </form>

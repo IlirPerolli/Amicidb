@@ -207,7 +207,10 @@ $results1 = mysqli_query($db, $query1);
 					$row = $results1->fetch_assoc();	
 					$password = password_verify($_POST['password_1'], $row['password']);
 		
-		
+		$emri = strtolower($emri);
+		$emri = ucfirst($emri);
+		$mbiemri = strtolower($mbiemri);
+		$mbiemri = ucfirst($mbiemri);
 	
 		if ($password != 1){
 			array_push($errors, "Keni shënuar Fjalekalimin e tanishem gabim!");
@@ -226,6 +229,10 @@ $results1 = mysqli_query($db, $query1);
 			$sql1 = "UPDATE userposts SET Name='$emri', Surname='$mbiemri' WHERE username='$username1'";
 		
 			mysqli_query($db, $sql1);
+
+			$sql2 = "UPDATE userfiles SET Name='$emri', Surname='$mbiemri' WHERE username='$username1'";
+		
+			mysqli_query($db, $sql2);
 			header('Location: logout.php');
 		}
 		
