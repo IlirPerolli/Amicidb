@@ -84,6 +84,16 @@ body {
   background: rgb(243, 243, 243);
 }
 
+  @media screen and (max-width:640px){
+.avatar{
+  width: 250px !important;
+}
+  }
+  @media screen and (max-width:400px){
+.avatar{
+  width: 100% !important;
+}
+  }
   @media screen and (max-width:500px){
   .categories{
   width:90% !important;
@@ -187,7 +197,7 @@ max-width: 1300px;
 }
 .avatar{
   width:250px;
-  height:250px;
+ /* height:250px;*/
   border-radius: 50%;
 display: block;
 margin: 0 auto;
@@ -351,6 +361,12 @@ else
      <?php
                         echo '<img src = "user-photos/'. $row['userphotos'] . '" class = "avatar"/>';
                          ?>
+<script type="text/javascript">
+  var cw = $('.avatar').width();
+$('.avatar').css({
+    'height': cw + 'px'
+});
+</script>
 
     <h2>Shto Liber</h2>
     <p>Emri i Librit</p>

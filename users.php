@@ -471,8 +471,13 @@ margin-top:30px;}
        <a class="nav-link" href="admin.php" style = "font-family: 'SamsungSharpSans-Bold'; font-size:20px;">Admin </a>
        <a class="nav-link active" href="users.php" style = "font-family: 'SamsungSharpSans-Bold'; font-size:20px;">Perdoruesit <span class="sr-only">(current)</span></a>
     </ul>
+    <?php
+    $anetaret = "SELECT * FROM users WHERE verification='1'";
+    $anetaret_results = mysqli_query($db, $anetaret);
+    $anetaret_count = mysqli_num_rows($anetaret_results);
+    ?>
 <form class="form-inline my-2 my-lg-0" method="get" action="#">
-    <input type = "text" class="form-control mr-sm-2" placeholder="Kerko Anetare" aria-label="Search" id = "search" name="keyword" autocomplete="off" onkeyup="searchfunction()"/>
+    <input type = "text" class="form-control mr-sm-2" placeholder="Kerko <?php echo $anetaret_count;?> studente" aria-label="Search" id = "search" name="keyword" autocomplete="off" onkeyup="searchfunction()"/>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-submit" disabled>Kerko</button>
     </form>
      <ul class="navbar-nav mx-3">
