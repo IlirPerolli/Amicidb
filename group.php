@@ -946,6 +946,13 @@ myText.addEventListener("keyup",function(){
 </script>
 
 </div>
-
+<div class="media">
+  <img class="align-self-start mr-3" style = "width: 50px;" src="http://localhost:1234/Amicidb/user-photos/defaultmale.png" alt="Generic placeholder image">
+  <div class="media-body">
+    <h5 class="mt-0">ILIR PEROLLI</h5>
+    <p>27/08/2019</p>
+    
+  </div>
+</div>
 </body>
 </html>

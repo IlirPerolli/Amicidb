@@ -89,17 +89,18 @@ background:white;
 margin-left:10px;
 margin-right:10px;
 margin-top:20px;
--webkit-box-shadow: 5px -5px 15px -7px #6A6A6A; 
-box-shadow: 5px -5px 15px -7px #6A6A6A;
+border: 1.5px solid black;
 /*transition:transform.3s;*/
 transition: all .2s ease-in-out; 
 overflow: hidden;
+border-radius: 30px;
 }
 .categories:hover{
   
-  -webkit-box-shadow: 10px -10px 15px -7px #6A6A6A; 
-box-shadow: 10px -10px 15px -7px #6A6A6A;
-transform: scale(1.02);
+  
+-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
 
 }
 .categories a{

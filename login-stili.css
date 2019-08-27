@@ -22,7 +22,16 @@ body{
 }
 
 
-
+  @media screen and (max-width:640px){
+.avatar-user{
+  width: 250px !important;
+}
+  }
+  @media screen and (max-width:400px){
+.avatar-user{
+  width: 80% !important;
+}
+  }
 @media screen and (max-width:959px){
   .avatar{
   width:100% !important;
@@ -71,6 +80,13 @@ display: block;
 margin: 0 auto;
 
 }
+.avatar-user{
+  width:180px;
+ /* height:250px;*/
+  border-radius: 50%;
+display: block;
+margin: 0 auto;
+}
 .contact-form h2 {
     margin: 0;
     padding: 0 0 20px;
@@ -103,14 +119,15 @@ margin: 0 auto;
 .contact-form input[type="text"],
 .contact-form input[type="password"]
 {
-    border: none;
-    border-bottom: 1px solid black;
-    background: transparent;
+    border: 1px solid grey;
+    padding-left: 5px; 
+    padding-right: 5px;
+    background: rgb(243, 243, 243);
     outline: none;
     height: 40px;
     color: black;
     font-size: 16px;
-    border-radius: 0px;
+    border-radius: 5px;
 
 }
 .contact-form input[type="submit"] {

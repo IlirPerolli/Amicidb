@@ -57,17 +57,35 @@ var characters = textbox.value.split('');
   <div class = "titulli"><span style = "color:black"> amici  </span><span style = "  color:#9E9E9E;" >&ccedil;asja </span></div>
   <div class="contact-form">
 <form name = "frmInfo" action="#" method="post"><br>
+   <?php if (isset($_POST['login_user'])){
+        $username = $_POST['username'];
+       $query = "SELECT * FROM users WHERE username='$username'";
+      $results = mysqli_query($db, $query);
+          $row = $results->fetch_assoc(); 
+        if (mysqli_num_rows($results) > 0){
+          echo' <img src = "user-photos/'.$row['userphotos'].'" class = "avatar-user"/><br>';
+        }
+        else {
+          echo '<img src = "img/logo.jpg" class = "avatar"/><br><br>';
+        }
+      
+
+      }
+      else{
+        echo '<img src = "img/logo.jpg" class = "avatar"/><br><br>';
+      }
+      ?>
 <!-- <img src = "img/avatar.jpg" class = "avatar"/><br><br> -->
-<img src = "img/logo.jpg" class = "avatar"/><br><br>
+
       
       <form>
           <p id = "perdoruesi">Perdoruesi:</p>
           <input type = "text" autofocus value ="<?php if(isset($_POST['username'])){echo $_POST['username'];}?>" class = "emri" name = "username" id = "username"  placeholder = "Shkruani P&euml;rdoruesin" onkeydown = "if (event.keyCode == 13)
-                                  document.getElementById('btnSearch').click()" oninvalid="this.setCustomValidity('Ju lutem shenoni perdoruesin'); document.getElementById('perdoruesi').style.color='#FA3B4B'" oninput="this.setCustomValidity(''); document.getElementById('perdoruesi').style.color='black'" required>
+                                  document.getElementById('btnLogin').click()" oninvalid="this.setCustomValidity('Ju lutem shenoni perdoruesin'); document.getElementById('perdoruesi').style.color='#FA3B4B'" oninput="this.setCustomValidity(''); document.getElementById('perdoruesi').style.color='black'" required>
           <p id = "fjalekalimi">Fjalekalimi:</p>
           <input type = "password" name = "password" id = "password" placeholder = "Shkruani Fjal&euml;kalimin" onkeydown = "if (event.keyCode == 13)
-          document.getElementById('btnSearch').click()" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required />
-          <input type = "submit" id = "btnSearch" name="login_user" value = "&Ccedil;asja">
+          document.getElementById('btnLogin').click()" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required />
+          <input type = "submit" id = "btnLogin" name="login_user" value = "&Ccedil;asja">
        
 <div class="custom-control custom-checkbox">
     <input type="checkbox" class="custom-control-input" id="defaultUnchecked" onchange="document.getElementById('password').type = this.checked ? 'text' : 'password'">
@@ -76,10 +94,17 @@ var characters = textbox.value.split('');
         <div class = "account" style = "margin-top: 10px;">
         Nuk keni llogari? <a href= "create-account.php">Regjistrohu</a>
       </div>
+     
      <?php include('errors.php'); ?>
 
         </form>
 </div>
 <br><br>
+     <script type="text/javascript">
+  var cw = $('.avatar-user').width();
+$('.avatar-user').css({
+    'height': cw + 'px'
+});
+</script>
 </body>
 </html>
