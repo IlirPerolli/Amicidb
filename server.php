@@ -300,13 +300,20 @@ unlink($myFile);
 		$results1 = mysqli_query($db, $sql4);
         $row = $results1->fetch_assoc();
        	$photo = $row['userphotos'];
-        
+        //Fshij Foton
         if (($photo != "defaultfemale.png") && ($photo != "defaultmale.png")) {
      $phototobedeleted = "user-photos/$photo";
     unlink($phototobedeleted); 
 }
-
-
+		//Fshij Replyat
+		 $sql5 = "SELECT * FROM userposts WHERE username = '$username'";
+    $results = mysqli_query($db, $sql5);
+        while(($row = $results->fetch_assoc()) !== null){
+          $id = $row['id'];
+          $sql = "DELETE from userposts where replyingto='$id'";
+      mysqli_query($db, $sql);
+        }
+        //Fshij perdoruesin, postimet dhe filet
 		$sql = "DELETE FROM users WHERE username = '$username'";
 		mysqli_query($db, $sql);
 		$sql1 = "DELETE FROM userposts WHERE username = '$username'";

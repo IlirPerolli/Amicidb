@@ -61,7 +61,7 @@ include("config.php");
             $results = mysqli_query($db, $sql4);
             $row = $results->fetch_assoc();
             $username = $row['username'];
-
+            //Fshij Filet
             $sql3 = "SELECT * FROM userfiles WHERE username = '$username'";
     $results = mysqli_query($db, $sql3);
         while(($row = $results->fetch_assoc()) !== null){
@@ -69,6 +69,7 @@ include("config.php");
           $myFile = "user-files/$file";
 unlink($myFile); 
         }
+        //Fshij replyt
          $sql5 = "SELECT * FROM userposts WHERE username = '$username'";
     $results = mysqli_query($db, $sql5);
         while(($row = $results->fetch_assoc()) !== null){
@@ -76,17 +77,18 @@ unlink($myFile);
           $sql = "DELETE from userposts where replyingto='$id'";
       mysqli_query($db, $sql);
         }
+
          $sql6 = "SELECT * FROM users WHERE username = '$username'";
     $results1 = mysqli_query($db, $sql6);
         $row = $results1->fetch_assoc();
         $photo = $row['userphotos'];
-        
+        //Fshij foton
     if (($photo != "defaultfemale.png") && ($photo != "defaultmale.png")) {
      $phototobedeleted = "user-photos/$photo";
     unlink($phototobedeleted); 
 }
         
-
+    //Fshij perdoruesin, postimet dhe filet
     $sql = "DELETE FROM users WHERE username = '$username'";
     mysqli_query($db, $sql);
     $sql1 = "DELETE FROM userposts WHERE username = '$username'";
