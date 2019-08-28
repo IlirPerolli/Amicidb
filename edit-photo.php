@@ -222,6 +222,7 @@ background: #e9e9e9;
 #loading{
   display: none;
   margin:auto;
+    margin-bottom: 20px;
 }
 </style>
 </head>
