@@ -24,10 +24,11 @@ background:white;
 margin-left:10px;
 margin-right:10px;
 margin-top:20px;
-
+border: 1.5px solid black;
 /*transition:transform.3s;*/
 transition: all .2s ease-in-out; 
 overflow: hidden;
+border-radius: 30px;
 }
 .download-container:hover{
 	
