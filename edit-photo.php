@@ -45,7 +45,7 @@ if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
 } //Mos u submit nese bohet refresh faqja
 </script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 	 <link rel="icon" type="image/png" href="people.png" />
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
   
@@ -219,6 +219,10 @@ h1{
 #fshi:hover{
 background: #e9e9e9;
 }
+#loading{
+  display: none;
+  margin:auto;
+}
 </style>
 </head>
 <body>
@@ -330,7 +334,11 @@ $('.avatar').css({
     <input type="file" name="fileToUpload" id="fileToUpload">
 
 
- <input type="submit" name="submit-photo" value="Ndrysho">
+
+ <input type="submit" name="submit-photo" id="btnPhoto" value="Ndrysho">
+   <div class="spinner-border" role="status" id = "loading" style="width: 4rem; height: 4rem;">
+    <span class="sr-only">Loading...</span>
+  </div>
   <?php include('errors.php'); ?>
      </form>
 
@@ -338,5 +346,14 @@ $('.avatar').css({
 
 </div>
 <br>
+<script type="text/javascript">
+ $(document).ready(function() {
+    $("#btnPhoto").click(function() {
+  $('#loading').show();
+  $('#btnPhoto').hide();
+
+    });
+});
+</script>
 </body>
 </html>
