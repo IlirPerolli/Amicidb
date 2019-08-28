@@ -1,103 +1,85 @@
 <html>
 <head>
   <title> Gabim! </title>
-  <meta http-equiv="refresh" content="10;url=http://amici.byethost8.com/index.php"/>
+  <meta http-equiv="refresh" content="5;url=http://amici.byethost8.com/index.php"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
      <link rel="icon" type="image/png" href="people.png" />
   <meta name="theme-color" content="#2f476d">
   <meta name="msapplication-navbutton-color" content="#2f476d">
   <meta name="apple-mobile-web-app-status-bar-style" content="#2f476d">
   <style>
-
-  @media screen and (max-width:950px){
-    img{
-    width:120px;
-display: inline-block !important;
-margin-top: 0px !important;
-    }
-    .teksti{
-      font-size: 100px !important;
-    }
-    .butoni{
-      width: 100% !important;
-      padding: 0 !important;
-      margin:0 !important;
-    }
-  }
-.teksti{
-  font-family: 'Segoe UI',SegoeUI,'Segoe WP',Tahoma,Arial,sans-serif;
-  color: #7A7A6F;
-  font-weight: 600;
-  font-size: 350px;
-  margin:0;
-  display: inline-block;
-  vertical-align:middle;
+    @font-face {
+  font-family: 'SamsungSharpSans-Bold';
+  src: url('converted-files/SamsungSharpSans-Bold.eot');
+  src: url('converted-files/SamsungSharpSans-Bold.woff2') format('woff2'),
+       url('converted-files/SamsungSharpSans-Bold.woff') format('woff'),
+       url('converted-files/SamsungSharpSans-Bold.ttf') format('truetype'),
+       url('converted-files/SamsungSharpSans-Bold.svg#SamsungSharpSans-Bold') format('svg'),
+       url('converted-files/SamsungSharpSans-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
 }
-.error-message{
-  text-align:center;
+body{
+  margin:0;
+  padding: 0;
 
 }
-.page{
-  font-family: 'Segoe UI',SegoeUI,'Segoe WP',Tahoma,Arial,sans-serif;
-  color: #7A7A6F;
-  font-weight: 100;
-  font-size: 35px;
-  margin:0;
-  text-align:center;
+.wallpaper{
+  
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+  background: url("http://amici.epizy.com/img/2673268.jpg")  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+overflow: hidden;
+cursor: pointer;
+
+}
+.wallpaper-mob{
+  display: none;
+}
+.ridirektimi{
+  display: none;}
+  @media screen and (max-width:640px){
+.wallpaper{
+  display: none;
+}
+.wallpaper-mob{
+  display: block;
+ 
+  width: 100% !important;
+
+}
+.avatar{
+  width: 100% !important;
+  height: auto !important;
 }
 .redirektimi{
-  font-family: 'Segoe UI',SegoeUI,'Segoe WP',Tahoma,Arial,sans-serif;
-  color: #7A7A6F;
-  font-weight: 100;
-  font-size: 30px;
-  margin:0;
-  text-align:center;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: block;
+  font-size: 20px;
+  font-family:SamsungSharpSans-Bold;
+  text-align: center;
 }
-.butoni {
+  }
 
-    width: 250px; /* Set the width of the sidebar */
-
-    z-index: 1; /* Stay on top */
-
-    background-color: #2f476d; /* Black */
-    overflow-x: hidden; /* Disable horizontal scroll */
-margin:auto;
-border-radius: 5px;
-}
-
-.butoni a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: white;
-    display: block;
-    font-family: 'Segoe UI',SegoeUI,'Segoe WP',Tahoma,Arial,sans-serif;
-    font-weight: 100;
-    margin:0;
-    text-align:center;
-}
-.butoni:hover{
-  background: #3B598A;
-}
   </style>
 </head>
 <body>
-  <div class = "error-message">
-  <div class = "teksti"> 4 </div>
-   <img style='vertical-align:middle; display:inline-block; margin-top: 50px;' src = "http://amici.byethost8.com/img/moon_PNG46.png" width="320px">
-<div class = "teksti"> 4 </div></div>
-<div class = "page">
-Faqja qe po kerkonit eshte nderruar ose nuk ekziston </div>
-<br><br>
-<div class="butoni">
-  <a href="http://amici.byethost8.com/index.php">Kthehu ne Kryefaqe</a>
+  <div class = "wallpaper" onclick="redirect()" title="Ridirektohu ne kryefaqe">
 
-</div>
-<div class = "redirektimi">
-<p> Do te ridirektoheni ne kryefaqe per <span id="countdowntimer">10 </span> Sekonda</p>
-</div>
+  </div>
+  <div class = "wallpaper-mob" onclick="redirect()">
+    <img src = "http://amici.epizy.com/img/2673268.jpg" class = "avatar"/>
+  </div>
+
 <script type="text/javascript">
-    var timeleft = 10;
+    var timeleft = 5;
     var redirectTimer = setInterval(function(){
     timeleft--;
     document.getElementById("countdowntimer").textContent = timeleft;
@@ -105,7 +87,15 @@ Faqja qe po kerkonit eshte nderruar ose nuk ekziston </div>
         clearInterval(redirectTimer);
     },1000);
 </script>
+<div class = "redirektimi">
+<p> Do te ridirektoheni ne kryefaqe per <span id="countdowntimer">5 </span> Sekonda</p>
+</div>
 
 
+<script type="text/javascript">
+function redirect(){
+ window.location.href = "http://amici.byethost8.com/index.php";
+  }
+</script>
 </body>
 </html>
