@@ -59,7 +59,7 @@ if ( window.history.replaceState ) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
  <link rel="icon" type="image/png" href="people.png" />
@@ -149,7 +149,7 @@ if ( window.history.replaceState ) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-  <br><br><br><br><br><br>
+  <br><br><br><br><br><span class = "br-mob"><br></span>
   <div style = "text-align:center">
 
 
@@ -165,7 +165,7 @@ if ( window.history.replaceState ) {
 
   </div>
     <div class="input-group-prepend">
-    <button class="btn btn-outline-secondary" name = "files" type="submit">Ngarko</button>
+    <button class="btn btn-outline-secondary" name = "files" id="btnFiles" type="submit">Ngarko</button>
   </div>
 </div>
 </form>
@@ -174,10 +174,14 @@ if ( window.history.replaceState ) {
   <div class = "file-container">
   <div class = "fajli"><input type='file' id="aa" value="Browse" name="file" onchange="pressed()"><label id="fileLabel">Zgjedh nje Dokument (Max: 8MB)</label></div>
 
-<input type="submit" name="files" value="Ngarko">
+<input type="submit" name="files" id="btnFiles1" value="Ngarko">
 </div>
 </form>
 
+
+  <div class="spinner-border" role="status" id = "loading" style="width: 4rem; height: 4rem;">
+    <span class="sr-only">Loading...</span>
+  </div>
 
 <script>
 
@@ -189,7 +193,7 @@ $(".custom-file-input").on("change", function() {
  <?php 
 
  include('errors.php');
- echo '<br>';
+
  $vitiakademik = $_SESSION['vitiakademik'];
  $query = "SELECT * FROM userfiles WHERE academicyear='$vitiakademik' ORDER BY id DESC ";
             $results = mysqli_query($db, $query);
@@ -401,5 +405,24 @@ $('.download-photo').css({
 </script>
 
 
+<script type="text/javascript">
+ $(document).ready(function() {
+    $("#btnFiles").click(function() {
+      $(this).html(
+        `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Duke ngarkuar...`
+      );
+  //$('#loading').show();
+
+    });
+});
+</script>
+<script type="text/javascript">
+ $(document).ready(function() {
+    $("#btnFiles1").click(function() {
+  $('#loading').show();
+
+    });
+});
+</script>
 </body>
 </html>
