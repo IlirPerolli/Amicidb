@@ -406,7 +406,8 @@ if (($_SESSION['username']) == $row['username']){
                         echo '</div>';
                         
                         echo '<div class = "pershkrimi" style = "text-align:left; ">';
-                        echo $row['Comments'];
+                        echo htmlspecialchars($row['Comments']);
+
 
                           //Ndrysho komentin
                          if (($_SESSION['username']) == $row['username']){
@@ -501,7 +502,7 @@ echo'</div>';
                         echo '</div>';
                         
                         echo '<div class = "pershkrimi" style = "text-align:left; margin-left:85px; margin-right:120px;">';
-                        echo $row1['Comments'];
+                        echo htmlspecialchars($row1['Comments']);
                         
                           //Ndrysho komentin
                          if (($_SESSION['username']) == $row1['username']){
@@ -681,7 +682,7 @@ echo'</div>';
                         echo '</div>';
                         
                         echo '<div class = "pershkrimi" style = "text-align:left; ">';
-                        echo $row3['Comments'];
+                        echo htmlspecialchars($row3['Comments']);
 
                         //Ndrysho komentin
                          if (($_SESSION['username']) == $row3['username']){
@@ -775,7 +776,7 @@ echo'</div>';
                         echo '</div>';
                         
                         echo '<div class = "pershkrimi" style = "text-align:left; margin-left:85px; margin-right:120px;">';
-                        echo $row['Comments'];
+                        echo htmlspecialchars($row['Comments']);
 
                         //Ndrysho komentin
                          if (($_SESSION['username']) == $row['username']){
