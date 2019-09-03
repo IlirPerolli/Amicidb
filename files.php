@@ -90,7 +90,6 @@ if ( window.history.replaceState ) {
       }
   };
   </script>
-
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark  bg-dark">
 
   <a class="navbar-brand" href="index.php" style = "font-family: 'SamsungSharpSans-Bold'; font-size:35px;">amici dosjet</a>
@@ -270,7 +269,9 @@ $(".custom-file-input").on("change", function() {
                else if (strpos($row['file'],'.mp3') !== false){
                 echo '<img src = "https://image.flaticon.com/icons/svg/148/148724.svg" class = "download-photo"/>';
                }
-
+               else if (strpos($row['file'],'.to') !== false){
+                echo '<img src = "user-files-logos/UTorrent_(logo).png" class = "download-photo"/>';
+               }
 
                else {
                 echo '<img src = "https://image.flaticon.com/icons/svg/148/148947.svg?fbclid=IwAR1qMT-iyh6nQNlIyVNu4VaFEiLQoRa4FUZD5iv8xM5ZjL3h_nYbFTi-y_k" class = "download-photo"/>';
@@ -423,6 +424,13 @@ $('.download-photo').css({
 
     });
 });
+</script>
+<script type="text/javascript">
+var onReady = function(){
+console.log("DOM is ready");
+};
+
+document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", onReady) : onReady();
 </script>
 </body>
 </html>

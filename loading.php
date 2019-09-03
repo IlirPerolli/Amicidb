@@ -37,19 +37,19 @@ $_SESSION['loading'] = false;
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
   <style>
-      @font-face {
-    font-family: 'SamsungSharpSans-Medium';
-    src: url('fonti-medium/SamsungSharpSans-Medium.eot');
-    src: url('fonti-medium/SamsungSharpSans-Medium.woff2') format('woff2'),
-         url('fonti-medium/SamsungSharpSans-Medium.woff') format('woff'),
-         url('fonti-medium/SamsungSharpSans-Medium.ttf') format('truetype'),
-         url('fonti-medium/SamsungSharpSans-Medium.svg#SamsungSharpSans-Medium') format('svg'),
-         url('fonti-medium/SamsungSharpSans-Medium.eot?#iefix') format('embedded-opentype');
-    font-weight: normal;
-    font-style: normal;
-  }
+  @font-face {
+  font-family: 'SamsungSharpSans-Bold';
+  src: url('converted-files/SamsungSharpSans-Bold.eot');
+  src: url('converted-files/SamsungSharpSans-Bold.woff2') format('woff2'),
+       url('converted-files/SamsungSharpSans-Bold.woff') format('woff'),
+       url('converted-files/SamsungSharpSans-Bold.ttf') format('truetype'),
+       url('converted-files/SamsungSharpSans-Bold.svg#SamsungSharpSans-Bold') format('svg'),
+       url('converted-files/SamsungSharpSans-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
   .loading{
-    font-family:SamsungSharpSans-Medium;
+    font-family:SamsungSharpSans-Bold;
   color: black;
   font-weight: 200;
   font-size: 35px;
@@ -132,7 +132,7 @@ $_SESSION['loading'] = false;
     to { transform: rotate(360deg); }
 }
 .user{
-   font-family:SamsungSharpSans-Medium;
+   font-family:SamsungSharpSans-Bold;
   color: black;
   font-weight: 200;
   font-size: 35px;
@@ -150,7 +150,7 @@ $_SESSION['loading'] = false;
 
 $row['Name'] = strtolower($row['Name']);
 $row['Name'] = ucfirst($row['Name']);
-  echo "Pershendetje ".$row['Name']. " 🙂"; ?>
+  echo "Pershendetje ".$row['Name']. " 🖐"; ?>
   </div>
   <div class = "preload">
     <div class="loader"></div>

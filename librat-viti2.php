@@ -53,6 +53,7 @@
 }
 </style>
 <body>
+
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark  bg-dark">
 
   <a class="navbar-brand" href="index.php" style = "font-family: 'SamsungSharpSans-Bold'; font-size:35px;">amici libraria</a>
