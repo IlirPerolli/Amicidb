@@ -144,7 +144,12 @@ if ( window.history.replaceState ) {
       
 
     }
+
   .speech img { width: 40px }
+  .btn-light{
+    background: transparent;
+    border-color: transparent;
+  }
 </style>
 
 
@@ -297,7 +302,7 @@ header("Location:group.php");
     
     else {
        $edited_comment = $_POST['edited-comment'];
-     $query = "UPDATE userposts SET Comments = '$edited_comment' WHERE id='$number'";
+     $query = "UPDATE userposts SET Comments = '$edited_comment', edited=1 WHERE id='$number'";
                                     mysqli_query($db, $query);
                     header("Location:group.php");
   }
@@ -362,10 +367,14 @@ $row['Name'] = strtolower($row['Name']);
                          $row['Surname'] = strtolower($row['Surname']);
                          $row['Name'] = ucfirst($row['Name']);
                          $row['Surname'] = ucfirst($row['Surname']);
-                        echo '<div class = "posts">'; 
-                                echo' <div class = "datetime">';
-echo $row['date'] . " " . $row['time'];
-echo'</div>';
+                         echo '<div class = "posts">'; 
+                         echo' <div class = "datetime">';
+                         echo $row['date'] . " | " . $row['time'];
+                         if ($row['edited'] == 1){
+                         echo' <span style = "color: #9E9E9E"> (E ndryshuar) </span> ';
+                         }
+                         echo'</div>';
+
 if (($_SESSION['username']) == $row['username']){
                           
                          //  echo '<a href = "group.php?remove-comment='. $row3['id'].'"><img src = "1282956.png" class = "remove-comment" title = "Fshij Komentin"> </a>';
@@ -406,14 +415,16 @@ if (($_SESSION['username']) == $row['username']){
                         echo '</div>';
                         
                         echo '<div class = "pershkrimi" style = "text-align:left; ">';
+                        //Paraqit komentin si tekst e jo si kod te html
                         echo htmlspecialchars($row['Comments']);
 
 
                           //Ndrysho komentin
                          if (($_SESSION['username']) == $row['username']){
                           echo '<form action="#" method="post" style = "display:inline-block">
-                       <button name="edit-comment" title = "Ndrysho Komentin" type="submit" value="'. $row['id'].'" class = "edit-comment">
-                            &#9998; Ndrysho </button>
+                         
+                       <button name="edit-comment" title = "Ndrysho" type="submit" class="btn btn-light" value="'. $row['id'].'" class = "edit-comment" style = "margin-left:10px;">
+                            <img src = "img/edit.png" style = "width:20px"/> </button>
 
                              </form>';
                              if (isset($_POST['edit-comment'])){
@@ -457,10 +468,14 @@ if (($_SESSION['username']) == $row['username']){
                          $row1['Surname'] = strtolower($row1['Surname']);
                          $row1['Name'] = ucfirst($row1['Name']);
                          $row1['Surname'] = ucfirst($row1['Surname']);
-                          echo '<div class = "posts" style = "background:#E7E8EA; margin-top:20px !important;">'; 
-                                 echo' <div class = "datetime">';
-echo $row1['date'] . " " . $row1['time'];
-echo'</div>';
+                         echo '<div class = "posts" style = "background:#E7E8EA; margin-top:20px !important;">'; 
+                         echo' <div class = "datetime">';
+                         echo $row1['date'] . " | " . $row1['time'];
+                         if ($row1['edited'] == 1){
+                         echo' <span style = "color: #9E9E9E"> (E ndryshuar) </span> ';
+                         }
+                         echo'</div>';
+
                          if (($_SESSION['username']) == $row1['username']){
                           
                          //  echo '<a href = "group.php?remove-comment='. $row3['id'].'"><img src = "1282956.png" class = "remove-comment" title = "Fshij Komentin"> </a>';
@@ -502,13 +517,14 @@ echo'</div>';
                         echo '</div>';
                         
                         echo '<div class = "pershkrimi" style = "text-align:left; margin-left:85px; margin-right:120px;">';
+                        //Paraqit komentin si tekst e jo si kod te html
                         echo htmlspecialchars($row1['Comments']);
                         
                           //Ndrysho komentin
                          if (($_SESSION['username']) == $row1['username']){
                           echo '<form action="#" method="post" style = "display:inline-block">
-                       <button name="edit-comment" title = "Ndrysho Komentin" type="submit" value="'. $row1['id'].'" class = "edit-comment">
-                            &#9998; Ndrysho </button>
+                       <button name="edit-comment" title = "Ndrysho" type="submit" class="btn btn-light" value="'. $row1['id'].'" class = "edit-comment" style = "margin-left:10px;">
+                            <img src = "img/edit.png" style = "width:20px"/> </button>
 
                              </form>';
                              if (isset($_POST['edit-comment'])){
@@ -636,10 +652,14 @@ echo'<div class="dropdown-divider"></div>';
                          $row3['Surname'] = strtolower($row3['Surname']);
                          $row3['Name'] = ucfirst($row3['Name']);
                          $row3['Surname'] = ucfirst($row3['Surname']);
-                        echo '<div class = "posts">'; 
-                                echo' <div class = "datetime">';
-echo $row3['date'] . " " . $row3['time'];
-echo'</div>';
+                         echo '<div class = "posts">'; 
+                         echo' <div class = "datetime">';
+                         echo $row3['date'] . " | " . $row3['time'];
+                         if ($row3['edited'] == 1){
+                         echo' <span style = "color: #9E9E9E"> (E ndryshuar) </span> ';
+                         }
+                         echo'</div>';
+
                          if (($_SESSION['username']) == $row3['username']){
                           
                          //  echo '<a href = "group.php?remove-comment='. $row3['id'].'"><img src = "1282956.png" class = "remove-comment" title = "Fshij Komentin"> </a>';
@@ -682,13 +702,14 @@ echo'</div>';
                         echo '</div>';
                         
                         echo '<div class = "pershkrimi" style = "text-align:left; ">';
+                        //Paraqit komentin si tekst e jo si kod te html
                         echo htmlspecialchars($row3['Comments']);
 
                         //Ndrysho komentin
                          if (($_SESSION['username']) == $row3['username']){
                           echo '<form action="#" method="post" style = "display:inline-block">
-                       <button name="edit-comment" title = "Ndrysho Komentin" type="submit" value="'. $row3['id'].'" class = "edit-comment">
-                            &#9998; Ndrysho </button>
+                       <button name="edit-comment" title = "Ndrysho" type="submit" class="btn btn-light" value="'. $row3['id'].'" class = "edit-comment" style = "margin-left:10px;">
+                            <img src = "img/edit.png" style = "width:20px"/> </button>
 
                              </form>';
                              if (isset($_POST['edit-comment'])){
@@ -732,9 +753,13 @@ while(($row = $results->fetch_assoc()) !== null){
                          $row['Name'] = ucfirst($row['Name']);
                          $row['Surname'] = ucfirst($row['Surname']);
                          echo '<div class = "posts" style = "background:#E7E8EA; margin-top:20px !important;">'; 
-                                echo' <div class = "datetime">';
-echo $row['date'] . " " . $row['time'];
-echo'</div>';
+                         echo' <div class = "datetime">';
+                         echo $row['date'] . " | " . $row['time'];
+                         if ($row['edited'] == 1){
+                         echo' <span style = "color: #9E9E9E"> (E ndryshuar) </span> ';
+                         }
+                         echo'</div>';
+
                          if (($_SESSION['username']) == $row['username']){
                           
                          //  echo '<a href = "group.php?remove-comment='. $row3['id'].'"><img src = "1282956.png" class = "remove-comment" title = "Fshij Komentin"> </a>';
@@ -776,13 +801,14 @@ echo'</div>';
                         echo '</div>';
                         
                         echo '<div class = "pershkrimi" style = "text-align:left; margin-left:85px; margin-right:120px;">';
+                        //Paraqit komentin si tekst e jo si kod te html
                         echo htmlspecialchars($row['Comments']);
 
                         //Ndrysho komentin
                          if (($_SESSION['username']) == $row['username']){
                           echo '<form action="#" method="post" style = "display:inline-block">
-                       <button name="edit-comment" title = "Ndrysho Komentin" type="submit" value="'. $row['id'].'" class= "edit-comment">
-                            &#9998; Ndrysho </button>
+                       <button name="edit-comment" title = "Ndrysho" type="submit" class="btn btn-light" value="'. $row['id'].'" class = "edit-comment" style = "margin-left:10px;">
+                            <img src = "img/edit.png" style = "width:20px"/> </button>
 
                              </form>';
                              if (isset($_POST['edit-comment'])){
