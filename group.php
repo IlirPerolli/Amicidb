@@ -896,7 +896,10 @@ die();
 
                         
                         }
-                        echo'<div id ="postimet">Asnje postim nuk u gjet </div>';
+                        echo'<div id ="postimet">
+                        Asnje postim nuk u gjet <br>
+                        <img src = "img/flat-person-sleeping-bed_23-2148146864-removebg-preview.png"/>
+                        </div>';
 echo'<button type="button" class = "expand" id = "expand" onClick="tregoteparat()">Trego 3 te parat</button>';
 echo'<button type="button" class = "expand" id = "expand" onClick="tregotegjitha()">Trego te gjitha</button>';
 echo'<br><br>';

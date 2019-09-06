@@ -5,7 +5,7 @@
 
 
     if (!isset($_SESSION['hapja']) || $_SESSION['hapja'] == false) {
-        header("Location: login.php");
+     header("Location: login.php");
     }
     else {
     header('Refresh: 120; URL=main.php');
@@ -32,6 +32,9 @@
          url('converted-files/SamsungSharpSans-Bold.eot?#iefix') format('embedded-opentype');
     font-weight: normal;
     font-style: normal;
+  }
+  body{
+    background: #F3F5F8;
   }
     @media screen and (max-width:1300px){
       .foto{
@@ -89,6 +92,7 @@
     word-break: keep-all;
      color: #333333;
     text-align: center;
+      word-break: break-word !important;
   }
   .permbledhje h3{
     font-family: 'SamsungSharpSans-Bold';
@@ -105,6 +109,7 @@
     word-break: keep-all;
      color: #333333;
     text-align: center;
+      word-break: break-word !important;
   }
   .foto{
     display: inline-block;
@@ -146,18 +151,16 @@
 <body>
    <div class = "main" style = "text-align:center; margin-top:25vh;">
       <div class = "foto">
-        <img src = "img/37159.jpg"/>
+        <img src = "https://dweb.si/wp-content/uploads/2018/07/rocket.gif?fbclid=IwAR0PapVRZy0IxYGA4Nry8jH6UH98VRE8tuZpMuC0tGv69ukeAySMQ6Jqaek"/>
       </div>
       <div class = "permbledhje">
         <h2> Urime! </h2>
-        <h3> Ju krijuat nje amici llogari!</h3>
+        <h3> Ju krijuat nje amici llogari.</h3>
         <br>
-        <h3 style="font-size:16px"><i>*Do ju njoftojme permes emaili-t kur te behet llogaria aktive</i><h3>
+        <h3 style="font-size:16px"><i>*Do ju njoftojme permes emaili-t kur te behet llogaria aktive.</i><h3>
         <br>
       </div>
-      <div class = "foto">
-        <img src = "img/40275.jpg"/>
-      </div>
+    
       <br><br><br><br>
       <div class="butoni">
         <a href="main.php">Kryefaqja</a>

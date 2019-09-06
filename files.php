@@ -200,7 +200,7 @@ $(".custom-file-input").on("change", function() {
            
             if (mysqli_num_rows($results) == 0 ){
               echo "<br>";
-              echo "<p style = 'color:red'> Nuk u gjet asnje dokument </p>";
+              echo "<p style = 'color:#343a40;'> Nuk u gjet asnje dokument </p>";
               
             }
                while(($row = $results->fetch_assoc()) !== null){ 

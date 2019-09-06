@@ -240,6 +240,13 @@ margin-right: 30px !important;
 
     }
   }
+  @media screen and (max-width: 300px){
+    #postimet img{
+      width: 100% !important;
+     margin-top: -15px !important;
+
+    }
+  }
   body,html{
     margin:0;
     padding: 0;
@@ -359,11 +366,15 @@ float:left;
 margin-top:-35px;
 }
 #postimet{
-  color:red;
+  color:#343a40;
   font-size: 25px;
   display:none;
   margin-top: 40px;
   margin-bottom: 40px;
+}
+#postimet img{
+  width: 300px;
+  margin-top: -50px;
 }
 .verifikim-i-aprovuar{
   width: 170px;
@@ -683,7 +694,12 @@ echo'<br>';
 <?php 
 
 ?>
-<div id ="postimet">Nuk ka anetare te ri :( </div>
+<div id ="postimet">
+<p> Nuk ka anetare te ri 😥</p> 
+<img src = "img/emptybox.png"/>
+
+
+</div>
 
 <br><br>
 </div>
