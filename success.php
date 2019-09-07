@@ -62,6 +62,7 @@
       width: 98% !important;
       padding: 0 !important;
       margin:0 !important;
+      margin-bottom: 50px !important;
     }
     .foto{
       width: 100% !important;
@@ -161,7 +162,7 @@
         <br>
       </div>
     
-      <br><br><br><br>
+      <br>
       <div class="butoni">
         <a href="main.php">Kryefaqja</a>
       </div>
