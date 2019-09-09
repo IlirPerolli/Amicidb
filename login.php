@@ -80,7 +80,7 @@ var characters = textbox.value.split('');
       
       <form>
           <p id = "perdoruesi">Perdoruesi:</p>
-          <input type = "text" autofocus value ="<?php if(isset($_POST['username'])){echo $_POST['username'];}?>" class = "emri" name = "username" id = "username"  placeholder = "Shkruani P&euml;rdoruesin" onkeydown = "if (event.keyCode == 13)
+          <input type = "text" value ="<?php if(isset($_POST['username'])){echo $_POST['username'];}?>" class = "emri" name = "username" id = "username"  placeholder = "Shkruani P&euml;rdoruesin" onkeydown = "if (event.keyCode == 13)
                                   document.getElementById('btnLogin').click()" oninvalid="this.setCustomValidity('Ju lutem shenoni perdoruesin'); document.getElementById('perdoruesi').style.color='#FA3B4B'" oninput="this.setCustomValidity(''); document.getElementById('perdoruesi').style.color='black'" required>
           <p id = "fjalekalimi">Fjalekalimi:</p>
           <input type = "password" name = "password" id = "password" placeholder = "Shkruani Fjal&euml;kalimin" onkeydown = "if (event.keyCode == 13)

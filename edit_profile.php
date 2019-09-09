@@ -174,15 +174,31 @@ margin: 0 auto;
 .contact-form input[type="text"],
 .contact-form input[type="password"],.contact-form input[type="email"],.contact-form input[type="number"]
 {
-    border: none;
-    border-bottom: 1px solid black;
-    background: transparent;
+  border: 1px solid grey;
+    padding-left: 8px; 
+    padding-right: 8px;
+    background-color: #ffffff !important;
     outline: none;
-    height: 40px;
-    color: black;
-    font-size: 16px;
-    border-radius: 0px;
+    height: 48px;
+    color: #454545;
+    font-size: 17px;
+    border-radius: 4px;
+    border: 1px solid #EBEBEB;
 
+
+}
+
+.contact-form input[type="text"]:focus{
+   border: 1px solid rgb(0, 132, 137);
+}
+.contact-form input[type="password"]:focus{
+   border: 1px solid rgb(0, 132, 137);
+}
+.contact-form input[type="number"]:focus{
+   border: 1px solid rgb(0, 132, 137);
+}
+.contact-form input[type="email"]:focus{
+  border: 1px solid rgb(0, 132, 137);
 }
 .contact-form input[type="submit"] {
     height: 50px;
