@@ -17,8 +17,7 @@ if ($_FILES["fileToUpload"]["size"] > 8000000) { //8MB
     array_push($errors, "Kjo foto eshte e madhe");
 }
 
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
     array_push($errors, "Gabim. Vetem filet jpg, png dhe jpeg lejohen");
 }
 if (strpos($target_file,'Snapchat') !== false) {

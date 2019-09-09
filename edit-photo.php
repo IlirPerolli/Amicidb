@@ -333,7 +333,7 @@ $('.avatar').css({
   </div>
 </div>
  <p style = "font-size: 20px; margin-bottom: 5px"> Zgjedh foto: </p>
-    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="file" accept="image/*, image/heic, image/heif" name="fileToUpload" id="fileToUpload">
 
 
 

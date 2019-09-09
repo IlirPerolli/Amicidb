@@ -206,21 +206,20 @@ else
 
 
   <div class = "categories">
-  <a href = "users.php"> <img src = "https://image.freepik.com/free-vector/people-avatars-community-group_24908-29265.jpg" class = "categories-photo"/></a>
+  <a href = "users.php"> <img src = "img/people-avatars-community-group_24908-29265.jpg" class = "categories-photo"/></a>
   <div class = "category-name">
   <a href="users.php" > Perdoruesit </a>
   </div>
   </div>
 
   <div class = "categories">
-   <a href = "suspended-users.php"><img src = "https://image.freepik.com/free-vector/hands-approving-denying_1133-104.jpg" class = "categories-photo"/></a>
+   <a href = "suspended-users.php"><img src = "img/boss-confuses-choose-check-mark-cross-mark-approval-rejection_8073-282.jpg" class = "categories-photo"/></a>
   <div class = "category-name">
   <a href="suspended-users.php" > Suspendimet </a>
   </div>
   </div>
-<!--https://image.freepik.com/free-vector/crossing-out-concept-flat-vector-illustration_1995-285.jpg-->
   <div class = "categories">
-  <a href = "books.php"> <img src = "https://image.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg" class = "categories-photo"/></a>
+  <a href = "books.php"> <img src = "img/books-stack-realistic_1284-4735.jpg" class = "categories-photo"/></a>
   <div class = "category-name">
   <a href="books.php" > Librat </a>
   </div>

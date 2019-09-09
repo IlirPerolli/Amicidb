@@ -210,15 +210,21 @@ margin: 0 auto;
 }
 .contact-form input[type="text"]
 {
-    border: none;
-    border-bottom: 1px solid black;
-    background: transparent;
+    border: 1px solid grey;
+    padding-left: 8px; 
+    padding-right: 8px;
+    background-color: #ffffff !important;
     outline: none;
-    height: 40px;
-    color: black;
-    font-size: 16px;
-    font-family: 'SamsungSharpSans-Bold';
+    height: 48px;
+    color: #454545;
+    font-size: 17px;
+    border-radius: 4px;
+    border: 1px solid #EBEBEB;
+     font-family: 'SamsungSharpSans-Bold';
 
+}
+.contact-form input[type="text"]:focus{
+   border: 1px solid rgb(0, 132, 137);
 }
 input[type="file"]{
   font-family: 'SamsungSharpSans-Bold';
@@ -372,7 +378,7 @@ $('.avatar').css({
     <p>Emri i Librit</p>
  <input name="emri" autofocus value ="<?php if(isset($_POST['emri'])){echo $_POST['emri'];}?>" type="text" placeholder = "Shkruani Emrin e Librit " />
      <p>Linku i Librit</p>
- <input name="linku" autofocus value ="<?php if(isset($_POST['linku'])){echo $_POST['linku'];}?>" type="text" placeholder = "Shkruani Linkun e Librit " />
+ <input name="linku" value ="<?php if(isset($_POST['linku'])){echo $_POST['linku'];}?>" type="text" placeholder = "Shkruani Linkun e Librit " />
 
   <p>Viti Akademik</p>
     <select name="viti">
