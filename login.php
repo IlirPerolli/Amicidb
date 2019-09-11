@@ -24,7 +24,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
 <title> &Ccedil;asja - amici llogaria </title>
+<style type="text/css">
+  .contact-form input[type="text"],
+.contact-form input[type="password"]
+{
+    border: 1px solid grey;
+    padding-left: 8px; 
+    padding-right: 8px;
+    background-color: #ffffff;
+    outline: none;
+    height: 48px;
+    color: #454545;
+    font-size: 17px;
+    border-radius: 4px;
+    border: 1px solid #EBEBEB;
 
+}.contact-form input[type="text"]:focus{
+   border: 1px solid rgb(0, 132, 137);
+}
+.contact-form input[type="password"]:focus{
+   border: 1px solid rgb(0, 132, 137);
+}
+</style>
 </head>
 
 <body>
@@ -34,25 +55,49 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+<script type="text/javascript">
+    function InvalidUsername(textbox) {
+var characters = textbox.value.split('');
+    if (textbox.value == '') {
+        textbox.setCustomValidity('Ju lutem shenoni perdoruesin');
+         document.getElementById("perdoruesi").style.color="#de071c";
+        document.getElementById("username").setAttribute('style', 'border:1px solid #de071c !important');
+    document.getElementById("username").style.backgroundColor = "#fef0f0";
+        }
+    else {
+       textbox.setCustomValidity('');
+        document.getElementById("perdoruesi").style.color="black";
+        document.getElementById("username").style.border = "1px solid #EBEBEB";
+        document.getElementById("username").style.backgroundColor = "#ffffff";
+    }
+    return true;
+}
+</script>
   <script type="text/javascript">
-  
-  function InvalidMsg(textbox) {
+  function InvalidPassword(textbox) {
 var characters = textbox.value.split('');
   if (characters.length<8 && characters.length!=0){
       textbox.setCustomValidity('Ju lutem shenoni 8 e me shume karaktere');
        document.getElementById("fjalekalimi").style.color="black";
+       document.getElementById("password").style.border = "1px solid #EBEBEB";
+        document.getElementById("password").style.backgroundColor = "#ffffff";
   }
-    
     else if (textbox.value == '') {
         textbox.setCustomValidity('Ju lutem shenoni fjalekalimin');
-         document.getElementById("fjalekalimi").style.color="#FA3B4B";
-    }
+         document.getElementById("fjalekalimi").style.color="#de071c";
+        
+        document.getElementById("password").setAttribute('style', 'border:1px solid #de071c !important');
+    document.getElementById("password").style.backgroundColor = "#fef0f0";
+        }
     else {
        textbox.setCustomValidity('');
         document.getElementById("fjalekalimi").style.color="black";
+        document.getElementById("password").style.border = "1px solid #EBEBEB";
+        document.getElementById("password").style.backgroundColor = "#ffffff";
     }
     return true;
 }
+
 </script>
   <div class = "titulli"><span style = "color:black"> amici  </span><span style = "  color:#9E9E9E;" >&ccedil;asja </span></div>
   <div class="contact-form">
@@ -78,13 +123,13 @@ var characters = textbox.value.split('');
 <!-- <img src = "img/avatar.jpg" class = "avatar"/><br><br> -->
 
       
-      <form>
+  
           <p id = "perdoruesi">Perdoruesi:</p>
           <input type = "text" value ="<?php if(isset($_POST['username'])){echo $_POST['username'];}?>" class = "emri" name = "username" id = "username"  placeholder = "Shkruani P&euml;rdoruesin" onkeydown = "if (event.keyCode == 13)
-                                  document.getElementById('btnLogin').click()" oninvalid="this.setCustomValidity('Ju lutem shenoni perdoruesin'); document.getElementById('perdoruesi').style.color='#FA3B4B'" oninput="this.setCustomValidity(''); document.getElementById('perdoruesi').style.color='black'" required>
+                                  document.getElementById('btnLogin').click()" oninvalid="InvalidUsername(this);" oninput="InvalidUsername(this);" required>
           <p id = "fjalekalimi">Fjalekalimi:</p>
           <input type = "password" name = "password" id = "password" placeholder = "Shkruani Fjal&euml;kalimin" onkeydown = "if (event.keyCode == 13)
-          document.getElementById('btnLogin').click()" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required />
+          document.getElementById('btnLogin').click()" oninvalid="InvalidPassword(this);" oninput="InvalidPassword(this);" required />
           <input type = "submit" id = "btnLogin" name="login_user" value = "&Ccedil;asja">
        
 <div class="custom-control custom-checkbox">

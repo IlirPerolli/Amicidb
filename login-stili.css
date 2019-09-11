@@ -122,7 +122,7 @@ margin: 0 auto;
     border: 1px solid grey;
     padding-left: 8px; 
     padding-right: 8px;
-    background-color: #ffffff !important;
+    background-color: #ffffff;
     outline: none;
     height: 48px;
     color: #454545;
@@ -132,10 +132,10 @@ margin: 0 auto;
 
 }
 .contact-form input[type="text"]:focus{
-   border: 1px solid rgb(0, 132, 137);
+   border: 1px solid rgb(0, 132, 137) !important;
 }
 .contact-form input[type="password"]:focus{
-   border: 1px solid rgb(0, 132, 137);
+   border: 1px solid rgb(0, 132, 137) !important;
 }
 .contact-form input[type="submit"] {
     height: 50px;
