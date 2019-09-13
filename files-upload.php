@@ -60,6 +60,8 @@ $query = "INSERT INTO userfiles (username, Name, Surname, file, academicyear, da
       mysqli_query($db, $query);
 $query1= "UPDATE users SET notification_uploads = notification_uploads + 1 WHERE academicyear = '$vitiakademik'";
       mysqli_query($db, $query1);
+      header("Location:files.php");
+      
 
 }}
 
