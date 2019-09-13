@@ -35,7 +35,7 @@ array_push($errors, "Ekziston nje dokument tjeter me emer te njejte");
 }
 
 
-if ($_FILES['file']['size'] > 8000000) { //8MB
+if ($_FILES['file']['size'] > 20000000) { //20MB
    array_push($errors, "Dokumenti ka nje madhesi te madhe");
 }
 if (strpos($filename,'Snapchat') !== false) {

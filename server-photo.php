@@ -13,7 +13,7 @@ if (file_exists($target_file)) {
 array_push($errors, "Ekziston nje foto tjeter me emer te njejte");
 
 }
-if ($_FILES["fileToUpload"]["size"] > 8000000) { //8MB
+if ($_FILES["fileToUpload"]["size"] > 20000000) { //20MB
     array_push($errors, "Kjo foto eshte e madhe");
 }
 

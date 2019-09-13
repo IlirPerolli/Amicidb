@@ -399,7 +399,7 @@ $('.avatar').css({
           <div class = "name">
 <span style = "color:black"><?php echo $row['Name'] ?> </span><span style = "  color:#9E9E9E;" ><?php echo $row['Surname'] ?></span>
 </div>
- <i style ="font-size:13px;"> Anetare qe nga: <?php echo $row['joined'];?> </i>
+<i style="font-size:15px" class="fa">&#xf073;</i><i style ="font-size:13px;"> Anetare qe nga: <?php echo $row['joined'];?> </i>
 </div>
     </div>
     <div class = "info" style = "padding-top: 28px;" id = "info">
