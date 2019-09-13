@@ -12,6 +12,11 @@
 <html>
 
 <head>
+      <script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+} //Mos u submit nese bohet refresh faqja
+</script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
  <link rel="icon" type="image/png" href="people.png" />
 <meta name="description" content="Amici Llogaria, vendi per te biseduar dhe per te shkembyer dokumente me njeri tjetrin" />
