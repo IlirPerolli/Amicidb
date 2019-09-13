@@ -10,6 +10,12 @@
      include("check-vitiakademik.php");
 
 ?>
+<?php 
+ if (isset($_GET['fileerror'])){
+   array_push($errors, "Kjo foto eshte e madhe");
+
+ }
+?>
 <?php
 
 include("config.php");
@@ -335,7 +341,16 @@ $('.avatar').css({
  <p style = "font-size: 20px; margin-bottom: 5px"> Zgjedh foto: </p>
     <input type="file" accept="image/*, image/heic, image/heif" name="fileToUpload" id="fileToUpload">
 
+  <script type="text/javascript">
+    $('#fileToUpload').on('change', function() {
+ var numb = $(this)[0].files[0].size/1024/1024;
+numb = numb.toFixed(2);
+if(numb > 10){
+window.location.href = "edit-photo.php?fileerror";
+}
+        });
 
+  </script>
 
  <input type="submit" name="submit-photo" id="btnPhoto" value="Ndrysho">
    <div class="spinner-border" role="status" id = "loading" style="width: 4rem; height: 4rem;">

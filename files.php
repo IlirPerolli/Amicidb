@@ -13,6 +13,12 @@ $query= "UPDATE users SET notification_uploads = '0' WHERE username = '$username
       mysqli_query($db, $query);
 
 ?>
+<?php 
+ if (isset($_GET['fileerror'])){
+   array_push($errors, "Dokumenti ka nje madhesi te madhe");
+
+ }
+?>
 <?php
   if (isset($_GET['remove-file'])){
    
@@ -160,9 +166,10 @@ if ( window.history.replaceState ) {
 
   <div class="custom-file">
     <input type="file" class="custom-file-input" value="Browse" name="file" id="inputGroupFile03">
-    <label class="custom-file-label" for="inputGroupFile03">Zgjedh nje Dokument (Max: 8MB)</label>
+    <label class="custom-file-label" for="inputGroupFile03">Zgjedh nje Dokument (Max: 10MB)</label>
 
   </div>
+
     <div class="input-group-prepend">
     <button class="btn btn-outline-secondary" name = "files" id="btnFiles" type="submit">Ngarko</button>
   </div>
@@ -171,12 +178,33 @@ if ( window.history.replaceState ) {
 
 <form method="POST" enctype="multipart/form-data" action="#" class = "forma-default">
   <div class = "file-container">
-  <div class = "fajli"><input type='file' id="aa" value="Browse" name="file" onchange="pressed()"><label id="fileLabel">Zgjedh nje Dokument (Max: 8MB)</label></div>
+  <div class = "fajli"><input type='file' id="aa" value="Browse" name="file" onchange="pressed()"><label id="fileLabel">Zgjedh nje Dokument (Max: 10MB)</label></div>
 
 <input type="submit" name="files" id="btnFiles1" value="Ngarko">
 </div>
 </form>
+  <!-- Ridirekto nese file e kalon madhesine e caktuar -->
 
+    <script type="text/javascript">
+    $('#inputGroupFile03').on('change', function() {
+ var numb = $(this)[0].files[0].size/1024/1024;
+numb = numb.toFixed(2);
+if(numb > 10){
+window.location.href = "files.php?fileerror";
+}
+        });
+
+  </script>
+     <script type="text/javascript">
+    $('#aa').on('change', function() {
+ var numb = $(this)[0].files[0].size/1024/1024;
+numb = numb.toFixed(2);
+if(numb > 10){
+window.location.href = "files.php?fileerror";
+}
+        });
+
+  </script>
 
   <div class="spinner-border" role="status" id = "loading" style="width: 4rem; height: 4rem;">
     <span class="sr-only">Loading...</span>
