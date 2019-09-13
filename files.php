@@ -297,9 +297,13 @@ $(".custom-file-input").on("change", function() {
                else if (strpos($row['file'],'.mp3') !== false){
                 echo '<img src = "https://image.flaticon.com/icons/svg/148/148724.svg" class = "download-photo"/>';
                }
+               else if (strpos($row['file'],'.mp4') !== false){
+                echo '<img src = "user-files-logos/mp4.png" class = "download-photo"/>';
+               }
                else if (strpos($row['file'],'.to') !== false){
                 echo '<img src = "user-files-logos/UTorrent_(logo).png" class = "download-photo"/>';
                }
+
 
                else {
                 echo '<img src = "https://image.flaticon.com/icons/svg/148/148947.svg?fbclid=IwAR1qMT-iyh6nQNlIyVNu4VaFEiLQoRa4FUZD5iv8xM5ZjL3h_nYbFTi-y_k" class = "download-photo"/>';
@@ -350,8 +354,8 @@ echo '<h5 class="modal-title" id="exampleModalCenterTitle">Rreth Dokumentit</h5>
       echo '<form action="#" method="post" id = "download-form">';
        echo ' <button type="button" class="btn btn-secondary" data-dismiss="modal">Mbyll </button>';
 
-      if (strpos($row['file'],'.jpg') !== false || strpos($row['file'],'.JPG') !== false || strpos($row['file'],'.JPEG') !== false || strpos($row['file'],'.jpeg') !== false || strpos($row['file'],'.png') !== false || strpos($row['file'],'.PNG') !== false || strpos($row['file'],'.pdf') !== false || strpos($row['file'],'.txt') !== false || strpos($row['file'],'.mp3') !== false ) {
-        if (strpos($row['file'],'.mp3') !== false){
+      if (strpos($row['file'],'.jpg') !== false || strpos($row['file'],'.JPG') !== false || strpos($row['file'],'.JPEG') !== false || strpos($row['file'],'.jpeg') !== false || strpos($row['file'],'.png') !== false || strpos($row['file'],'.PNG') !== false || strpos($row['file'],'.pdf') !== false || strpos($row['file'],'.txt') !== false || strpos($row['file'],'.mp3') !== false || strpos($row['file'],'.mp4') !== false) {
+        if (strpos($row['file'],'.mp3') !== false || strpos($row['file'],'.mp4') !== false){
            echo '<a href="user-files/'.$row['file'].'" target="_blank" class="btn btn-warning" title="Luaje pa e shkarkuar" id = "view-button">Luaje</a>';
         }
         else{
