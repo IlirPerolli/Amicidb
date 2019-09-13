@@ -341,6 +341,7 @@ $('.avatar').css({
  <p style = "font-size: 20px; margin-bottom: 5px"> Zgjedh foto: </p>
     <input type="file" accept="image/*, image/heic, image/heif" name="fileToUpload" id="fileToUpload">
 
+  <!-- Ridirekto nese file e kalon madhesine e caktuar -->
   <script type="text/javascript">
     $('#fileToUpload').on('change', function() {
  var numb = $(this)[0].files[0].size/1024/1024;
