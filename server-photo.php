@@ -88,6 +88,7 @@ unlink($myFile) or die(Header("Location:edit-photo.php"));
                 mysqli_query($db, $sql);
                 $sql1 = "UPDATE userposts SET photo='defaultfemale.png' WHERE username='$username'";
                 mysqli_query($db, $sql1);
+                header("Location:edit-photo.php");
 }
 
 else if ($row['gender'] == 1){
@@ -95,6 +96,7 @@ else if ($row['gender'] == 1){
                 mysqli_query($db, $sql);
                 $sql1 = "UPDATE userposts SET photo='defaultmale.png' WHERE username='$username'";
                 mysqli_query($db, $sql1);
+                 header("Location:edit-photo.php");
 }
 
 }
