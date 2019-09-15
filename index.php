@@ -39,6 +39,7 @@ if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
 } //Mos u submit nese bohet refresh faqja
 </script>
+
 	<title> Kryefaqja </title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="people.png" />
@@ -53,6 +54,7 @@ if ( window.history.replaceState ) {
 <meta name="msapplication-navbutton-color" content="#2f476d">
 <meta name="apple-mobile-web-app-status-bar-style" content="#2f476d">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> <!-- Skripta per chart -->
 <script src="navi.js"></script>
 
 <style>
@@ -94,6 +96,8 @@ line-height: 7px;
 color:#cd1c07;
 cursor: pointer;
 }
+
+
 
 
 
@@ -256,7 +260,68 @@ document.getElementById("error-message").style.display = "none";
 
 </div>
 </div>
+ <?php
+     $querycheck = "SELECT * FROM users WHERE gender=0";
+      $results = mysqli_query($db, $querycheck);
+      $femra = mysqli_num_rows($results);
+      $querycheck1 = "SELECT * FROM users WHERE gender=1";
+      $results1 = mysqli_query($db, $querycheck1);
+      $meshkuj = mysqli_num_rows($results1);
+      $_SESSION['meshkuj'] = $meshkuj;
+      $_SESSION['femra'] = $femra;
+      $totali = $meshkuj + $femra;
+      $meshkujneperqindje = (100 * $meshkuj) / $totali;
+      $femraneperqindje = (100 * $femra) / $totali;
+      $_SESSION['meshkujneperqindje'] = $meshkujneperqindje;
+      $_SESSION['femraneperqindje'] = $femraneperqindje;
+  
 
+    ?>
+<div class = "charts-title">
+Statistikat
+</div>
+
+<div class = "charts" id = "puzzlechart">
+<img src="img/puzzle.png" class = "diagram-img"/>
+<div class = "description-charts">
+<?php echo 'Amici filloi punen ne gusht te vitit 2018.'; ?>
+</div>
+</div>
+
+<div class = "charts">
+<img src="img/diagram.png" class = "diagram-img"/>
+<div class = "description-charts">
+<?php echo 'Ne llogarine amici jane gjithsej ' . $totali . ' anetare.'; ?>
+</div>
+</div>
+
+<div class = "charts">
+  <canvas id="myChart"></canvas>
+<div class = "description-charts">
+<?php echo 'Nga te gjithe anetaret, '. $femraneperqindje.'% jane femra ndersa '. $meshkujneperqindje . '% jane meshkuj.';?>
+</div>
+</div>
+
+<script type="text/javascript">
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'doughnut',
+
+    // The data for our dataset
+    data: {
+        labels: ['Femra', 'Meshkuj'],
+        datasets: [{
+            backgroundColor: ['#9E9E9E','#343A40'],
+            borderColor:['#9E9E9E','#343A40'],
+           data: [ <?php echo $_SESSION['femra']; ?>, <?php echo $_SESSION['meshkuj'];?>]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+</script>
 <div class = "max-width">
   <div class = "per-ne-container">
   <div class = "per-ne">

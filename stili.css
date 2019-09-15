@@ -37,6 +37,27 @@ html{
 }}
 
 @media screen and (max-width:640px){
+  
+  .charts-title{
+    width: 100% !important;
+  
+    word-break: break-word !important;
+
+  }
+  .description-charts{
+ width: 90% !important;
+ word-break: break-word !important;
+
+}
+
+.charts{
+width: 99% !important;
+height: auto !important;
+margin-top: 50px !important;
+}
+#puzzlechart{
+  margin-top: 15px !important;
+}
     .slidingVertical{
     
     display: inline !important;
@@ -441,3 +462,36 @@ margin-left:-135px;
     100% { opacity: 0; }
 }
 
+
+ .charts{
+margin:auto;
+text-align: center;
+width:500px;
+height: 400px;
+display: inline-block;
+margin-top: 5px;
+padding:5px;
+word-break: break-word;
+overflow: auto;
+}
+.charts-title{
+  color:black;
+  font-size: 55px;
+  margin-top: 100px;
+  margin-bottom: 60px;
+  font-family: SamsungSharpSans-Bold;
+
+}
+.description-charts{
+  font-size: 20px;
+  font-family: SamsungSharpSans-Bold;
+  word-break: break-word;
+
+ margin:auto;
+  margin-top: 50px;
+}
+.diagram-img{
+  margin-top: 20px;
+  width: 46%;
+}
+}
