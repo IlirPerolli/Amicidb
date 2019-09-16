@@ -1,33 +1,26 @@
 <?php
-    // Starto sesionin
+    // Starto Sesionin
     ob_start();
-  
-       include("server.php");
+    session_start();
+    include("check-vitiakademik.php");
     // Shiko nese useri eshte i kyqur. Nese jo, ridirekto ne login
-  include("check-vitiakademik.php");
     include ("verify_user.php");
-   // if (($_SESSION['username']) != "ilirperolli") {
-     //   header("Location: index.php");
-    //}
-    if ((($_SESSION['username']) == "ilirperolli") || (($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K") ) {
+    if (!isset($_SESSION['vitiakademik']) || $_SESSION['vitiakademik'] == "1") {
+        header("Location: index.php");
+    }
+
+        if ((($_SESSION['username']) == "ilirperolli") || (($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K") ) {
         
     }
     else {
       header("Location: index.php");
       die();
     }
-    
 ?>
-<?php
-   // lidhu me databaze
-include("config.php");  
-
-?>
-
 <html>
 <head>
-  <title> amici admin </title>
-    <meta charset="utf-8">
+  <title> Mesime </title>
+     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -41,6 +34,7 @@ include("config.php");
   <link rel = "stylesheet" type = "text/css" href = "nav-stili.css"/>
   <meta name="apple-mobile-web-app-status-bar-style" content="#2f476d">
   <link rel = "stylesheet" type = "text/css" href = "stili.css">
+  <link rel = "stylesheet" type = "text/css" href = "librat-stili.css">
   <script src="navi.js"></script>
   <style>
   @font-face {
@@ -54,82 +48,59 @@ include("config.php");
     font-weight: normal;
     font-style: normal;
   }
-
   body,html{
     margin:0;
     padding: 0;
     font-family: 'SamsungSharpSans-Medium';
   }
-
-body {
-  background: rgb(243, 243, 243);
+  @media screen and (max-width: 400px){
+    #javet{
+  width: 99% !important;
+  margin:auto !important;
 }
-
-  @media screen and (max-width:640px){
-  .categories{
-  width:90% !important;
-  margin-left:0 !important;
+.card{
+  margin-left:0px !important; 
   margin-right:0px !important;
-}
-.categories img{
-  width:100% !important;
-}
-  .max-width{
+  }}
+   body{
+    margin: 0;
+    padding: 0;
 
-margin-top: 40px !important;
- }
+    background: rgb(243, 243, 243);
+}
 
-  }
+.card{
+	display: inline-block;
+	margin-left:5px;
+  margin-right:5px;
+	margin-bottom:5px;
+	margin-top:5px;
+  height: 450px;
+overflow: auto;}
+#javet{
+  width: 520px;
+  margin-bottom: 10px !important;
+    white-space: pre-wrap; /* CSS3 */    
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */    
+    white-space: -o-pre-wrap; /* Opera 7 */    
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
 
-.categories{
-width:350px;
-height:400px;
-display:inline-block;
-background:white;
-margin-left:10px;
-margin-right:10px;
-margin-top:20px;
-border: 1.5px solid black;
-/*transition:transform.3s;*/
-transition: all .2s ease-in-out; 
-overflow: hidden;
-border-radius: 30px;
+.course-title{
+  font-size: 30px;
+  font-family: SamsungSharpSans-Bold;
+  word-break: break-word !important;
 }
-.categories:hover{
-  
-  
--webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
-
+.card h5{
+  height: 50px;
 }
-.categories a{
-  text-decoration:none;
-  color:black;
-}
-.categories a:hover{
-  text-decoration:underline;
-}
-.category-name{
-  padding:20px;
-}
-.categories-photo{
-  width:350px;
-  height:320px;
-}
-  .max-width{
-margin:auto;
-text-align: center;
-max-width: 1300px;
-margin-top: 20px;
- }
-
-  </style>
-</head>
+</style>
 <body>
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark  bg-dark">
 
-  <a class="navbar-brand" href="index.php" style = "font-family: 'SamsungSharpSans-Bold'; font-size:35px;">amici admin</a>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark  bg-dark">
+
+  <a class="navbar-brand" href="index.php" style = "font-family: 'SamsungSharpSans-Bold'; font-size:35px;">amici mesimet</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -150,14 +121,19 @@ margin-top: 20px;
           <a class="dropdown-item" href="librat-viti3.php" id ="librat-viti3" style = "font-family: 'SamsungSharpSans-Bold'; font-size:17px;">Librat Viti III</a>
         </div>
       </li>
-      <a class="nav-link" href="files.php" style = "font-family: 'SamsungSharpSans-Bold'; font-size:20px;">Dosjet  <span id = "notification-counter-uploads"> <?php echo $_SESSION['notification_uploads'] ?> </span> <span class="sr-only">(current)</span></a>
-       <a class="nav-link" href="group.php" style = "font-family: 'SamsungSharpSans-Bold'; font-size:20px;">Grupi <span id = "notification-counter"> <?php echo $_SESSION['notification'] ?> </span> <span class="sr-only">(current)</span></a>
-       <a class="nav-link active" href="admin.php" style = "font-family: 'SamsungSharpSans-Bold'; font-size:20px;">Admin <span class="sr-only">(current)</span></a>
+     <a class="nav-link" href="files.php" style = "font-family: 'SamsungSharpSans-Bold'; font-size:20px;">Dosjet  <span id = "notification-counter-uploads"> <?php echo $_SESSION['notification_uploads'] ?> </span> <span class="sr-only">(current)</span></a>
+ <a class="nav-link" href="group.php" style = "font-family: 'SamsungSharpSans-Bold'; font-size:20px;">Grupi <span id="notification-counter"> <?php echo $_SESSION['notification'] ?> </span> <span class="sr-only">(current)</span></a>
+
+<a class="nav-link active" href="lessons.php" style = "font-family: 'SamsungSharpSans-Bold'; font-size:20px;">Mesimet   <span class="sr-only">(current)</span></a>
+
+
+
     </ul>
+
      <ul class="navbar-nav mx-3">
     <li class="nav-item dropdown">
-      <a class="navbar-brand dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "font-family: 'SamsungSharpSans-Bold'; font-size:17px;">
-          <?php
+       <a class="navbar-brand dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "font-family: 'SamsungSharpSans-Bold'; font-size:17px;">
+         <?php
           $username =$_SESSION['username'];
           $querycheck1 = "SELECT * FROM users WHERE username='$username'";
       $results1 = mysqli_query($db, $querycheck1);
@@ -166,14 +142,14 @@ margin-top: 20px;
         echo '<img src="user-photos/'.$row['userphotos'].'" width="30" height="30" style = "margin-top:-3px; border-radius:50%" class="d-inline-block align-top" alt="">';
     }
 
-          ?>  
+          ?> 
     <?php echo($_SESSION['emri']. " " . $_SESSION['mbiemri']);?>
-  </a>  
+  </a>
      <div class = "shkyqja" style = "margin-right: 150px;">
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
  <a class="dropdown-item" href="edit_profile.php" style = "font-family: 'SamsungSharpSans-Bold'; font-size:17px;">Edito Profilin</a>  
           <div class="dropdown-divider"></div>   
-       <a class="dropdown-item" href="logout.php" id = "logout" style = "font-family: 'SamsungSharpSans-Bold'; font-size:17px;">Shkyqu</a>
+        <a class="dropdown-item" href="logout.php" id = "logout" style = "font-family: 'SamsungSharpSans-Bold'; font-size:17px;">Shkyqu</a>
         </div></div>
       </li>
     </ul>
@@ -187,58 +163,48 @@ margin-top: 20px;
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   <br><br><br>
-  <script type="text/javascript">
-function searchfunction(){
-var i=document.getElementById("search");
-if(i.value=="")
-    {
-    document.getElementById("search-submit").disabled=true;
-    }
-else
-    document.getElementById("search-submit").disabled=false;}
+   <br><br><br>
+   <div style = "text-align:center; margin:auto;">
+  <div class = "max-width">
 
+  <?php 
+  $number = 0;
+for ($i = 1; $i <= 3; $i++) {
+   $titujt = array("Zhvillimi Praktik i Aplikacioneve të Bazuara në Web","Dizajnimi, Analizimi dhe Integrimi i bazës së të dhënave në web","Integrimi i produkteve softwerike të përshkallëzuara");
+    echo '<div class = "course-title"> '.$titujt[$i-1].' </div>';
+  echo "<br> <br>";
+for ($j = 1; $j <= 7; $j++) {
+    $number +=1;
+    $mesimet = array("HTML", "CSS", "JavaScript dhe jQuery", "Bootstrap", "Terminali","Github", "Hostimi i Web Aplikacioneve","Hyrje në baza të të dhënave","Dizajnimi i bazës së të dhënave","Zhvillimi i bazës së të dhënave","Hyrje në SQL","Funksionet në SQL","Hyrje në Python","Integrimi i bazës së të dhënave në web me Python", "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti");
 
-
-
-</script>
-  <div style = "text-align:center">
-    <div class = "max-width">
-
-
-  <div class = "categories">
-  <a href = "users.php"> <img src = "img/people-avatars-community-group_24908-29265.jpg" class = "categories-photo"/></a>
-  <div class = "category-name">
-  <a href="users.php" > Perdoruesit </a>
+  echo '<a class="btn btn-secondary" id="javet" data-toggle="collapse" href="#collapseExample'.$number.'" style ="margin-left:5px" role="button" aria-expanded="false" aria-controls="collapseExample"> Java '.$j.": ".$mesimet[$number-1].' </a>';
+echo '<div class="collapse" id="collapseExample'.$number.'">';
+  echo '<div class="card card-body">';
+  $querycheck = "SELECT * FROM kursori where course = $i and week = $j order by id asc";
+      $results = mysqli_query($db, $querycheck);
+      while(($row = $results->fetch_assoc()) !== null){ 
+echo'<div class="card"  style="width: 18rem;">';
+  echo '<a href = "'.$row['link'].'" target="_blank"> <img src = "'.$row['photo'] .'" class="card-img-top" alt="..."></a>';
+  echo '<div class="card-body">';
+     echo '<a href = "'.$row['link'].'" target="_blank"><h5 class="card-title" style = "text-align:left; text-decoration:none; color:black">'.$row['Name'].'</h5> </a>';
+  echo '<br>';
+   echo '<a href = "'.$row['link'].'" class="btn btn-primary" target="_blank">Shiko Videon </a>';
+  
+ echo '</div>';
+echo '</div>';
+ }
+  echo '</div>';
+echo '</div>';
+echo '<br>';
+}
+echo '<br><br>';
+}
+      ?>
   </div>
-  </div>
-
-  <div class = "categories">
-   <a href = "suspended-users.php"><img src = "img/boss-confuses-choose-check-mark-cross-mark-approval-rejection_8073-282.jpg" class = "categories-photo"/></a>
-  <div class = "category-name">
-  <a href="suspended-users.php" > Suspendimet </a>
-  </div>
-  </div>
-  <div class = "categories">
-  <a href = "books.php"> <img src = "img/books-stack-realistic_1284-4735.jpg" class = "categories-photo"/></a>
-  <div class = "category-name">
-  <a href="books.php" > Librat </a>
-  </div>
-  </div>
-  <div class = "categories">
-  <a href = "kursori.php"> <img src = "https://pbs.twimg.com/profile_images/902514399113613312/ERiSmvg8_400x400.jpg" class = "categories-photo"/></a>
-  <div class = "category-name">
-  <a href="books.php" > Kursori </a>
-  </div>
-  </div>
-
-
-
-
-
 </div>
-</div>
+  <br><br><br>
+<p>
 
-<br>
 
 </body>
 </html>

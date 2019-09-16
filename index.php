@@ -142,10 +142,16 @@ cursor: pointer;
      
 
         <a class="nav-link" href="group.php" style = "font-family: 'SamsungSharpSans-Bold'; font-size:20px;">Grupi <span id = "notification-counter"> <?php echo $_SESSION['notification'] ?> </span> <span class="sr-only">(current)</span></a>
+
+         <?php  if ((($_SESSION['username']) == "ilirperolli") || (($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K") ) {
+       echo' <a class="nav-link" href="lessons.php" style = "font-family: SamsungSharpSans-Bold; font-size:20px;">Mesimet   <span class="sr-only">(current)</span></a>';
+      }
+        ?>
      <?php  if ((($_SESSION['username']) == "ilirperolli") || (($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K") ) {
         
        echo' <a class="nav-link" href="admin.php" style = "font-family:SamsungSharpSans-Bold; font-size:20px;"> Admin </a>';
     }?>
+
     </ul>
     
      <ul class="navbar-nav mx-3">
@@ -272,10 +278,11 @@ document.getElementById("error-message").style.display = "none";
       $totali = $meshkuj + $femra;
       $meshkujneperqindje = (100 * $meshkuj) / $totali;
       $femraneperqindje = (100 * $femra) / $totali;
+      $meshkujneperqindje = substr($meshkujneperqindje, 0, 5);
+
       $_SESSION['meshkujneperqindje'] = $meshkujneperqindje;
       $_SESSION['femraneperqindje'] = $femraneperqindje;
   
-
     ?>
 <div class = "charts-title">
 Statistikat
@@ -298,27 +305,27 @@ Statistikat
 <div class = "charts">
   <canvas id="myChart"></canvas>
 <div class = "description-charts">
-<?php echo 'Nga te gjithe anetaret, '. $femraneperqindje.'% jane femra ndersa '. $meshkujneperqindje . '% jane meshkuj.';?>
+<?php echo 'Nga te gjithe anetaret, '. substr($femraneperqindje, 0,4).'% jane femra ndersa '. substr($meshkujneperqindje, 0,4) . '% jane meshkuj.';?>
 </div>
 </div>
 
 <script type="text/javascript">
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
-    // The type of chart we want to create
+   // Tipi i chartit
     type: 'doughnut',
 
-    // The data for our dataset
+   // Te dhenat e chartit
     data: {
         labels: ['Femra', 'Meshkuj'],
         datasets: [{
             backgroundColor: ['#9E9E9E','#343A40'],
-            borderColor:['#9E9E9E','#343A40'],
+            borderColor:['rgb(243, 243, 243)', 'rgb(243, 243, 243)'],
            data: [ <?php echo $_SESSION['femra']; ?>, <?php echo $_SESSION['meshkuj'];?>]
         }]
     },
 
-    // Configuration options go here
+    // Konfigurimi
     options: {}
 });
 </script>

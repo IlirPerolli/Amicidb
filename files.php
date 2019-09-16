@@ -190,7 +190,7 @@ if ( window.history.replaceState ) {
  var numb = $(this)[0].files[0].size/1024/1024;
 numb = numb.toFixed(2);
 
-else if(numb > 10){
+if(numb > 10){
 window.location.href = "files.php?fileerror";
 }
         });
