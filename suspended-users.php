@@ -88,13 +88,29 @@ unlink($myFile);
     unlink($phototobedeleted); 
 }
         
-    //Fshij perdoruesin, postimet dhe filet
+     //Fshij perdoruesin, postimet dhe filet dhe folderat
     $sql = "DELETE FROM users WHERE username = '$username'";
     mysqli_query($db, $sql);
     $sql1 = "DELETE FROM userposts WHERE username = '$username'";
     mysqli_query($db, $sql1);
     $sql2 = "DELETE FROM userfiles WHERE username = '$username'";
     mysqli_query($db, $sql2);
+    
+    //Fshij filet e ketij folderi nga anetaret e tjere
+        $sql8 = "SELECT * FROM folders WHERE username = '$username'";
+    $results = mysqli_query($db, $sql8);
+        while(($row = $results->fetch_assoc()) !== null){
+          $id_user = $row['id'];
+          $sql = "DELETE FROM folder_uploads WHERE id_folder = '$id_user'";
+    mysqli_query($db, $sql);
+        }
+        //
+        //Fshij filet e ketij folderi per usernamin
+        $sql7 = "DELETE FROM folder_uploads WHERE username = '$username'";
+    mysqli_query($db, $sql7);
+    //Fshij folderin
+    $sql6 = "DELETE FROM folders WHERE username = '$username'";
+    mysqli_query($db, $sql6);
 
             header("Location:suspended-users.php");
 

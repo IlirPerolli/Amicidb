@@ -8,13 +8,7 @@
     // Shiko nese useri eshte i kyqur. Nese jo, ridirekto ne login
     include ("verify_user.php");
 
-        if ((($_SESSION['username']) == "ilirperolli") || (($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K") ) {
-        
-    }
-    else {
-      header("Location: index.php");
-      die();
-    }
+
 ?>
 <?php
   if (isset($_GET['remove-folder'])){
@@ -112,6 +106,9 @@ else{
   margin-right:0px !important;
 }
 .folder img{
+  width:70% !important;
+}
+#kursori-img{
   width:100% !important;
 }
 .max-width{
@@ -415,13 +412,16 @@ var characters = textbox.value.split('');
 </div>';
 }
 else {
+  if ((($_SESSION['username']) == "ilirperolli") || (($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K") ) {
+        
+    
   echo ' <div class = "folder">
-  <a href = "kursori_selection.php"> <img src = "https://pbs.twimg.com/profile_images/902514399113613312/ERiSmvg8_400x400.jpg" class = "folder-photo" style = "width:300px;"/></a>
+  <a href = "kursori_selection.php"> <img src = "https://pbs.twimg.com/profile_images/902514399113613312/ERiSmvg8_400x400.jpg" class = "folder-photo" style = "width:300px;" id = "kursori-img"/></a>
   <div class = "folder-name">
   <a href="kursori_selection.php" > Kursori </a>
   </div>
   </div>';
-
+}
 
    $querycheck = "SELECT * FROM folders order by id asc";
       $results = mysqli_query($db, $querycheck);
