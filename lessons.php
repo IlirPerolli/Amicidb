@@ -34,19 +34,18 @@ else{
 
    }
      if (isset($_GET['remove-video'])){
-   
-     
 $number=$_GET['remove-video'];
 
  $query100 = "SELECT * FROM folder_uploads WHERE id='$number'";
                                     $results100 = mysqli_query($db, $query100);
                                     $row100 = $results100->fetch_assoc();
 if ($_SESSION['username'] == $row100['username']){
-
+            $id_folder = $row100['id_folder'];
             $sql = "DELETE from folder_uploads where id='$number'";
     
       mysqli_query($db, $sql);
-      header("Location:lessons.php");
+      header("Location:lessons.php?folder=".$id_folder);
+      //header("Location:lessons.php");
 
 }
 else{
