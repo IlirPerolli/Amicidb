@@ -111,6 +111,9 @@ else{
 #kursori-img{
   width:100% !important;
 }
+#video-img{
+  width:100% !important;
+}
 .max-width{
   margin-top: 50px !important;
 }
@@ -206,7 +209,7 @@ margin-top: 20px;
 }
 .folder-name h5{
   overflow: hidden;
-  height: 45px;
+  height: 50px;
   
 }
 
@@ -351,7 +354,7 @@ var characters = textbox.value.split('');
       $results = mysqli_query($db, $querycheck);
       while(($row = $results->fetch_assoc()) !== null){ 
  echo '<div class = "folder">';
- echo' <a href = "'.$row['link'].'" target = "_blank"> <img src = "'.$row['photo'].'" class = "folder-photo"/></a>';
+ echo' <a href = "'.$row['link'].'" target = "_blank"> <img src = "'.$row['photo'].'" class = "folder-photo" id = "video-img"/></a>';
  echo'<div class = "folder-name">';
   echo '<a href="'.$row['link'].'" target = "_blank" > <h5>'.$row['Name'].'</h5> </a>';
 
@@ -389,7 +392,7 @@ var characters = textbox.value.split('');
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Shto folder</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Shto Video</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
