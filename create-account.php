@@ -84,7 +84,7 @@
   <p id = "fjalekalimi1">Rishkruaj Fjalekalimin</p>
   <input name="password_2" id = "password"  value ="<?php if(isset($_POST['password_2'])){echo $_POST['password_2'];}?>" type="password" placeholder = "Shkruani Fjalekalimin"  oninvalid="this.setCustomValidity('Ju lutem rishkruani fjalekalimin'); document.getElementById('fjalekalimi1').style.color='#FA3B4B'"
     oninput="this.setCustomValidity(''); document.getElementById('fjalekalimi1').style.color='black'" required/>
-   <div class="g-recaptcha" data-sitekey="6LcyX4QUAAAAAPXKMM4rbtUPXZi1fWNPdshj1-rA"></div>
+   <!-- <div class="g-recaptcha" data-sitekey="6LcyX4QUAAAAAPXKMM4rbtUPXZi1fWNPdshj1-rA"></div>-->
 
       <input type="submit" name="reg_user" value="Dergo">
       <div class = "account">

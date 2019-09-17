@@ -104,6 +104,7 @@ padding-bottom: 5px !important;
 padding-top: 10px !important;
 padding-bottom:50px !important;
 word-break: break-word !important;
+overflow: hidden !important;
 }
   .subscribe{
     width:100% !important;

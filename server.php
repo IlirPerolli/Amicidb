@@ -67,7 +67,7 @@ include("config.php");
 		}
 			// regjistro perdoruesin nese nuk ka ndonje error ne forme
 			if (count($errors) == 0) {
-				if (isset($data->success) AND $data->success==true){ 
+		//	if (isset($data->success) AND $data->success==true){ 
 			
 		
 		//$password = md5($password_1);//enkripto passwordin para se te regjistrosh ne databaze
@@ -98,15 +98,15 @@ include("config.php");
 			$_SESSION['hapja'] = true;
 				
 			header('location: success.php');
-		}
-		else {
-		array_push($errors, "Ju lutem konfirmoni që nuk jeni 'robot' ");
-	}
+		//}
+	//	else {
+	//	array_push($errors, "Ju lutem konfirmoni që nuk jeni 'robot' ");
+	//}
 
 	}
-	else {
-		array_push($errors, "Ju lutem konfirmoni që nuk jeni 'robot' ");
-	}
+	//else {
+		//array_push($errors, "Ju lutem konfirmoni që nuk jeni 'robot' ");
+	//}
 	
 	
 	}

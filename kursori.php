@@ -82,6 +82,7 @@ body {
   width: 250px !important;
 }
   }
+
   @media screen and (max-width:400px){
 .avatar{
   width: 100% !important;
@@ -232,21 +233,15 @@ background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPS
 
 } 
 
+
 .card{
   display: inline-block;
   margin-left:5px;
   margin-right:5px;
   margin-bottom:5px;
   margin-top:5px;
-}
-.course-title{
-  font-size: 30px;
-  font-family: SamsungSharpSans-Bold;
-  word-break: break-word !important;
-}
-.card h5{
-  height: 50px;
-}
+  height: 450px;
+overflow: auto;}
 #javet{
   width: 520px;
   margin-bottom: 10px !important;
@@ -257,6 +252,15 @@ background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPS
     word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
+.course-title{
+  font-size: 30px;
+  font-family: SamsungSharpSans-Bold;
+  word-break: break-word !important;
+}
+
+.card h5{
+  height: 50px;
+}
  </style>
 
 </head>
@@ -357,8 +361,6 @@ $('.avatar').css({
  <input name="emri" autofocus value ="<?php if(isset($_POST['emri'])){echo $_POST['emri'];}?>" type="text" placeholder = "Shkruani Emrin e Mesimit " />
      <p>Linku i Mesimit</p>
  <input name="linku" value ="<?php if(isset($_POST['linku'])){echo $_POST['linku'];}?>" type="text" placeholder = "Shkruani Linkun e Mesimit" />
- <p>Thumbnail</p>
- <input name="photo" value ="<?php if(isset($_POST['photo'])){echo $_POST['photo'];}?>" type="text" placeholder = "Shkruani Linkun e Fotos" />
   <p>Kursi</p>
     <select name="course">
     <option value="-1">Zgjedh</option>
@@ -405,76 +407,27 @@ $('.avatar').css({
      </form>
 
 </div>
-
-
-
-
-
 <br><br>
-Kursi 1
-<br><br>
- <?php 
-$querycheck = "SELECT * FROM kursori where course = 1 order by id";
+  <?php 
+  $number = 0;
+for ($i = 1; $i <= 3; $i++) {
+   $titujt = array("Zhvillimi Praktik i Aplikacioneve të Bazuara në Web","Dizajnimi, Analizimi dhe Integrimi i bazës së të dhënave në web","Integrimi i produkteve softwerike të përshkallëzuara");
+    echo '<div class = "course-title"> '.$titujt[$i-1].' </div>';
+  echo "<br> <br>";
+for ($j = 1; $j <= 7; $j++) {
+    $number +=1;
+    $mesimet = array("HTML", "CSS", "JavaScript dhe jQuery", "Bootstrap", "Terminali","Github", "Hostimi i Web Aplikacioneve","Hyrje në baza të të dhënave","Dizajnimi i bazës së të dhënave","Zhvillimi i bazës së të dhënave","Hyrje në SQL","Funksionet në SQL","Hyrje në Python","Integrimi i bazës së të dhënave në web me Python", "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti");
+
+  echo '<a class="btn btn-secondary" id="javet" data-toggle="collapse" href="#collapseExample'.$number.'" style ="margin-left:5px" role="button" aria-expanded="false" aria-controls="collapseExample"> Java '.$j.": ".$mesimet[$number-1].' </a>';
+echo '<div class="collapse" id="collapseExample'.$number.'">';
+  echo '<div class="card card-body">';
+  $querycheck = "SELECT * FROM kursori where course = $i and week = $j order by id asc";
       $results = mysqli_query($db, $querycheck);
       while(($row = $results->fetch_assoc()) !== null){ 
-echo'<div class="card"  style="width: 18rem;">';
+echo'<div class="card" id="card"  style="width: 18rem;">';
   echo '<a href = "'.$row['link'].'" target="_blank"> <img src = "'.$row['photo'] .'" class="card-img-top" alt="..."></a>';
   echo '<div class="card-body">';
-
-  
-   
-
-     echo '<a href = "'.$row['link'].'" target="_blank"><h5 class="card-title" style = "text-align:left; text-decoration:none; color:black">'.$row['Name'].'</h5> </a>';
-  echo '<br>';
-   echo '<a href = "'.$row['link'].'" target="_blank" class="btn btn-primary">Shiko kete video  </a>';
-  echo "<br><br>";
-      echo '<a href = "?remove='.$row['id'].'"> (Fshij Kete Mesim)  </a>';
- echo '</div>';
-echo '</div>';
-
- }
-
-      ?>
-
-      <br><br>
-      Kursi 2
-<br><br>
-       <?php 
-$querycheck = "SELECT * FROM kursori WHERE course = 2 order by id";
-      $results = mysqli_query($db, $querycheck);
-      while(($row = $results->fetch_assoc()) !== null){ 
-echo'<div class="card"  style="width: 18rem;">';
-  echo '<a href = "'.$row['link'].'" target="_blank"> <img src = "'.$row['photo'] .'" class="card-img-top" alt="..."></a>';
-  echo '<div class="card-body">';
-
-  
-   
-
-     echo '<a href = "'.$row['link'].'" target="_blank"><h5 class="card-title" style = "text-align:left; text-decoration:none; color:black">'.$row['Name'].'</h5> </a>';
-  echo '<br>';
-   echo '<a href = "'.$row['link'].'" target="_blank" class="btn btn-primary">Shiko  </a>';
-  echo "<br><br>";
-      echo '<a href = "?remove='.$row['id'].'"> (Fshij Kete Mesim)  </a>';
- echo '</div>';
-echo '</div>';
-
- }
-
-      ?>
-            <br><br>
-      Kursi 3
-<br><br>
-       <?php 
-$querycheck = "SELECT * FROM kursori WHERE course = 3 order by id";
-      $results = mysqli_query($db, $querycheck);
-      while(($row = $results->fetch_assoc()) !== null){ 
-echo'<div class="card"  style="width: 18rem;">';
-  echo '<a href = "'.$row['link'].'" target="_blank"> <img src = "'.$row['photo'] .'" class="card-img-top" alt="..."></a>';
-  echo '<div class="card-body">';
-
-  
-   
-
+ 
      echo '<a href = "'.$row['link'].'" target="_blank"><h5 class="card-title" style = "text-align:left; text-decoration:none; color:black">'.$row['Name'].'</h5> </a>';
   echo '<br>';
    echo '<a href = "'.$row['link'].'" class="btn btn-primary" target="_blank">Shiko  </a>';
@@ -482,15 +435,24 @@ echo'<div class="card"  style="width: 18rem;">';
       echo '<a href = "?remove='.$row['id'].'"> (Fshij Kete Mesim)  </a>';
  echo '</div>';
 echo '</div>';
-
  }
-
+  echo '</div>';
+echo '</div>';
+echo '<br>';
+}
+echo '<br><br>';
+}
       ?>
+
+
+
 </div>
 </div>
 
 
 <br>
+  <div class = "max-width">
 
+  </div>
 </body>
 </html>
