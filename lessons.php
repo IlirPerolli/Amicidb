@@ -355,7 +355,21 @@ var characters = textbox.value.split('');
  echo '<div class = "folder">';
  echo' <a href = "'.$row['link'].'" target = "_blank"> <img src = "'.$row['photo'].'" class = "folder-photo" id = "video-img"/></a>';
  echo'<div class = "folder-name">';
-  echo '<a href="'.$row['link'].'" target = "_blank" > <h5>'.$row['Name'].'</h5> </a>';
+  echo '<a href="'.$row['link'].'" target = "_blank" title="'.$row['Name'].'"> ';
+if (strlen($row['Name']) > 37){
+                
+                $name = $row['Name'];
+                $name = substr($name, 0, 37);
+                $name = $name . " ...";
+              
+               echo' <h5>'.$name.'</h5>';
+               }
+               else {
+                echo '<h5> '.$row['Name'].'<h5>';
+               }
+
+
+  echo'</a>';
 
   if (($_SESSION['username']) == $row['username']){
         echo '<form action = "#" method="post">';
@@ -431,7 +445,24 @@ else {
  echo '<div class = "folder">';
  echo' <a href = "?folder='.$row['id'].'"> <img src = "'.$row['photo'].'" class = "folder-photo" style = "width:200px;"/></a>';
  echo'<div class = "folder-name">';
-  echo '<a href="?folder='.$row['id'].'" > <h5>'.$row['Name'].'</h5> </a>';
+  echo '<a href="?folder='.$row['id'].'" title="'.$row['Name'].'">';
+  if (strlen($row['Name']) > 37){
+                
+                $name = $row['Name'];
+                $name = substr($name, 0, 37);
+                $name = $name . " ...";
+              
+               echo' <h5>'.$name.'</h5>';
+               }
+               else {
+                echo '<h5> '.$row['Name'].'<h5>';
+               }
+
+
+  echo'</a>';
+
+
+
 
   if (($_SESSION['username']) == $row['username']){
         echo '<form action = "#" method="post">';
