@@ -12,6 +12,20 @@ $youtubeID = getYouTubeVideoId('https://youtu.be/Nz9mBTAGVis?t=131');
 $thumbURL = 'https://img.youtube.com/vi/' . $youtubeID . '/hqdefault.jpg';
 print_r($thumbURL);
 
+$url = "https://youtu.be/Nz9mBTAGVis?t=131";
+// Display Data 
+print_r(get_youtube($url));
+
+function get_youtube($url){
+
+    $youtube = "http://www.youtube.com/oembed?url=". $url ."&format=json";
+    $curl = curl_init($youtube);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    $return = curl_exec($curl);
+    curl_close($curl);
+    return json_decode($return, true);
+}
+
 function getYouTubeVideoId($pageVideUrl) {
     $link = $pageVideUrl;
     $video_id = explode("?v=", $link);

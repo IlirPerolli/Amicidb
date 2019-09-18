@@ -103,6 +103,7 @@ else{
   width:90% !important;
   margin-left:0 !important;
   margin-right:0px !important;
+  margin-top:30px !important;
 }
 .folder img{
   width:70% !important;
