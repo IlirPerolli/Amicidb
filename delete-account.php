@@ -336,7 +336,7 @@ text-decoration: none;
 
 <div style="text-align:center"/>
   <div class = "contact-form">
-    <form action="#" method="POST">
+    <form action="#" class = "deleteacc" method="POST">
       <?php
                         echo '<img src = "user-photos/'. $row['userphotos'] . '" class = "avatar"/>';
                          ?><br>
@@ -363,8 +363,11 @@ $('.avatar').css({
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        Me kete veprim ju do te fshini llogarine pergjithmone!
+      <div class="modal-body" style = "text-align: left">
+        Na vjen keq duke ju parë që ju shkoni!<br>
+        Me këtë veprim ju do të fshini llogarinë përgjithmonë!
+        <p style = "font-size: 20px;"><b>Ju lutemi vini re:</b></p>Fshirja e llogarisë tuaj dhe të dhënat personale janë të përhershme dhe nuk mund të zhbëhen. Amici nuk do të jetë në gjendje të rikuperojë llogarinë tuaj pasi të dhënat të janë fshirë. Gjithashtu me këtë veprim do të fshihen të gjitha në lidhje me ju duke përfshirë: postimet në grup dhe në dosje, folderat, videot, foto e profilit.
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"  style = "height:40px;">Mbyll</button>
@@ -381,5 +384,14 @@ $('.avatar').css({
 
 </div>
 <br>
+<script type="text/javascript">
+$('.deleteacc').keydown(function (e) {
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        $('#fshi-llogarine').click();
+        return false;
+    }
+});
+</script>
 </body>
 </html>
