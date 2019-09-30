@@ -455,6 +455,7 @@ $('.download-photo').css({
  $(document).ready(function() {
     $("#btnFiles1").click(function() {
   $('#loading').show();
+  $('#btnFiles1').hide();
 
     });
 });
