@@ -18,8 +18,8 @@ date_default_timezone_set("Europe/Tirane");
         $date = date("d/m/Y");
         $time = date("H:i");
 if (count($errors) == 0) {   
-  $query = "INSERT INTO folder_uploads (username, upload_name, Link, photo,date,time, id_folder, id_user) 
-					  VALUES('$username', '$emri', '$linku', '$photo','$date','$time', '$number','$id_user' )";
+  $query = "INSERT INTO folder_uploads (upload_name, Link, photo,date,time, id_folder, id_user) 
+					  VALUES('$emri', '$linku', '$photo','$date','$time', '$number','$id_user' )";
 			mysqli_query($db, $query);
 			header("Location:lessons.php?folder=".$number);
   }

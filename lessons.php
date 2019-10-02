@@ -35,8 +35,7 @@ else{
    }
      if (isset($_GET['remove-video'])){
 $number=$_GET['remove-video'];
-$query100 = "SELECT users.username FROM folder_uploads inner join users on folder_uploads.id_user = users.id WHERE folder_uploads.id='$number'";
- $query100 = "SELECT * FROM folder_uploads WHERE id='$number'";
+ $query100 = "SELECT users.username, folder_uploads.id_folder FROM folder_uploads inner join users on folder_uploads.id_user = users.id WHERE folder_uploads.id='$number'";
                                     $results100 = mysqli_query($db, $query100);
                                     $row100 = $results100->fetch_assoc();
 if ($_SESSION['username'] == $row100['username']){
