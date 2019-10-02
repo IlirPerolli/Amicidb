@@ -5,15 +5,21 @@ if (isset($_POST['upload-video'])){
     $emri = mysqli_real_escape_string($db, $_POST['emri']);
 	$linku = mysqli_real_escape_string($db, $_POST['linku']);
     $username = $_SESSION['username'];
+    $query = "SELECT * from users WHERE username = '$username'";
+    $results = mysqli_query($db,$query);
+    $row = $results->fetch_assoc();
+    $id_user = $row['id'];
 	$youtubeID = getYouTubeVideoId($linku);
 $photo = 'https://img.youtube.com/vi/' . $youtubeID . '/hqdefault.jpg';
 $number = $_GET['folder'];
   if (empty($linku)){array_push($errors, "Ju lutem shenoni linkun"); }
   
-
+date_default_timezone_set("Europe/Tirane");
+        $date = date("d/m/Y");
+        $time = date("H:i");
 if (count($errors) == 0) {   
-  $query = "INSERT INTO folder_uploads (username, Name, Link, photo, id_folder) 
-					  VALUES('$username', '$emri', '$linku', '$photo', '$number' )";
+  $query = "INSERT INTO folder_uploads (username, upload_name, Link, photo,date,time, id_folder, id_user) 
+					  VALUES('$username', '$emri', '$linku', '$photo','$date','$time', '$number','$id_user' )";
 			mysqli_query($db, $query);
 			header("Location:lessons.php?folder=".$number);
   }

@@ -16,7 +16,7 @@
      
 $number=$_GET['remove-folder'];
 
- $query100 = "SELECT * FROM folders WHERE id='$number'";
+ $query100 = "SELECT users.username FROM folders inner join users on folders.id_user = users.id WHERE folders.id='$number'";
                                     $results100 = mysqli_query($db, $query100);
                                     $row100 = $results100->fetch_assoc();
 if ($_SESSION['username'] == $row100['username']){
@@ -35,7 +35,7 @@ else{
    }
      if (isset($_GET['remove-video'])){
 $number=$_GET['remove-video'];
-
+$query100 = "SELECT users.username FROM folder_uploads inner join users on folder_uploads.id_user = users.id WHERE folder_uploads.id='$number'";
  $query100 = "SELECT * FROM folder_uploads WHERE id='$number'";
                                     $results100 = mysqli_query($db, $query100);
                                     $row100 = $results100->fetch_assoc();
@@ -97,13 +97,17 @@ else{
 
     background: rgb(243, 243, 243);
 }
+
+
   @media screen and (max-width:640px){
 
   .folder{
-  width:90% !important;
-  margin-left:0 !important;
-  margin-right:0px !important;
+  width:48% !important;
+  margin-left:1 !important;
+  margin-right:1px !important;
   margin-top:30px !important;
+  border-radius: 10px !important;
+  border: 1px solid black !important;
 }
 .folder img{
   width:70% !important;
@@ -127,10 +131,23 @@ input[type="text"]
   width:auto !important;
 }
 
+#more-info{
+  width: 20px !important;
+}}
+  @media screen and (max-width:400px){
+.modal-footer .btn{
+  margin-left: 0px !important;
+  width:100% !important;
+  margin-top: 5px !important;
 
-
-
-  }
+}}
+@media screen and (max-width:330px){
+.folder{
+width: 98% !important;
+margin-left: 0px !important;
+margin-right: 0px !important;
+border: 1px solid black !important;
+  }}
 .bubble{
     margin-top: 150px;
   text-align: center;
@@ -212,7 +229,13 @@ margin-top: 20px;
   height: 50px;
   
 }
-
+.modal-footer .btn{
+  margin-left: 3px;
+}
+#folder-form{
+  width: 100%;
+  text-align: right;
+}
 </style>
 <body>
 
@@ -350,37 +373,78 @@ var characters = textbox.value.split('');
       if (mysqli_num_rows($results) == 0){
         header("Location:lessons.php");
       }
-       $querycheck = "SELECT * FROM folder_uploads WHERE id_folder='$number' order by id asc";
+       $querycheck = "SELECT folder_uploads.id, users.Name, users.Surname, users.username, folder_uploads.upload_name, folder_uploads.link, folder_uploads.photo, folder_uploads.date, folder_uploads.time FROM folder_uploads inner join users on folder_uploads.id_user = users.id WHERE id_folder='$number' order by id asc";
       $results = mysqli_query($db, $querycheck);
       while(($row = $results->fetch_assoc()) !== null){ 
  echo '<div class = "folder">';
  echo' <a href = "'.$row['link'].'" target = "_blank"> <img src = "'.$row['photo'].'" class = "folder-photo" id = "video-img"/></a>';
  echo'<div class = "folder-name">';
-  echo '<a href="'.$row['link'].'" target = "_blank" title="'.$row['Name'].'"> ';
-if (strlen($row['Name']) > 37){
+
+  echo '<a href="'.$row['link'].'" target = "_blank" title="'.$row['upload_name'].'"> ';
+
+if (strlen($row['upload_name']) > 37){
                 
-                $name = $row['Name'];
+                $name = $row['upload_name'];
                 $name = substr($name, 0, 37);
                 $name = $name . " ...";
               
                echo' <h5>'.$name.'</h5>';
                }
                else {
-                echo '<h5> '.$row['Name'].'<h5>';
+                echo '<h5> '.$row['upload_name'].'<h5>';
                }
 
 
   echo'</a>';
+ echo '<button type="button" title = "Info" class="btn btn-light" data-toggle="modal" data-target="#modal_'.$row['id'].'" style = "display:inline-block">
+  <img src= "user-files-logos/more.png" style = "width:20px;" id = "more-info"/>
+</button>';
+//Modal Fade
+               echo '<div class="modal fade" id="modal_'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">';
+              echo '<div class="modal-dialog modal-dialog-centered" role="document">';
+echo '<div class="modal-content">';
+      echo '<div class="modal-header">';
+echo '<h5 class="modal-title" id="exampleModalCenterTitle">Rreth Videos</h5>';
+        echo '<button type="button" class="close" data-dismiss="modal" aria-label="Close">';
+          echo '<span aria-hidden="true">&times;</span>';
+        echo '</button>';
+      echo '</div>';
+      echo '<div class="modal-body" style = "text-align:left">';
+        echo 'Emri i videos: ' . $row['upload_name'];
+        echo '<br>';
+        echo 'Ngarkuesi: ' . $row['Name']." ".$row['Surname'];
+         echo '<br>';
+        echo 'Data: ' . $row['date'];
+        echo '<br>';
+        echo 'Ora: ' . $row['time'];
+      echo '</div>';
+      
 
-  if (($_SESSION['username']) == $row['username']){
-        echo '<form action = "#" method="post">';
-        echo '<button type="submit" name="delete-video"  class="btn btn-danger" id = "delete-button" value="'. $row['id'].'">Fshij Videon</button>';
-        echo '</form>';
-      } 
+
+
+
+      echo '<div class="modal-footer">';
+      echo '<form action="#" method="post" id = "folder-form">';
+       echo ' <button type="button" class="btn btn-secondary" data-dismiss="modal">Mbyll </button>';
+        
+
+        if (($_SESSION['username']) == $row['username']){
+
+        echo '<button type="submit" name="delete-video" class="btn btn-danger" id = "delete-button" value="'. $row['id'].'">Fshij</button>';
+       
+      }
+         echo '</form>';
+              echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    //
+
+ 
 
  if (isset($_POST['delete-video'])){
                                   $value = $_POST['delete-video'];
- $query100 = "SELECT * FROM folder_uploads WHERE id='$value'";
+     $query100 = "SELECT users.username FROM folder_uploads inner join users on folder_uploads.id_user = users.id WHERE folder_uploads.id='$value'";
                                     $results100 = mysqli_query($db, $query100);
                                        while(($row100 = $results100->fetch_assoc()) !== null){    
                                 
@@ -429,7 +493,7 @@ if (strlen($row['Name']) > 37){
 </div>';
 }
 else {
-  if ((($_SESSION['username']) == "ilirperolli") || (($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K") ) {
+  if (/*(($_SESSION['username']) == "ilirperolli") || */(($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K") || (($_SESSION['username']) == "nitaqerkezi") ) {
         
     
   echo ' <div class = "folder">
@@ -440,40 +504,75 @@ else {
   </div>';
 }
 
-   $querycheck = "SELECT * FROM folders order by id asc";
+   $querycheck = "SELECT users.Name, users.Surname, users.username, folders.id, folders.photo,folders.folder_name,folders.date,folders.time FROM folders inner join users on folders.id_user = users.id order by id asc";
       $results = mysqli_query($db, $querycheck);
       while(($row = $results->fetch_assoc()) !== null){ 
  echo '<div class = "folder">';
  echo' <a href = "?folder='.$row['id'].'"> <img src = "'.$row['photo'].'" class = "folder-photo" style = "width:200px;"/></a>';
  echo'<div class = "folder-name">';
-  echo '<a href="?folder='.$row['id'].'" title="'.$row['Name'].'">';
-  if (strlen($row['Name']) > 37){
+  echo '<a href="?folder='.$row['id'].'" title="'.$row['folder_name'].'">';
+  if (strlen($row['folder_name']) > 37){
                 
-                $name = $row['Name'];
+                $name = $row['folder_name'];
                 $name = substr($name, 0, 37);
                 $name = $name . " ...";
               
                echo' <h5>'.$name.'</h5>';
                }
                else {
-                echo '<h5> '.$row['Name'].'<h5>';
+                echo '<h5> '.$row['folder_name'].'<h5>';
                }
 
 
   echo'</a>';
 
+ echo '<button type="button" title = "Info" class="btn btn-light" data-toggle="modal" data-target="#modal_'.$row['id'].'">
+  <img src= "user-files-logos/more.png" style = "width:20px;" id = "more-info"/>
+</button>';
+//Modal Fade
+               echo '<div class="modal fade" id="modal_'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">';
+              echo '<div class="modal-dialog modal-dialog-centered" role="document">';
+echo '<div class="modal-content">';
+      echo '<div class="modal-header">';
+echo '<h5 class="modal-title" id="exampleModalCenterTitle">Rreth Folderit</h5>';
+        echo '<button type="button" class="close" data-dismiss="modal" aria-label="Close">';
+          echo '<span aria-hidden="true">&times;</span>';
+        echo '</button>';
+      echo '</div>';
+      echo '<div class="modal-body" style = "text-align:left">';
+        echo 'Emri i folderit: ' . $row['folder_name'];
+        echo '<br>';
+        echo 'Ngarkuesi: ' . $row['Name']." ". $row['Surname'];
+         echo '<br>';
+        echo 'Data: ' . $row['date'];
+        echo '<br>';
+        echo 'Ora: ' . $row['time'];
+      echo '</div>';
+      
 
 
 
-  if (($_SESSION['username']) == $row['username']){
-        echo '<form action = "#" method="post">';
-        echo '<button type="submit" name="delete-folder"  class="btn btn-danger" id = "delete-button" value="'. $row['id'].'">Fshij Folderin</button>';
-        echo '</form>';
-      } 
+
+      echo '<div class="modal-footer">';
+      echo '<form action="#" method="post" id = "folder-form">';
+       echo ' <button type="button" class="btn btn-secondary" data-dismiss="modal">Mbyll </button>';
+        
+
+        if (($_SESSION['username']) == $row['username']){
+
+        echo '<button type="submit" name="delete-folder" class="btn btn-danger" id = "delete-button" value="'. $row['id'].'">Fshij</button>';
+       
+      }
+         echo '</form>';
+              echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    //
 
  if (isset($_POST['delete-folder'])){
                                   $value = $_POST['delete-folder'];
- $query100 = "SELECT * FROM folders WHERE id='$value'";
+  $query100 = "SELECT users.username FROM folders inner join users on folders.id_user = users.id WHERE folders.id='$value'";
                                     $results100 = mysqli_query($db, $query100);
                                        while(($row100 = $results100->fetch_assoc()) !== null){    
                                 
