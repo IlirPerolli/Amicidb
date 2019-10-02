@@ -7,7 +7,7 @@
     include ("verify_user.php");
 
 
-        if ((($_SESSION['username']) == "ilirperolli") || (($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K") ) {
+    if ((($_SESSION['username']) == "ilirperolli") || (($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K") || (($_SESSION['username']) == "nitaqerkezi") ) {
         
     }
     else {

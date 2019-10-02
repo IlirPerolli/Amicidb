@@ -358,7 +358,7 @@ $('.avatar').css({
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">A jeni i sigurtë?</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">A jeni të sigurtë?</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -366,7 +366,7 @@ $('.avatar').css({
       <div class="modal-body" style = "text-align: left">
         Na vjen keq duke ju parë që ju shkoni!<br>
         Me këtë veprim ju do të fshini llogarinë përgjithmonë!
-        <p style = "font-size: 20px;"><b>Ju lutemi vini re:</b></p>Fshirja e llogarisë tuaj dhe të dhënat personale janë të përhershme dhe nuk mund të zhbëhen. Amici nuk do të jetë në gjendje të rikuperojë llogarinë tuaj pasi të dhënat të janë fshirë. Gjithashtu me këtë veprim do të fshihen të gjitha në lidhje me ju duke përfshirë: postimet në grup dhe në dosje, folderat, videot, foto e profilit.
+        <p style = "font-size: 20px;"><b>Ju lutemi vini re:</b></p>Fshirja e llogarisë suaj dhe të dhënat personale janë të përhershme dhe nuk mund të zhbëhen. Amici nuk do të jetë në gjendje të rikuperojë llogarinë tuaj pasi të dhënat të jenë fshirë. Gjithashtu me këtë veprim do të fshihen të gjitha në lidhje me ju duke përfshirë: postimet në grup dhe në dosje, folderat, videot, foto e profilit.
 
       </div>
       <div class="modal-footer">

@@ -462,7 +462,7 @@ echo '<h5 class="modal-title" id="exampleModalCenterTitle">Rreth Videos</h5>';
                                 echo '</div>';
   echo '</div>';   
   }
- echo '<div class = "folder" style = "position: relative;border: none; background: none;" data-toggle="modal" data-target="#exampleModalCenter">
+ echo '<div class = "folder" style = "position: relative;border: none; background: none; cursor:pointer" data-toggle="modal" data-target="#exampleModalCenter">
   <img src = "img/plus.png" class = "add-folder"/>
   </div>';
   echo '
@@ -590,7 +590,7 @@ echo '<h5 class="modal-title" id="exampleModalCenterTitle">Rreth Folderit</h5>';
   echo '</div>';
   echo '</div>';  
  }
- echo '    <div class = "folder" style = "position: relative;border: none; background: none;" data-toggle="modal" data-target="#exampleModalCenter">
+ echo '    <div class = "folder" style = "position: relative;border: none; background: none; cursor:pointer" data-toggle="modal" data-target="#exampleModalCenter">
   <img src = "img/plus.png" class = "add-folder"/>
   </div>';
   echo '
