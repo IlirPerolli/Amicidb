@@ -178,7 +178,7 @@ margin-right: 10px;
 .postimet-container input[type=text]{
   font-size: 20px;
   background: white;
-  border-radius: 0px;
+  border-radius: 30px;
   margin-top: 15px;
   outline: none;
   width:450px;
@@ -186,6 +186,24 @@ margin-right: 10px;
  border:none;
  margin-right:-10px;
  padding-right: 55px;
+ padding-left: 20px;
+
+}
+#abc{
+  margin-top:25px;
+}
+#abc:hover{
+   -webkit-box-shadow: -1px -2px 21px -8px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px -2px 21px -8px rgba(0,0,0,0.75);
+box-shadow: -1px -2px 21px -8px rgba(0,0,0,0.75);
+}
+#abc:focus{
+   -webkit-box-shadow: -1px -2px 21px -8px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px -2px 21px -8px rgba(0,0,0,0.75);
+box-shadow: -1px -2px 21px -8px rgba(0,0,0,0.75);
+}
+.postimet-container .biseda{
+  display: none !important;
 }
 .postimet-container input[type=submit]{
   clear:left;
@@ -324,6 +342,7 @@ font-size: 17px;
   text-align:left;
   display: inline-block;
   padding:8px 20px;
+
   }
 .reply{
 

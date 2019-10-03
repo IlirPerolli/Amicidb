@@ -138,7 +138,7 @@ if ( window.history.replaceState ) {
       cursor: pointer;
       position: absolute;
       margin-left: 405px;
-      margin-top: 19px; 
+      margin-top: 29px; 
       background: #E5E3E2;
       border-radius: 50%;
       
@@ -221,9 +221,9 @@ if ( window.history.replaceState ) {
   
   <div style = "text-align:center; margin-top: 78px;">
 <div class = "postimet-container">
-<div class = "postimet-title">
+<!--<div class = "postimet-title">
   Diskuto me shoket
-</div>
+</div>-->
 
 
 <script type="text/javascript">
@@ -338,7 +338,7 @@ ORDER BY id DESC";
 
     $query = mysqli_query($db, $sql);
     $count = mysqli_num_rows($query);
-    echo "<div class='search-term-display'>Rezultatet e kerkimit per: ". $search_term. " | ".$count. " rezultate". "</div>";
+    echo "<div class='search-term-display' style = 'padding-top:20px'>Rezultatet e kerkimit per: ". $search_term. " | ".$count. " rezultate". "</div>";
     echo'<div class="dropdown-divider"></div>'; 
    // if((preg_match('/^\s+$/', $search_term)) == 1){
  //header("Location:group.php");
@@ -635,7 +635,7 @@ else{
                       
 echo '<img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" data-toggle="tooltip" data-placement="top" title="Ne Perpunim" />';
 echo'</div>';   
-echo'<input type = "text" autofocus class = "diskutimi" name = "diskuto" placeholder = "Shkruaj mendimet tuaja... " oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" id="abc" autocomplete="off" onkeyup="success()"/>';
+echo'<input type = "text" class = "diskutimi" name = "diskuto" placeholder = "Shkruaj mendimet tuaja... " oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" id="abc" autocomplete="off" onkeyup="success()"/>';
 
 echo'<input type = "submit" class = "biseda" name = "user-discuss" value = "Dergo" id="abc2" disabled/>';
 echo'<br>';
