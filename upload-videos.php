@@ -23,10 +23,7 @@ if (count($errors) == 0) {
 			mysqli_query($db, $query);
 			header("Location:lessons.php?folder=".$number);
   }
-
 }
-
-
 function getYouTubeVideoId($pageVideUrl) {
     $link = $pageVideUrl;
     $video_id = explode("?v=", $link);
