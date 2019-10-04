@@ -280,7 +280,7 @@ $number=$_GET['edit-comment'];
 if ($_SESSION['username'] == $row100['username']){
   $comment = $row100['Comments'];
 echo'
-<div id = "edit-comment">
+<div id = "edit-comment" style = "margin-top:100px">
 <form class="was-validated" method= "post">
   <div class="mb-3" style = "width:90%; margin:auto;" > 
     <label for="validationTextarea">Ndrysho Komentin</label>
