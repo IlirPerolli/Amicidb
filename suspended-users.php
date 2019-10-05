@@ -60,8 +60,9 @@ include("config.php");
             $sql4 = "SELECT * from users WHERE id = '$number'";
             $results = mysqli_query($db, $sql4);
             $row = $results->fetch_assoc();
+            $id_user = $row['id'];
             $username = $row['username'];
-            //Fshij Filet
+
             $sql3 = "SELECT * FROM userfiles WHERE username = '$username'";
     $results = mysqli_query($db, $sql3);
         while(($row = $results->fetch_assoc()) !== null){
@@ -69,7 +70,6 @@ include("config.php");
           $myFile = "user-files/$file";
 unlink($myFile); 
         }
-        //Fshij replyt
          $sql5 = "SELECT * FROM userposts WHERE username = '$username'";
     $results = mysqli_query($db, $sql5);
         while(($row = $results->fetch_assoc()) !== null){
@@ -77,27 +77,38 @@ unlink($myFile);
           $sql = "DELETE from userposts where replyingto='$id'";
       mysqli_query($db, $sql);
         }
-
          $sql6 = "SELECT * FROM users WHERE username = '$username'";
     $results1 = mysqli_query($db, $sql6);
         $row = $results1->fetch_assoc();
         $photo = $row['userphotos'];
-        //Fshij foton
-    if (($photo != "defaultfemale.png") && ($photo != "defaultmale.png")) {
+
+if (($photo != "defaultfemale.png") && ($photo != "defaultmale.png")) {
      $phototobedeleted = "user-photos/$photo";
     unlink($phototobedeleted); 
 }
-        
-     //Fshij perdoruesin, postimet dhe filet dhe folderat
-    $sql = "DELETE FROM users WHERE username = '$username'";
-    mysqli_query($db, $sql);
-    $sql1 = "DELETE FROM userposts WHERE username = '$username'";
-    mysqli_query($db, $sql1);
-    $sql2 = "DELETE FROM userfiles WHERE username = '$username'";
-    mysqli_query($db, $sql2);
+
     
-    //Fshij filet e ketij folderi nga anetaret e tjere
-        $sql8 = "SELECT * FROM folders WHERE username = '$username'";
+    //Fshij Replyat
+     $sql5 = "SELECT * FROM userposts WHERE username = '$username'";
+    $results = mysqli_query($db, $sql5);
+        while(($row = $results->fetch_assoc()) !== null){
+          $id = $row['id'];
+          $sql = "DELETE from userposts where replyingto='$id'";
+    
+          
+        }
+        //Fshij fotot e ngarkuara ne grup
+         $sql9 = "SELECT * FROM userposts WHERE username = '$username'";
+    $results = mysqli_query($db, $sql9);
+        while(($row = $results->fetch_assoc()) !== null){
+              $file = $row['uploadedphoto'];
+              $myFile = "userpostsUploads/$file";
+        unlink($myFile); 
+    
+          
+        }
+   //Fshij filet e ketij folderi nga anetaret e tjere
+        $sql8 = "SELECT * FROM folders WHERE id_user = '$id_user'";
     $results = mysqli_query($db, $sql8);
         while(($row = $results->fetch_assoc()) !== null){
           $id_user = $row['id'];
@@ -106,12 +117,20 @@ unlink($myFile);
         }
         //
         //Fshij filet e ketij folderi per usernamin
-        $sql7 = "DELETE FROM folder_uploads WHERE username = '$username'";
+        $sql7 = "DELETE FROM folder_uploads WHERE id_user = '$id_user'";
     mysqli_query($db, $sql7);
     //Fshij folderin
-    $sql6 = "DELETE FROM folders WHERE username = '$username'";
+    $sql6 = "DELETE FROM folders WHERE id_user = '$id_user'";
     mysqli_query($db, $sql6);
-
+       //Fshij perdoruesin, postimet dhe filet dhe folderat
+    
+    $sql1 = "DELETE FROM userposts WHERE username = '$username'";
+    mysqli_query($db, $sql1);
+    $sql2 = "DELETE FROM userfiles WHERE username = '$username'";
+    mysqli_query($db, $sql2);
+    $sql = "DELETE FROM users WHERE username = '$username'";
+    mysqli_query($db, $sql);
+    
             header("Location:suspended-users.php");
 
 

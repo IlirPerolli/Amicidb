@@ -8,6 +8,12 @@
  include ("verify_user.php");
     
 ?>
+<?php 
+ if (isset($_GET['fileerror'])){
+   array_push($errors, "Foto ka nje madhesi te madhe");
+
+ }
+?>
 <?php
 // lidhu me databaze
 include("config.php");
@@ -24,6 +30,9 @@ $number=$_GET['remove-comment'];
                                     $results100 = mysqli_query($db, $query100);
                                     $row100 = $results100->fetch_assoc();
 if ($_SESSION['username'] == $row100['username']){
+    $file = $row100['uploadedphoto'];
+          $myFile = "userpostsUploads/$file";
+unlink($myFile); 
   $sql = "DELETE from userposts where id='$number'";
     
       mysqli_query($db, $sql);
@@ -129,15 +138,19 @@ if ( window.history.replaceState ) {
 .speech{
  
     right: 0 !important;
-    margin-right:25px;
+    margin-right:70px;
   
+}
+.custom-file-upload{
+  right: 0 !important;
+    margin-right:25px;
 }
     }
     .speech{
       display: inline-block;
       cursor: pointer;
       position: absolute;
-      margin-left: 405px;
+      margin-left: 350px;
       margin-top: 29px; 
       background: #E5E3E2;
       border-radius: 50%;
@@ -150,6 +163,36 @@ if ( window.history.replaceState ) {
     background: transparent;
     border-color: transparent;
   }
+  input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+
+    cursor: pointer;
+    display: inline-block;
+      cursor: pointer;
+      position: absolute;
+      margin-left: 395px;
+      margin-top: 29px; 
+      background: #E5E3E2;
+      border-radius: 50%;
+      padding: 5px;
+}
+.custom-file-upload img{
+  width: 30px;
+  height: 30px;
+}
+.uploadedphoto{
+  max-width: 60%;
+  max-height: 300px;
+ border-radius: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+  
+}
 </style>
 
 
@@ -630,11 +673,16 @@ echo "Fundi i rezultateve";
 
 else{
 
-                       echo' <form action="#" method="post">';
+                       echo' <form action="#" method="post" enctype="multipart/form-data">';
                        echo '<div class = "speech">';
                       
 echo '<img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" data-toggle="tooltip" data-placement="top" title="Ne Perpunim" />';
-echo'</div>';   
+echo'</div>';  
+echo'
+<label for="fileToUpload" class="custom-file-upload" data-toggle="tooltip" data-placement="top" title="Ngarko fotografi">
+    <img src = "https://icon-library.net/images/photo-icon-png/photo-icon-png-18.jpg"/>
+</label>
+<input name="fileToUpload" id="fileToUpload" type="file" accept="image/*"/>'; 
 echo'<input type = "text" class = "diskutimi" name = "diskuto" placeholder = "Shkruaj mendimet tuaja... " oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" id="abc" autocomplete="off" onkeyup="success()"/>';
 
 echo'<input type = "submit" class = "biseda" name = "user-discuss" value = "Dergo" id="abc2" disabled/>';
@@ -702,7 +750,12 @@ echo'<div class="dropdown-divider"></div>';
                         echo '</div>';
                         echo '</div>';
                         
-                        echo '<div class = "pershkrimi" style = "text-align:left; ">';
+                        echo '<div class = "pershkrimi" style = "text-align:left;">';
+                        if ($row3['uploadedphoto'] != null){
+                           echo '<a href = "userpostsUploads/'. $row3['uploadedphoto'].'" target="_blank" title="Kliko per ta zmadhuar"/><img src = "userpostsUploads/'. $row3['uploadedphoto'].'" class= "uploadedphoto"/></a>'; 
+                         echo '<br>';
+                        }
+                        
                         //Paraqit komentin si tekst e jo si kod te html
                         echo htmlspecialchars($row3['Comments']);
 
@@ -975,7 +1028,16 @@ myText.addEventListener("keyup",function(){
   }
 });
 </script>
+     <script type="text/javascript">
+    $('#fileToUpload').on('change', function() {
+ var numb = $(this)[0].files[0].size/1024/1024;
+numb = numb.toFixed(2);
+if(numb > 10){
+window.location.href = "group.php?fileerror";
+}
+        });
 
+  </script>
 </div>
 </body>
 </html>

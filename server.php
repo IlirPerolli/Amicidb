@@ -12,12 +12,12 @@
 include("config.php");
 	// REGISTER USER
 	if (isset($_POST['reg_user'])) {
-		$url = 'https://www.google.com/recaptcha/api/siteverify';
-		$privatekey = "6LcyX4QUAAAAAAbcsSA0IgoUdRVJy0_T0QWIRJ_H";
+		//$url = 'https://www.google.com/recaptcha/api/siteverify';
+		//$privatekey = "6LcyX4QUAAAAAAbcsSA0IgoUdRVJy0_T0QWIRJ_H";
 
-		$response = file_get_contents($url."?secret=".$privatekey."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
+		//$response = file_get_contents($url."?secret=".$privatekey."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
 		
-		$data = json_decode($response);
+		//$data = json_decode($response);
 
 		// merr te dhenat nga forma
 		$emri = mysqli_real_escape_string($db, $_POST['emri']);
@@ -289,6 +289,7 @@ $sql = "UPDATE users SET password='$password' WHERE username='$username1'";
 			array_push($errors, "Ju lutem shenoni 8 e me shume karaktere te fjalekalimit!");
 		}
 		if (count($errors) == 0) {
+			$id_user = $row['id'];
 		$sql3 = "SELECT * FROM userfiles WHERE username = '$username'";
 		$results = mysqli_query($db, $sql3);
         while(($row = $results->fetch_assoc()) !== null){
@@ -311,18 +312,23 @@ unlink($myFile);
         while(($row = $results->fetch_assoc()) !== null){
           $id = $row['id'];
           $sql = "DELETE from userposts where replyingto='$id'";
-      mysqli_query($db, $sql);
+    
+      	  
         }
-        //Fshij perdoruesin, postimet dhe filet dhe folderat
-		$sql = "DELETE FROM users WHERE username = '$username'";
-		mysqli_query($db, $sql);
-		$sql1 = "DELETE FROM userposts WHERE username = '$username'";
-		mysqli_query($db, $sql1);
-		$sql2 = "DELETE FROM userfiles WHERE username = '$username'";
-		mysqli_query($db, $sql2);
+        //Fshij fotot e ngarkuara ne grup
+         $sql9 = "SELECT * FROM userposts WHERE username = '$username'";
+    $results = mysqli_query($db, $sql9);
+        while(($row = $results->fetch_assoc()) !== null){
+              $file = $row['uploadedphoto'];
+          	  $myFile = "userpostsUploads/$file";
+			  unlink($myFile); 
+    
+      	  
+        }
+     
 		
 		//Fshij filet e ketij folderi nga anetaret e tjere
-        $sql8 = "SELECT * FROM folders WHERE username = '$username'";
+        $sql8 = "SELECT * FROM folders WHERE id_user = '$id_user'";
 		$results = mysqli_query($db, $sql8);
         while(($row = $results->fetch_assoc()) !== null){
         	$id_user = $row['id'];
@@ -331,11 +337,19 @@ unlink($myFile);
         }
         //
         //Fshij filet e ketij folderi per usernamin
-        $sql7 = "DELETE FROM folder_uploads WHERE username = '$username'";
+        $sql7 = "DELETE FROM folder_uploads WHERE id_user = '$id_user'";
 		mysqli_query($db, $sql7);
 		//Fshij folderin
-		$sql6 = "DELETE FROM folders WHERE username = '$username'";
+		$sql6 = "DELETE FROM folders WHERE id_user = '$id_user'";
 		mysqli_query($db, $sql6);
+		   //Fshij perdoruesin, postimet dhe filet dhe folderat
+		
+		$sql1 = "DELETE FROM userposts WHERE username = '$username'";
+		mysqli_query($db, $sql1);
+		$sql2 = "DELETE FROM userfiles WHERE username = '$username'";
+		mysqli_query($db, $sql2);
+		$sql = "DELETE FROM users WHERE username = '$username'";
+		mysqli_query($db, $sql);
 			header('Location: logout.php');
 			die();
 }
@@ -373,10 +387,53 @@ $query1 = "SELECT * FROM users WHERE username='$username'";
 		if (strlen($biseda) > 255){
 			array_push($errors, "Ju lutem shenoni me pak se 255 karaktere!");
 		}
+$target_dir = "userpostsUploads/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+
+if (file_exists($target_file)) {
+array_push($errors, "Ekziston nje foto tjeter me emer te njejte");
+
+}
+if ($_FILES["fileToUpload"]["size"] > 8000000) { //8MB
+    array_push($errors, "Kjo foto eshte e madhe");
+}
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+    array_push($errors, "Gabim. Vetem filet jpg, png dhe jpeg lejohen");
+}
+
+if ($_FILES["fileToUpload"]["size"] == 0) { //8MB
+
+	array_splice($errors, 0);
+		if (count($errors) == 0) {
+				 compressImage($_FILES['fileToUpload']['tmp_name'],$target_file,60);
+
+$target_file1 = $_FILES["fileToUpload"]["name"];
+			$query = "INSERT INTO userposts (username, Name, Surname, Comments, photo, academicyear, date, time, uploadedphoto) 
+					  VALUES('$username', '$emri','$mbiemri', '$biseda', '$foto', $vitiakademik, '$date', '$time', '$target_file1')";
+			mysqli_query($db, $query);
+
+
+			$query1= "UPDATE users SET notification = notification + 1 WHERE academicyear = '$vitiakademik'";
+			mysqli_query($db, $query1);
+			header('Location: #');
+		}
+
+}
+
+
+
+
 		else{
+
 			if (count($errors) == 0) {
-			$query = "INSERT INTO userposts (username, Name, Surname, Comments, photo, academicyear, date, time) 
-					  VALUES('$username', '$emri','$mbiemri', '$biseda', '$foto', $vitiakademik, '$date', '$time')";
+				 compressImage($_FILES['fileToUpload']['tmp_name'],$target_file,60);
+
+$target_file1 = $_FILES["fileToUpload"]["name"];
+			$query = "INSERT INTO userposts (username, Name, Surname, Comments, photo, academicyear, date, time, uploadedphoto) 
+					  VALUES('$username', '$emri','$mbiemri', '$biseda', '$foto', $vitiakademik, '$date', '$time', '$target_file1')";
 			mysqli_query($db, $query);
 
 
@@ -387,6 +444,21 @@ $query1 = "SELECT * FROM users WHERE username='$username'";
 		}
 	
 }
+function compressImage($source, $destination, $quality) {
 
+  $info = getimagesize($source);
+
+  if ($info['mime'] == 'image/jpeg') 
+    $image = imagecreatefromjpeg($source);
+
+  elseif ($info['mime'] == 'image/gif') 
+    $image = imagecreatefromgif($source);
+
+  elseif ($info['mime'] == 'image/png') 
+    $image = imagecreatefrompng($source);
+
+  imagejpeg($image, $destination, $quality);
+
+}
 
 ?>
