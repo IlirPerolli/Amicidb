@@ -111,8 +111,8 @@ if (($photo != "defaultfemale.png") && ($photo != "defaultmale.png")) {
         $sql8 = "SELECT * FROM folders WHERE id_user = '$id_user'";
     $results = mysqli_query($db, $sql8);
         while(($row = $results->fetch_assoc()) !== null){
-          $id_user = $row['id'];
-          $sql = "DELETE FROM folder_uploads WHERE id_folder = '$id_user'";
+          $id_folder = $row['id'];
+          $sql = "DELETE FROM folder_uploads WHERE id_folder = '$id_folder'";
     mysqli_query($db, $sql);
         }
         //

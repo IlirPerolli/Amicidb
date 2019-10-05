@@ -290,6 +290,7 @@ $sql = "UPDATE users SET password='$password' WHERE username='$username1'";
 		}
 		if (count($errors) == 0) {
 			$id_user = $row['id'];
+
 		$sql3 = "SELECT * FROM userfiles WHERE username = '$username'";
 		$results = mysqli_query($db, $sql3);
         while(($row = $results->fetch_assoc()) !== null){
@@ -306,6 +307,8 @@ unlink($myFile);
      $phototobedeleted = "user-photos/$photo";
     unlink($phototobedeleted); 
 }
+
+		
 		//Fshij Replyat
 		 $sql5 = "SELECT * FROM userposts WHERE username = '$username'";
     $results = mysqli_query($db, $sql5);
@@ -326,28 +329,29 @@ unlink($myFile);
       	  
         }
      
-		
+		//Fshij filet e ketij folderi per usernamin
+        $sql7 = "DELETE FROM folder_uploads WHERE id_user = '$id_user'";
+		mysqli_query($db, $sql7);
 		//Fshij filet e ketij folderi nga anetaret e tjere
         $sql8 = "SELECT * FROM folders WHERE id_user = '$id_user'";
 		$results = mysqli_query($db, $sql8);
         while(($row = $results->fetch_assoc()) !== null){
-        	$id_user = $row['id'];
-        	$sql = "DELETE FROM folder_uploads WHERE id_folder = '$id_user'";
+        	$id_folder = $row['id'];
+        	$sql = "DELETE FROM folder_uploads WHERE id_folder = '$id_folder'";
 		mysqli_query($db, $sql);
         }
         //
-        //Fshij filet e ketij folderi per usernamin
-        $sql7 = "DELETE FROM folder_uploads WHERE id_user = '$id_user'";
-		mysqli_query($db, $sql7);
-		//Fshij folderin
+        //Fshij folderin
 		$sql6 = "DELETE FROM folders WHERE id_user = '$id_user'";
 		mysqli_query($db, $sql6);
-		   //Fshij perdoruesin, postimet dhe filet dhe folderat
+        
+		//Fshij perdoruesin, postimet dhe filet dhe folderat
 		
 		$sql1 = "DELETE FROM userposts WHERE username = '$username'";
 		mysqli_query($db, $sql1);
 		$sql2 = "DELETE FROM userfiles WHERE username = '$username'";
 		mysqli_query($db, $sql2);
+		
 		$sql = "DELETE FROM users WHERE username = '$username'";
 		mysqli_query($db, $sql);
 			header('Location: logout.php');
@@ -403,16 +407,35 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 && $imageFileType != "gif" ) {
     array_push($errors, "Gabim. Vetem filet jpg, png dhe jpeg lejohen");
 }
+if (strpos($target_file,'Snapchat') !== false) {
+	 $target_file=  $target_dir ."amici_".$_SESSION['username'] . "_" . generateRandomString() ."." . $imageFileType;
+
+
+}
+else if (strpos($target_file,'snapchat') !== false) {
+
+    $target_file=  $target_dir ."amici_".$_SESSION['username'] . "_" . generateRandomString() ."." . $imageFileType;
+
+}
+
 
 if ($_FILES["fileToUpload"]["size"] == 0) { //8MB
 
 	array_splice($errors, 0);
-		if (count($errors) == 0) {
-				 compressImage($_FILES['fileToUpload']['tmp_name'],$target_file,60);
+		 if(preg_match('/^\s+$/', $biseda) == 1){
+array_push($errors, "Komenti permban hapesira!");
+}
+if (strpos($biseda, ' ') === 0) { //Nese fillon me hapesire (Alt 255)
+    array_push($errors, "Komenti permban hapesira!");
+}
 
-$target_file1 = $_FILES["fileToUpload"]["name"];
-			$query = "INSERT INTO userposts (username, Name, Surname, Comments, photo, academicyear, date, time, uploadedphoto) 
-					  VALUES('$username', '$emri','$mbiemri', '$biseda', '$foto', $vitiakademik, '$date', '$time', '$target_file1')";
+if (strpos($biseda,'qija') !== false || strpos($biseda,'nonen') !== false || strpos($biseda,'kar') !== false || strpos($biseda,'mut') !== false || strpos($biseda,'pis') !== false || strpos($biseda,'qi') !== false || strpos($biseda,'q*') !== false || strpos($biseda,'m*t') !== false || strpos($biseda,'nanen') !== false ) {
+  array_push($errors, "Pse bre pe shan!");
+}
+		if (count($errors) == 0) {
+				
+			$query = "INSERT INTO userposts (username, Name, Surname, Comments, photo, academicyear, date, time) 
+					  VALUES('$username', '$emri','$mbiemri', '$biseda', '$foto', $vitiakademik, '$date', '$time')";
 			mysqli_query($db, $query);
 
 
@@ -431,7 +454,9 @@ $target_file1 = $_FILES["fileToUpload"]["name"];
 			if (count($errors) == 0) {
 				 compressImage($_FILES['fileToUpload']['tmp_name'],$target_file,60);
 
-$target_file1 = $_FILES["fileToUpload"]["name"];
+$target_file1 = explode("userpostsUploads/", $target_file);
+
+$target_file1 = $target_file1[1];
 			$query = "INSERT INTO userposts (username, Name, Surname, Comments, photo, academicyear, date, time, uploadedphoto) 
 					  VALUES('$username', '$emri','$mbiemri', '$biseda', '$foto', $vitiakademik, '$date', '$time', '$target_file1')";
 			mysqli_query($db, $query);
@@ -443,6 +468,15 @@ $target_file1 = $_FILES["fileToUpload"]["name"];
 		}
 		}
 	
+}
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
 }
 function compressImage($source, $destination, $quality) {
 
