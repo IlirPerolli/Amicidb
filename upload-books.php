@@ -31,7 +31,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 if (count($errors) == 0) {       
           
 
-    compressImage($_FILES['fileToUpload']['tmp_name'],$target_file,60);
+    compressImage1($_FILES['fileToUpload']['tmp_name'],$target_file,60);
 
 $target_file1 = $_FILES["fileToUpload"]["name"];
 $query = "INSERT INTO books (Name, photo, academicyear, link) VALUES('$emri', '$target_file1', '$viti', '$linku')";
@@ -44,7 +44,7 @@ $query = "INSERT INTO books (Name, photo, academicyear, link) VALUES('$emri', '$
 }
 
 }
-function compressImage($source, $destination, $quality) {
+function compressImage1($source, $destination, $quality) {
 
   $info = getimagesize($source);
 

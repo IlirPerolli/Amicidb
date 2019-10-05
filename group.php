@@ -154,11 +154,11 @@ if ( window.history.replaceState ) {
       margin-top: 29px; 
       background: #E5E3E2;
       border-radius: 50%;
-      
+      padding:8px;
 
     }
 
-  .speech img { width: 40px }
+  .speech img { width: 25px }
   .btn-light{
     background: transparent;
     border-color: transparent;
@@ -178,11 +178,12 @@ if ( window.history.replaceState ) {
       margin-top: 29px; 
       background: #E5E3E2;
       border-radius: 50%;
-      padding: 5px;
+       padding:7px;
+     
+     
 }
 .custom-file-upload img{
-  width: 30px;
-  height: 30px;
+ width: 25px 
 }
 .uploadedphoto{
   max-width: 60%;
@@ -192,6 +193,11 @@ if ( window.history.replaceState ) {
   margin-top: 20px;
 
   
+}
+
+#success-photo{
+  width: 25px ;
+  display: none;
 }
 </style>
 
@@ -458,10 +464,14 @@ if (($_SESSION['username']) == $row['username']){
                         echo '</div>';
                         echo '</div>';
                         
-                        echo '<div class = "pershkrimi" style = "text-align:left; ">';
+                        echo '<div class = "pershkrimi" style = "text-align:left;">';
+                        if ($row['uploadedphoto'] != null){
+                           echo '<a href = "userpostsUploads/'. $row['uploadedphoto'].'" target="_blank" title="Kliko per ta zmadhuar"/><img src = "userpostsUploads/'. $row['uploadedphoto'].'" class= "uploadedphoto"/></a>'; 
+                         echo '<br>';
+                        }
+                        
                         //Paraqit komentin si tekst e jo si kod te html
                         echo htmlspecialchars($row['Comments']);
-
 
                           //Ndrysho komentin
                          if (($_SESSION['username']) == $row['username']){
@@ -676,17 +686,19 @@ else{
                        echo' <form action="#" method="post" enctype="multipart/form-data">';
                        echo '<div class = "speech">';
                       
-echo '<img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" data-toggle="tooltip" data-placement="top" title="Ne Perpunim" />';
+echo '<img onclick="startDictation()" src="https://image.flaticon.com/icons/svg/60/60540.svg" data-toggle="tooltip" data-placement="top" title="Ne Perpunim" />';
 echo'</div>';  
 echo'
-<label for="fileToUpload" class="custom-file-upload" data-toggle="tooltip" data-placement="top" title="Ngarko fotografi">
-    <img src = "https://icon-library.net/images/photo-icon-png/photo-icon-png-18.jpg"/>
+<label for="fileToUpload" class="custom-file-upload" id = "custom-file-upload" data-toggle="tooltip" data-placement="top" title="Ngarko fotografi" >
+<img src = "img/tick.png" id ="success-photo"/>
+    <img src = "img/gallery.png" id="gallery-icon"/>
 </label>
 <input name="fileToUpload" id="fileToUpload" type="file" accept="image/*"/>'; 
 echo'<input type = "text" class = "diskutimi" name = "diskuto" placeholder = "Shkruaj mendimet tuaja... " oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" id="abc" autocomplete="off" onkeyup="success()"/>';
 
 echo'<input type = "submit" class = "biseda" name = "user-discuss" value = "Dergo" id="abc2" disabled/>';
 echo'<br>';
+
 echo'<div class = "counter">';
 echo'<span id="wordCount">0</span><span id= "wordCount1">/255 Karaktere </span>';
 echo'</div>';
@@ -1034,6 +1046,18 @@ myText.addEventListener("keyup",function(){
 numb = numb.toFixed(2);
 if(numb > 10){
 window.location.href = "group.php?fileerror";
+}
+else if (numb>0){
+  document.getElementById("success-photo").style.display="block";
+document.getElementById("gallery-icon").style.display="none";
+document.getElementById("custom-file-upload").style.background="#25AE88";
+
+
+
+}
+else{
+document.getElementById("gallery-icon").style.display="block";
+document.getElementById("success-photo").style.display="none";
 }
         });
 
