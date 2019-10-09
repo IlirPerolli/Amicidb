@@ -20,6 +20,10 @@ body{
 html{
   scroll-behavior: smooth;
 }
+input{
+  
+  -webkit-appearance: none;
+}
 @media screen and (max-width:1300px){
 
     .navbar-nav{
@@ -29,6 +33,15 @@ html{
 
 }
 @media screen and (max-width:960px){
+  .cover{
+      /* **** Per ios **** */
+      background: url("img/image.jpg")  no-repeat center center !important;
+        -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;
+  /* ******** */
+  }
 .shkyqja{
   margin-right: 0!important;
 }
