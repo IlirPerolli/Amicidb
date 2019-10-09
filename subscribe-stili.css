@@ -121,7 +121,8 @@ overflow: hidden !important;
 }
 .subscribe-photo img{
   width:90% !important;
-  height:250px !important;
+  /*height:250px !important;*/
+  height: auto !important;
   }
    .email-box i{
 padding:0 10px !important;
