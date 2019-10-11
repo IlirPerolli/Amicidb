@@ -43,7 +43,7 @@
     <input name="emri" autofocus value ="<?php if(isset($_POST['emri'])){echo $_POST['emri'];}?>" type="text" placeholder = "Shkruani Emrin" oninvalid="this.setCustomValidity('Ju lutem shkruani emrin'); document.getElementById('emri').style.color='#FA3B4B'"
     oninput="this.setCustomValidity(''); document.getElementById('emri').style.color='black'" required />
     <p id = "mbiemri">Mbiemri</p>
-    <input name="mbiemri" autofocus value ="<?php if(isset($_POST['mbiemri'])){echo $_POST['mbiemri'];}?>" type="text" placeholder = "Shkruani Mbiemrin" oninvalid="this.setCustomValidity('Ju lutem shkruani mbiemrin'); document.getElementById('mbiemri').style.color='#FA3B4B'"
+    <input name="mbiemri" value ="<?php if(isset($_POST['mbiemri'])){echo $_POST['mbiemri'];}?>" type="text" placeholder = "Shkruani Mbiemrin" oninvalid="this.setCustomValidity('Ju lutem shkruani mbiemrin'); document.getElementById('mbiemri').style.color='#FA3B4B'"
     oninput="this.setCustomValidity(''); document.getElementById('mbiemri').style.color='black'" required />
   <p id = "mosha">Mosha</p>
   <input name="mosha" value ="<?php if(isset($_POST['mosha'])){echo $_POST['mosha'];}?>" type="number" placeholder = "Shkruani moshen" min = "17" max="65" oninvalid="this.setCustomValidity('Ju lutem shkruani moshen'); document.getElementById('mosha').style.color='#FA3B4B'"
