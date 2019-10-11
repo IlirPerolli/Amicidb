@@ -121,7 +121,7 @@ if ( window.history.replaceState ) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
  <link rel="icon" type="image/png" href="people.png" />
@@ -697,9 +697,12 @@ echo'
 echo'<input type = "text" class = "diskutimi" name = "diskuto" placeholder = "Shkruaj mendimet tuaja... " oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" id="abc" autocomplete="off" onkeyup="success()"/>';
 
 echo'<input type = "submit" class = "biseda" name = "user-discuss" value = "Dergo" id="abc2" disabled/>';
-echo'<br>';
-
-echo'<div class = "counter">';
+echo'<div class = "spinner">';
+   echo'<div class="spinner-border" role="status" id = "loading">';
+    echo'<span class="sr-only">Loading...</span>';
+  echo'</div>';
+  echo'</div>';
+echo'<div class = "counter" id = "counter">';
 echo'<span id="wordCount">0</span><span id= "wordCount1">/255 Karaktere </span>';
 echo'</div>';
 include('errors.php');
@@ -1062,6 +1065,17 @@ document.getElementById("success-photo").style.display="none";
         });
 
   </script>
+  <script type="text/javascript">
+ $(document).ready(function() {
+    $("#abc2").click(function() {
+  $('#loading').attr('style','display:inline-block !important');
+    $('.spinner').attr('style','display:inline-block !important');
+  //$('#loading').show();
+  //$('#counter').hide(); 
+
+    });
+});
+</script>
 </div>
 </body>
 </html>
