@@ -488,6 +488,13 @@ margin-bottom: 10px;
 margin-top:30px;}
 .biseda{
   margin-left:10px !important;}
+  .max-width{
+    overflow: auto;
+  }
+  .table-row{
+cursor:pointer;
+}
+
 
   </style>
 </head>
@@ -736,20 +743,53 @@ echo'<br>';
 <div id ="postimet">
 <p> Nuk ka anetare te ri 😥</p> 
 <img src = "img/emptybox.png"/>
-
-
 </div>
-
 <br><br>
 </div>
+<h3> Perdoruesit </h3>
+<div class = "max-width">
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Username</th>
+      <th scope="col">Emri</th>
+      <th scope="col">Mbiemri</th>
+      <th scope="col">Emaili</th>
+      <th scope="col">Mosha</th>
+      <th scope="col">Viti Akademik</th>
+      <th scope="col">Hera e Çasjes</th>
 
-
-
-
-
+    </tr>
+  </thead>
+  <tbody>
+    <?php 
+    $querycheck = "SELECT * from users WHERE verification = 1 order by activity desc";
+    $results = mysqli_query($db, $querycheck);
+    while(($row = $results->fetch_assoc()) !== null){
+      echo'<tr class="table-row" data-href="?keyword='.$row['Name']."+".$row['Surname'].'">
+      <th scope="row">'.$row['id'].'</th>
+      <td>'.$row['username'].'</td>
+      <td>'.$row['Name'].'</td>
+      <td>'.$row['Surname'].'</td>
+      <td>'.$row['email'].'</td>
+      <td>'.$row['age'].'</td>
+      <td>'.$row['academicyear'].'</td>
+      <td>'.$row['activity'].'</td>
+    </tr>
+';
+    }
+    ?>  
+  </tbody>
+</table>
 </div>
-
-
-
+</div>
+<script type="text/javascript">
+$(document).ready(function($) {
+    $(".table-row").click(function() {
+        window.document.location = $(this).data("href");
+    });
+});
+</script>
 </body>
 </html>
