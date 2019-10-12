@@ -65,18 +65,18 @@ margin-right: 30px !important;
   @media screen and (max-width: 550px){
     .spinner{
       width:100% !important;
+      margin-left: 0px !important;
 
+    margin-top: 19px !important;  
   }
      #loading{
 
     margin:auto !important;
     text-align: center !important;
-
-    margin-top: 19px !important;    
+  
     width:50px !important;
     height: 50px !important;
-  margin-left: 0px !important;
-  margin-right: 0px !important;
+ 
 
   }
 
@@ -393,14 +393,15 @@ display: inline-block;
     margin:auto;
     text-align: center;
     margin-bottom: -10px;
-    margin-left: 30px;
+   display: none;
     width:50px;
     height: 50px;
-  display: none;
+
      
   }
   .spinner{
     width:50px;
   display: inline-block;
+  margin-left: 30px;
   display: none;
   }

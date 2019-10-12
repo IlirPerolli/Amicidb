@@ -172,9 +172,9 @@ overflow: auto;}
   $number = 0;
     echo '<div class = "course-title"> Dizajnimi, Analizimi dhe Integrimi i bazës së të dhënave në web</div>';
   echo "<br> <br>";
-for ($j = 1; $j <= 7; $j++) {
+for ($j = 1; $j <= 8; $j++) {
     $number +=1;
-    $mesimet = array( "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti");
+    $mesimet = array( "Hyrje në rrjeta kompjuterike", "Hyrje në arkitekturën e aplikacioneve", "Balancimi i ngarkesës", "Caching", "CDN", "Procesimi offline", "Nivelet e platformës", "Siguria në arkitekturat e aplikacioneve softuerike");
 
   echo '<a class="btn btn-secondary" id="javet" data-toggle="collapse" href="#collapseExample'.$number.'" style ="margin-left:5px" role="button" aria-expanded="false" aria-controls="collapseExample"> Java '.$j.": ".$mesimet[$number-1].' </a>';
 echo '<div class="collapse" id="collapseExample'.$number.'">';

@@ -399,6 +399,9 @@ $('.avatar').css({
   <option value="7" <?php if (isset($_POST['week']) AND $_POST['week'] == '7') {
     echo ' selected="selected"';
   } ?>>Java 7</option>
+  <option value="8" <?php if (isset($_POST['week']) AND $_POST['week'] == '8') {
+    echo ' selected="selected"';
+  } ?>>Java 8</option>
 
 
   </select>
@@ -417,7 +420,7 @@ for ($i = 1; $i <= 3; $i++) {
   echo "<br> <br>";
 for ($j = 1; $j <= 7; $j++) {
     $number +=1;
-    $mesimet = array("HTML", "CSS", "JavaScript dhe jQuery", "Bootstrap", "Terminali","Github", "Hostimi i Web Aplikacioneve","Hyrje në baza të të dhënave","Dizajnimi i bazës së të dhënave","Zhvillimi i bazës së të dhënave","Hyrje në SQL","Funksionet në SQL","Hyrje në Python","Integrimi i bazës së të dhënave në web me Python", "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti", "Se shpejti");
+    $mesimet = array("HTML", "CSS", "JavaScript dhe jQuery", "Bootstrap", "Terminali","Github", "Hostimi i Web Aplikacioneve","Hyrje në baza të të dhënave","Dizajnimi i bazës së të dhënave","Zhvillimi i bazës së të dhënave","Hyrje në SQL","Funksionet në SQL","Hyrje në Python","Integrimi i bazës së të dhënave në web me Python", "Hyrje në rrjeta kompjuterike", "Hyrje në arkitekturën e aplikacioneve", "Balancimi i ngarkesës", "Caching", "CDN", "Procesimi offline", "Nivelet e platformës");
 
   echo '<a class="btn btn-secondary" id="javet" data-toggle="collapse" href="#collapseExample'.$number.'" style ="margin-left:5px" role="button" aria-expanded="false" aria-controls="collapseExample"> Java '.$j.": ".$mesimet[$number-1].' </a>';
 echo '<div class="collapse" id="collapseExample'.$number.'">';
@@ -440,9 +443,38 @@ echo '</div>';
   echo '</div>';
 echo '</div>';
 echo '<br>';
+
 }
+//Shfaqja e mesimeve te kursit te 3 java 8
+if ($i == 3){
+    $number1 = 30;
+  echo '<a class="btn btn-secondary" id="javet" data-toggle="collapse" href="#collapseExample'.$number1.'" style ="margin-left:5px" role="button" aria-expanded="false" aria-controls="collapseExample"> Java 8: Siguria në arkitekturat e aplikacioneve softuerike </a>';
+echo '<div class="collapse" id="collapseExample'.$number1.'">';
+  echo '<div class="card card-body">';
+  $querycheck = "SELECT * FROM kursori where course = $i and week = 8 order by id asc";
+      $results = mysqli_query($db, $querycheck);
+      while(($row = $results->fetch_assoc()) !== null){ 
+echo'<div class="card" id="card"  style="width: 18rem;">';
+  echo '<a href = "'.$row['link'].'" target="_blank"> <img src = "'.$row['photo'] .'" class="card-img-top" alt="..."></a>';
+  echo '<div class="card-body">';
+ 
+     echo '<a href = "'.$row['link'].'" target="_blank"><h5 class="card-title" style = "text-align:left; text-decoration:none; color:black">'.$row['Name'].'</h5> </a>';
+  echo '<br>';
+   echo '<a href = "'.$row['link'].'" class="btn btn-primary" target="_blank">Shiko  </a>';
+  echo "<br><br>";
+      echo '<a href = "?remove='.$row['id'].'"> (Fshij Kete Mesim)  </a>';
+ echo '</div>';
+echo '</div>';
+ }
+  echo '</div>';
+echo '</div>';
+}
+//Perfundimi i javes 8 per kursin e 3te//
+
 echo '<br><br>';
 }
+
+
       ?>
 
 

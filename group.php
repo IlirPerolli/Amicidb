@@ -657,19 +657,6 @@ die();
       header("Location: group.php");
       die ();
                         }      
-
-
-
-
-
-
-
-
-
-
-
-
-
                         echo '</div>';
 
                    

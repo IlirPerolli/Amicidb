@@ -278,7 +278,6 @@ document.getElementById("error-message").style.display = "none";
       $totali = $meshkuj + $femra;
       $meshkujneperqindje = (100 * $meshkuj) / $totali;
       $femraneperqindje = (100 * $femra) / $totali;
-      $meshkujneperqindje = substr($meshkujneperqindje, 0, 5);
 
       $_SESSION['meshkujneperqindje'] = $meshkujneperqindje;
       $_SESSION['femraneperqindje'] = $femraneperqindje;
@@ -305,7 +304,7 @@ Statistikat
 <div class = "charts">
   <canvas id="myChart"></canvas>
 <div class = "description-charts">
-<?php echo 'Nga te gjithe anetaret, '. substr($femraneperqindje, 0,4).'% jane femra ndersa '. substr($meshkujneperqindje, 0,4) . '% jane meshkuj.';?>
+<?php echo 'Nga te gjithe anetaret, '. round($femraneperqindje).'% jane femra ndersa '. round($meshkujneperqindje) . '% jane meshkuj.';?>
 </div>
 </div>
 

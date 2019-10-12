@@ -506,7 +506,7 @@ else {
         
     
   echo ' <div class = "folder">
-  <a href = "kursori_selection.php"> <img src = "https://pbs.twimg.com/profile_images/902514399113613312/ERiSmvg8_400x400.jpg" class = "folder-photo" style = "width:300px;" id = "kursori-img"/></a>
+  <a href = "kursori_selection.php"> <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx0_KvDyVMJF6nWS3UQvooKtKqyCUj9I50F_Uy5JwWW8px4T7f" class = "folder-photo" style = "width:300px;" id = "kursori-img"/></a>
   <div class = "folder-name">
   <a href="kursori_selection.php" > Kursori </a>
   </div>
