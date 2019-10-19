@@ -53,7 +53,7 @@ include("config.php");
              
             }
             if(isset($_GET['refuse'])){
-              if ((($_SESSION['username']) == "ilirperolli") || (($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K") ) {
+               if ((($_SESSION['username']) == "ilirperolli")/* || (($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K")*/ ) {
 
             $number=$_GET['refuse'];
 
