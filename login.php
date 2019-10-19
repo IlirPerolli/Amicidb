@@ -130,7 +130,7 @@ var characters = textbox.value.split('');
       
   
           <p id = "perdoruesi">Perdoruesi:</p>
-          <input type = "text" value ="<?php if(isset($_POST['username'])){echo $_POST['username'];}?>" class = "emri" name = "username" id = "username"  placeholder = "Shkruani P&euml;rdoruesin" onkeydown = "if (event.keyCode == 13)
+          <input type = "text" autofocus value ="<?php if(isset($_POST['username'])){echo $_POST['username'];}?>" class = "emri" name = "username" id = "username"  placeholder = "Shkruani P&euml;rdoruesin" onkeydown = "if (event.keyCode == 13)
                                   document.getElementById('btnLogin').click()" oninvalid="InvalidUsername(this);" oninput="InvalidUsername(this);" required>
           <p id = "fjalekalimi">Fjalekalimi:</p>
           <input type = "password" name = "password" id = "password" placeholder = "Shkruani Fjal&euml;kalimin" onkeydown = "if (event.keyCode == 13)
