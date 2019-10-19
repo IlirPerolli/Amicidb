@@ -10,6 +10,10 @@
     font-style: normal;
   }
   @media screen and (max-width: 900px){
+       .uploadedphoto:hover{
+  transform: scale(1) !important;  
+
+}
     .datetime{
   
   left:0 !important;
@@ -63,6 +67,7 @@ margin-right: 30px !important;
 }
   }
   @media screen and (max-width: 550px){
+ 
     .spinner{
       width:100% !important;
       margin-left: 0px !important;
@@ -405,3 +410,43 @@ display: inline-block;
   margin-left: 30px;
   display: none;
   }
+    input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+
+    cursor: pointer;
+    display: inline-block;
+      cursor: pointer;
+      position: absolute;
+      margin-left: 395px;
+      margin-top: 29px; 
+      background: #E5E3E2;
+      border-radius: 50%;
+       padding:7px;
+     
+     
+}
+.custom-file-upload img{
+ width: 25px 
+}
+.uploadedphoto{
+  max-width: 60%;
+  max-height: 300px;
+ border-radius: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+ transition: transform .2s;
+  
+}
+.uploadedphoto:hover{
+  transform: scale(1.1);  
+
+}
+
+#success-photo{
+  width: 25px;
+  display: none;
+}

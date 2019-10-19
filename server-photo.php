@@ -98,9 +98,7 @@ else if ($row['gender'] == 1){
                 mysqli_query($db, $sql1);
                  header("Location:edit-photo.php");
 }
-
 }
-
 function compressImage($source, $destination, $quality) {
 
   $info = getimagesize($source);

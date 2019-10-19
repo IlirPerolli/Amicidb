@@ -163,42 +163,7 @@ if ( window.history.replaceState ) {
     background: transparent;
     border-color: transparent;
   }
-  input[type="file"] {
-    display: none;
-}
-.custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
 
-    cursor: pointer;
-    display: inline-block;
-      cursor: pointer;
-      position: absolute;
-      margin-left: 395px;
-      margin-top: 29px; 
-      background: #E5E3E2;
-      border-radius: 50%;
-       padding:7px;
-     
-     
-}
-.custom-file-upload img{
- width: 25px 
-}
-.uploadedphoto{
-  max-width: 60%;
-  max-height: 300px;
- border-radius: 20px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-
-  
-}
-
-#success-photo{
-  width: 25px ;
-  display: none;
-}
 </style>
 
 
@@ -1041,9 +1006,6 @@ else if (numb>0){
   document.getElementById("success-photo").style.display="block";
 document.getElementById("gallery-icon").style.display="none";
 document.getElementById("custom-file-upload").style.background="#25AE88";
-
-
-
 }
 else{
 document.getElementById("gallery-icon").style.display="block";
