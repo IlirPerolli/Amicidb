@@ -321,7 +321,7 @@ $('.avatar').css({
     <h2>Ndrysho Fjalekalimin</h2>
 
   <p id = "fjalekalimi1">Fjalekalimi i Tanishem</p>
-  <input name="password_1" type="password" placeholder="Shkruani Fjalekalimin e Tanishem" value ="<?php if(isset($_POST['password_1'])){echo $_POST['password_1'];}?>" oninvalid="this.setCustomValidity('Ju lutem shkruani fjalekalimin e tanishem'); document.getElementById('fjalekalimi1').style.color='#FA3B4B'"
+  <input name="password_1" type="password" autofocus placeholder="Shkruani Fjalekalimin e Tanishem" value ="<?php if(isset($_POST['password_1'])){echo $_POST['password_1'];}?>" oninvalid="this.setCustomValidity('Ju lutem shkruani fjalekalimin e tanishem'); document.getElementById('fjalekalimi1').style.color='#FA3B4B'"
     oninput="this.setCustomValidity(''); document.getElementById('fjalekalimi1').style.color='black'" required  />
    <p id = "fjalekalimi2">Fjalekalimi i Ri</p>
   <input name="password" type="password" placeholder="Shkruani Fjalekalimin e Ri" value ="<?php if(isset($_POST['password'])){echo $_POST['password'];}?>" oninvalid="this.setCustomValidity('Ju lutem shkruani fjalekalimin e ri'); document.getElementById('fjalekalimi2').style.color='#FA3B4B'"
