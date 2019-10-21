@@ -9,7 +9,7 @@
         header("Location: index.php");
     }
 
-        if ((($_SESSION['username']) == "ilirperolli") || (($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K") || (($_SESSION['username']) == "nitaqerkezi") ) {
+        if ((($_SESSION['username']) == "ilirperolli") || (($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K") || (($_SESSION['username']) == "nitaqerkezi") || (($_SESSION['username']) == "Bujan")) {
         
     }
     else {

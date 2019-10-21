@@ -99,13 +99,7 @@ cursor: pointer;
 
 .librat, .dosjet{
  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
- transition: all .2s ease-in-out; 
-}
-.librat:hover{
-transform: scale(1.02);
-}
-.dosjet:hover{
-transform: scale(1.02);
+
 }
 
 
@@ -113,6 +107,7 @@ transform: scale(1.02);
 </style>
 </head>
 <body>
+
    <div class = "error-message" id = "error-message"> <b>Njoftim:</b> Ju tani jeni t&euml; abonuar
 <div id = "remove-error" onclick="removeError()"> &times; </div>
   </div>

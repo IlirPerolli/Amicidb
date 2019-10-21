@@ -502,7 +502,7 @@ echo '<h5 class="modal-title" id="exampleModalCenterTitle">Rreth Videos</h5>';
 </div>';
 }
 else {
-  if (/*(($_SESSION['username']) == "ilirperolli") || */(($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K") || (($_SESSION['username']) == "nitaqerkezi") ) {
+  if (/*(($_SESSION['username']) == "ilirperolli") || */(($_SESSION['username']) == "arianitjaka") || (($_SESSION['username']) == "K") || (($_SESSION['username']) == "nitaqerkezi") || (($_SESSION['username']) == "Bujan") ) {
         
     
   echo ' <div class = "folder">
