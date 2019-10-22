@@ -127,11 +127,11 @@
     switch(strength){
       case 0:
       progressbar.style.width="20%";
-      progressbar.style.background = "red";
+      progressbar.style.background = "#dc3545";
       break;
       case 1:
        progressbar.style.width="40%";
-       progressbar.style.background = "red";
+       progressbar.style.background = "#dc3545";
       break;
       case 2:
        progressbar.style.width="60%";
@@ -148,7 +148,7 @@
     }
      if (password.length == 0){
       progressbar.style.width="0%";
-      progressbar.style.background = "red";
+      progressbar.style.background = "##dc3545";
     }
   }
 </script>
