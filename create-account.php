@@ -12,7 +12,7 @@
 <head>
   
  <link rel="icon" type="image/png" href="people.png" />
-
+     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
   <meta name="theme-color" content="#2f476d">
 <meta name="msapplication-navbutton-color" content="#2f476d">
 <link rel = "stylesheet" type = "text/css" href="account-stili.css">
@@ -20,7 +20,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
    <title>Regjistrohu - amici llogaria</title>
-
+<style type="text/css">progress[value]
+{
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
+    position: relative;
+}</style>
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
@@ -84,6 +90,10 @@
   <p id = "fjalekalimi1">Rishkruaj Fjalekalimin</p>
   <input name="password_2" id = "password"  value ="<?php if(isset($_POST['password_2'])){echo $_POST['password_2'];}?>" type="password" placeholder = "Shkruani Fjalekalimin"  oninvalid="this.setCustomValidity('Ju lutem rishkruani fjalekalimin'); document.getElementById('fjalekalimi1').style.color='#FA3B4B'"
     oninput="this.setCustomValidity(''); document.getElementById('fjalekalimi1').style.color='black'" required/>
+  
+<div class="progress" style="height: 2px;">
+  <div class="progress-bar" role="progressbar" id = "progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
    <!-- <div class="g-recaptcha" data-sitekey="6LcyX4QUAAAAAPXKMM4rbtUPXZi1fWNPdshj1-rA"></div>-->
 
       <input type="submit" name="reg_user" value="Dergo">
@@ -93,6 +103,55 @@
      <?php include('errors.php'); ?>
      </form>
 </div>
+<script type="text/javascript">
+  var pass = document.getElementById("password");
+  pass.addEventListener('keyup',function(){
+    checkPassword(pass.value)
+  })
+  function checkPassword(password){
+    var strengthBar = document.getElementById("progressbar");
+    var strength = 0;
+    if (password.match(/[a-zA-Z0-9][a-zA-Z0-9]+/)){
+      strength +=1
+    }
+    if (password.match(/[~<>?]+/)){
+      strength += 1
+    }
+    if (password.match(/[!$%^&*()]+/)){
+      strength += 1
+    }
+    if (password.length >=8){
+      strength += 1
+    }
+
+    switch(strength){
+      case 0:
+      progressbar.style.width="20%";
+      progressbar.style.background = "red";
+      break;
+      case 1:
+       progressbar.style.width="40%";
+       progressbar.style.background = "red";
+      break;
+      case 2:
+       progressbar.style.width="60%";
+       progressbar.style.background = "#ffc107";
+      break;
+      case 3:
+       progressbar.style.width="80%";
+        progressbar.style.background = "#28a745";
+
+      break;
+      case 4:
+      progressbar.style.width="100%";
+       progressbar.style.background = "#28a745";
+    }
+     if (password.length == 0){
+      progressbar.style.width="0%";
+      progressbar.style.background = "red";
+    }
+  }
+</script>
 
 <br><br>
    </body>
