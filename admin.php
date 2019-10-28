@@ -225,6 +225,12 @@ else
   <a href="books.php" > Librat </a>
   </div>
   </div>
+   <div class = "categories">
+  <a href = "posts_controller.php"> <img src = "img/photo-discuss.jpg" class = "categories-photo"/></a>
+  <div class = "category-name">
+  <a href="books.php" > Postimet </a>
+  </div>
+  </div>
   <div class = "categories">
   <a href = "kursori.php"> <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx0_KvDyVMJF6nWS3UQvooKtKqyCUj9I50F_Uy5JwWW8px4T7f" class = "categories-photo"/></a>
   <div class = "category-name">
