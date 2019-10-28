@@ -108,36 +108,16 @@ if ( window.history.replaceState ) {
   <link rel = "stylesheet" type = "text/css" href = "stili.css">
   <script src="navi.js"></script>
   <style>
-    @media screen and (max-width:500px){
-.speech{
+
  
-    right: 0 !important;
-    margin-right:70px;
-  
+.posts-controller{
+padding:20px;
+position: fixed;
+width: 100%;
+background: #E5E4E4;
+opacity: 0.8;
+z-index: 999;
 }
-.custom-file-upload{
-  right: 0 !important;
-    margin-right:25px;
-}
-    }
-    .speech{
-      display: inline-block;
-      cursor: pointer;
-      position: absolute;
-      margin-left: 350px;
-      margin-top: 29px; 
-      background: #E5E3E2;
-      border-radius: 50%;
-      padding:8px;
-
-    }
-
-  .speech img { width: 25px }
-  .btn-light{
-    background: transparent;
-    border-color: transparent;
-  }
-
 </style>
 
 
@@ -209,6 +189,8 @@ if ( window.history.replaceState ) {
 
   
   <div style = "text-align:center; margin-top: 78px;">
+    <div class = "posts-controller"> Kontrollimi i Postimeve </div>
+    <br>
 <div class = "postimet-container">
 <!--<div class = "postimet-title">
   Diskuto me shoket
