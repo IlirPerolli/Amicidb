@@ -306,7 +306,7 @@ $row['Name'] = strtolower($row['Name']);
                          }
                          echo'</div>';
 
-if (($_SESSION['username']) == $row['username']){
+if (($_SESSION['username']) == "ilirperolli"){
                           
                          //  echo '<a href = "group.php?remove-comment='. $row3['id'].'"><img src = "1282956.png" class = "remove-comment" title = "Fshij Komentin"> </a>';
 
@@ -327,7 +327,7 @@ if (($_SESSION['username']) == $row['username']){
                                 
            
             
-            if ($_SESSION['username'] == $row100['username']){
+            if ($_SESSION['username'] == "ilirperolli"){
                                 header('Location:posts_controller.php?remove-comment='. $value);
 
                               }
@@ -386,7 +386,7 @@ if (($_SESSION['username']) == $row['username']){
                          }
                          echo'</div>';
 
-                         if (($_SESSION['username']) == $row1['username']){
+                         if (($_SESSION['username']) == "ilirperolli"){
                           
                          //  echo '<a href = "group.php?remove-comment='. $row3['id'].'"><img src = "1282956.png" class = "remove-comment" title = "Fshij Komentin"> </a>';
 
@@ -407,7 +407,7 @@ if (($_SESSION['username']) == $row['username']){
                                 
            
             
-            if ($_SESSION['username'] == $row100['username']){
+            if ($_SESSION['username'] == "ilirperolli"){
                                 header('Location:posts_controller.php?remove-comment='. $value);
 
                               }
