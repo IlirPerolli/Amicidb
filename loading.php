@@ -31,12 +31,22 @@ $_SESSION['loading'] = false;
 <html>
 <head>
 <title>Loading... </title>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <script src="sweetalert2.all.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+<!-- Skripta per popup -->
   <link rel="icon" type="image/png" href="people.png" />
   <script src="jquery-1.8.3.js"></script>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
   <style>
+    *{
+       font-family:SamsungSharpSans-Bold;
+    }
   @font-face {
   font-family: 'SamsungSharpSans-Bold';
   src: url('converted-files/SamsungSharpSans-Bold.eot');
@@ -70,6 +80,7 @@ $_SESSION['loading'] = false;
   @media screen and (max-width:640px){
     .user{
       font-size: 25px !important;
+      margin-top: 80px !important;
     }
 .preload-mob{
   display: block;
@@ -140,11 +151,30 @@ $_SESSION['loading'] = false;
   text-align: center;
   margin-top:25px;
 
-}  </style>
+} 
+.alert{
+display: none;
+} </style>
+
 
 </head>
 <body>
+   <script type="text/javascript">
+      const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+})
+
+Toast.fire({
+  type: 'success',
+  title: 'Jeni kyçur me sukses'
+})
+    </script>
   <div class = "user">
+
+   
 
    <?php
 

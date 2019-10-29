@@ -124,7 +124,7 @@ z-index: 999;
         width: 95% !important;
         padding-left: 5px;
         padding-right: 5px;
-        margin-top: 40px !important;
+        margin-top: 60px !important;
       }
       #submit{
         width: 90% !important;
@@ -154,6 +154,14 @@ z-index: 999;
 
 </head>
 <body>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <script src="sweetalert2.all.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+<!-- Skripta per popup -->
+
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark  bg-dark">
 
   <a class="navbar-brand" href="index.php" style = "font-family: 'SamsungSharpSans-Bold'; font-size:35px;">amici grupi</a>
@@ -220,6 +228,9 @@ z-index: 999;
 
   
   <div style = "text-align:center; margin-top: 78px;">
+
+   
+ 
     <div class = "posts-controller"> Kontrollimi i Postimeve </div>
     <br>
 <?php if (($_SESSION['authenticated']) == false){ ?>
@@ -246,6 +257,13 @@ else{
  ?>
 
 <?php if (($_SESSION['authenticated']) == true){ ?>
+   <script type="text/javascript">Swal.fire({
+  position: 'center-center',
+  type: 'success',
+  title: 'Jeni identifikuar me sukses!',
+  showConfirmButton: false,
+  timer: 1500
+})</script>
 <div class = "postimet-container">
 <!--<div class = "postimet-title">
   Diskuto me shoket
