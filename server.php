@@ -174,6 +174,8 @@ include("config.php");
 			    $_SESSION['photo'] = $row["userphotos"];
 			    $_SESSION['email'] = $row["email"];
 			    $_SESSION['password'] = $row['password'];
+			    //Mos lejo te shihen komentet nga te tjeret ne posts_controller.php
+			    $_SESSION['authenticated'] = false;
 			    // setcookie ("loggedin",true,time()+ (10 * 365 * 24 * 60 * 60));  
 				header('Location: loading.php');
 				exit();

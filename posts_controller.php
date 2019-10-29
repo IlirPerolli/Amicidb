@@ -118,6 +118,37 @@ background: #E5E4E4;
 opacity: 0.8;
 z-index: 999;
 }
+ @media screen and (max-width: 640px){
+
+      #password_control{
+        width: 95% !important;
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-top: 40px !important;
+      }
+      #submit{
+        width: 90% !important;
+        
+        text-align: center !important;
+        margin: auto !important;
+      }
+    }
+    #password_control{
+      width: 500px;
+      margin:auto;
+      margin-top: 100px;
+      background: white;
+      opacity: 1;
+      padding: 20px;
+      border-radius: 10px;
+       font-family:SamsungSharpSans-Bold;
+    }
+    #submit {
+      width: 300px;
+      margin:auto;
+      text-align: center;
+      margin-top: 20px;
+    }
 </style>
 
 
@@ -191,6 +222,30 @@ z-index: 999;
   <div style = "text-align:center; margin-top: 78px;">
     <div class = "posts-controller"> Kontrollimi i Postimeve </div>
     <br>
+<?php if (($_SESSION['authenticated']) == false){ ?>
+
+    <form action = "#" id="password_control" method="POST">
+<h2 style = "text-align: left; font-size: 24px; margin-bottom: 10px;">Shkruani fjalekalimin per te vazhduar </h2>
+<div class="form-group">
+<input class="form-control form-control-lg" type="password" name="password" autofocus placeholder="Shenoni fjalekalimin">
+</div>  
+<button type="submit" class="btn btn-primary mb-2" id="submit" name ="pass_submit">Dergo</button>
+</form>
+<?php }?>
+<?php
+if (isset($_POST['pass_submit'])){
+$password = $_POST['password'];
+if ($password == "sedivalla"){
+  $_SESSION['authenticated'] = true;
+  header("Location:posts_controller.php");
+}
+else{
+   $_SESSION['authenticated'] = false;
+}
+}
+ ?>
+
+<?php if (($_SESSION['authenticated']) == true){ ?>
 <div class = "postimet-container">
 <!--<div class = "postimet-title">
   Diskuto me shoket
@@ -600,7 +655,7 @@ while(($row = $results->fetch_assoc()) !== null){
                         </div>';
 
                       }
-                      
+                      }
                      
                          
 ?>
