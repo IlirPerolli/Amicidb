@@ -298,7 +298,7 @@ echo'
 <form class="was-validated" method= "post">
   <div class="mb-3" style = "width:90%; margin:auto;" > 
     <label for="validationTextarea">Ndrysho Komentin</label>
-    <textarea class="form-control is-invalid" name = "edited-comment" rows="3" id="validationTextarea" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" placeholder="Ju lutem shenoni komentin per ta ndryshuar" required>'.$comment.'</textarea>
+    <textarea class="form-control is-invalid" name = "edited-comment" rows="6" id="validationTextarea" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" placeholder="Ju lutem shenoni komentin per ta ndryshuar" style="resize:none;" required>'.$comment.'</textarea>
     <input name = "submit-edited-comment" type="submit" value="Ndrysho" style = "background:#28a745; border-color:#28a745; border-radius:.25rem; margin-top:10px;">
     
     
@@ -436,7 +436,7 @@ if (($_SESSION['username']) == $row['username']){
                         }
                         
                         //Paraqit komentin si tekst e jo si kod te html
-                        echo htmlspecialchars($row['Comments']);
+                        echo "<pre style = 'white-space: pre-wrap; white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap; word-wrap: break-word; font-family:SamsungSharpSans-Bold; font-size:20px; display:inline'>". htmlspecialchars($row['Comments'])."</pre>";
 
                           //Ndrysho komentin
                          if (($_SESSION['username']) == $row['username']){
@@ -537,7 +537,7 @@ if (($_SESSION['username']) == $row['username']){
                         
                         echo '<div class = "pershkrimi" style = "text-align:left; margin-left:85px; margin-right:120px;">';
                         //Paraqit komentin si tekst e jo si kod te html
-                        echo htmlspecialchars($row1['Comments']);
+                        echo "<pre style = 'white-space: pre-wrap; white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap; word-wrap: break-word; font-family:SamsungSharpSans-Bold; font-size:20px; display:inline'>". htmlspecialchars($row1['Comments'])."</pre>";
                         
                           //Ndrysho komentin
                          if (($_SESSION['username']) == $row1['username']){
@@ -724,7 +724,7 @@ echo'<div class="dropdown-divider"></div>';
                         }
                         
                         //Paraqit komentin si tekst e jo si kod te html
-                        echo htmlspecialchars($row3['Comments']);
+                        echo "<pre style = 'white-space: pre-wrap; white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap; word-wrap: break-word; font-family:SamsungSharpSans-Bold; display:inline'>". htmlspecialchars($row3['Comments'])."</pre>";
 
                         //Ndrysho komentin
                          if (($_SESSION['username']) == $row3['username']){
@@ -823,7 +823,7 @@ while(($row = $results->fetch_assoc()) !== null){
                         
                         echo '<div class = "pershkrimi" style = "text-align:left; margin-left:85px; margin-right:120px;">';
                         //Paraqit komentin si tekst e jo si kod te html
-                        echo htmlspecialchars($row['Comments']);
+                        echo "<pre style = 'white-space: pre-wrap; white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap; word-wrap: break-word; font-family:SamsungSharpSans-Bold; font-size:20px; display:inline'>". htmlspecialchars($row['Comments'])."</pre>";
 
                         //Ndrysho komentin
                          if (($_SESSION['username']) == $row['username']){
