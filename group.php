@@ -317,6 +317,7 @@ header("Location:group.php");
     
     else {
        $edited_comment = $_POST['edited-comment'];
+       $edited_comment = trim($edited_comment);
      $query = "UPDATE userposts SET Comments = '$edited_comment', edited=1 WHERE id='$number'";
                                     mysqli_query($db, $query);
                     header("Location:group.php");
